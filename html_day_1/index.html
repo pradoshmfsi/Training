@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <form action="">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" id="fname" name="fname" /></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" id="lname" name="lname" /></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" id="email" name="email" /></td>
+        </tr>
+        <tr>
+          <td>DOB</td>
+          <td><input type="date" id="date" name="date" /></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <input type="radio" name="gender" value="male" />Male
+            <input type="radio" name="gender" value="female" />Female
+          </td>
+        </tr>
+        <tr>
+          <td>Upload profile picture</td>
+          <td><input type="file" name="dp" id="dp" /></td>
+        </tr>
+        <tr>
+          <td>Hobbies</td>
+          <td><input type="text" id="hobby" name="hobby" /></td>
+        </tr>
+      </table>
+      <br />
+      <table>
+        <tr>
+          <td>
+            <fieldset>
+              <legend><b>Permanent Address</b></legend>
+              <table>
+                <tr>
+                  <td>Address Line 1</td>
+                  <td><input type="text" id="al11" name="al11" /></td>
+                </tr>
+                <tr>
+                  <td>Address Line 2</td>
+                  <td><input type="text" id="al12" name="al12" /></td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td><input type="text" id="city1" name="city1" /></td>
+                </tr>
+                <tr>
+                  <td>Country</td>
+                  <td><input type="text" id="country1" name="country1" /></td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td><input type="text" id="state1" name="state1" /></td>
+                </tr>
+                <tr>
+                  <td>Postal Code</td>
+                  <td><input type="text" id="pin1" name="pin1" /></td>
+                </tr>
+              </table>
+            </fieldset>
+          </td>
+          <td>
+            <fieldset>
+              <legend><b>Present Address</b></legend>
+              <table>
+                <tr>
+                  <td>Address Line 1</td>
+                  <td><input type="text" id="al21" name="al21" /></td>
+                </tr>
+                <tr>
+                  <td>Address Line 2</td>
+                  <td><input type="text" id="al22" name="al22" /></td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td><input type="text" id="city2" name="city2" /></td>
+                </tr>
+                <tr>
+                  <td>Country</td>
+                  <td><input type="text" id="country2" name="country2" /></td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td><input type="text" id="state2" name="state2" /></td>
+                </tr>
+                <tr>
+                  <td>Postal Code</td>
+                  <td><input type="text" id="pin2" name="pin2" /></td>
+                </tr>
+              </table>
+            </fieldset>
+          </td>
+        </tr>
+      </table>
+      Bio:
+      <br />
+      <textarea name="bio" id="bio" cols="85" rows="6"></textarea>
+      <br />
+      <input type="checkbox" id="subs" name="subs" />Subscribe to News Letter
+      <br />
+      <table>
+        <tr>
+          <td>
+            <input type="submit" value="Submit" />
+          </td>
+          <td>
+            <input type="reset" value="Reset" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

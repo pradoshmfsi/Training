@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <form action="">
+      <div class="heading">
+        <div class="head">Register</div>
+        <div class="rect"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="ele">
+            <div class="title">First Name</div>
+            <div class="input_ele">
+              <input type="text" id="fname" name="fname" autofocus required />
+            </div>
+          </div>
+
+          <div class="ele">
+            <div class="title">Last Name</div>
+            <div class="input_ele">
+              <input type="text" id="lname" name="lname" required />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ele">
+            <div class="title">Email</div>
+            <div class="input_ele">
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="ele">
+            <div class="title">Gender</div>
+            <div class="input_ele">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              />
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              />
+              <label for="female">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ele">
+            <div class="title">Date of birth</div>
+            <div class="input_ele">
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+
+          <div class="ele">
+            <div class="title">Hobbies</div>
+            <div class="input_ele">
+              <input type="text" id="hobby" name="hobby" />
+            </div>
+          </div>
+        </div>
+        <div class="ele1">
+          <div class="title">Profile picture</div>
+
+          <div class="input_ele">
+            <label for="dp">
+              <div id="card" class="card">
+                <i class="fa-sharp fa-solid fa-plus"></i>
+              </div>
+            </label>
+            <div id="filename"></div>
+            <input
+              type="file"
+              name="dp"
+              id="dp"
+              onChange="dispName()"
+              required
+            />
+          </div>
+        </div>
+        <fieldset>
+          <legend>Present Address</legend>
+          <div class="row">
+            <div class="ele">
+              <div class="title">Address Line 1</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  id="al1"
+                  name="al1"
+                  placeholder="Plot"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="ele">
+              <div class="title">Address Line 2</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  id="al2"
+                  name="al2"
+                  placeholder="Street Area"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ele">
+              <div class="title">Country</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  list="countryList"
+                  id="country"
+                  name="country"
+                  onchange="popStates()"
+                  autocomplete="off"
+                  required
+                />
+                <datalist id="countryList">
+                  <!-- <option value="Afghanistan"></option>
+                  <option value="Albania"></option>
+                  <option value="Algeria"></option>
+                  <option value="China"></option>
+                  <option value="India"></option> -->
+                </datalist>
+              </div>
+            </div>
+            <div class="ele">
+              <div class="title">State</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  list="stateList"
+                  id="state"
+                  name="state"
+                  required
+                />
+                <datalist id="stateList">
+                  <!-- <option value="Odisha"></option>
+                  <option value="Karnataka"></option>
+                  <option value="Maharashtra"></option>
+                  <option value="Kerala"></option>
+                  <option value="Uttar Pradesh"></option> -->
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ele">
+              <div class="title">City</div>
+              <div class="input_ele">
+                <input type="text" id="city" name="city" required />
+              </div>
+            </div>
+            <div class="ele">
+              <div class="title">Postal code</div>
+              <div class="input_ele">
+                <input type="text" id="pin" name="pin" required />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Permanent Address</legend>
+          <div class="row">
+            <div class="ele">
+              <div class="title">Address Line 1</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  id="al1p"
+                  name="al1p"
+                  placeholder="Plot"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="ele">
+              <div class="title">Address Line 2</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  id="al2p"
+                  name="al2p"
+                  placeholder="Street Area"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ele">
+              <div class="title">Country</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  list="countryList"
+                  id="country2"
+                  name="country2"
+                  required
+                  onchange="popStates2()"
+                />
+                <datalist id="countryList">
+                  <!-- <option value="Afghanistan"></option>
+                  <option value="Albania"></option>
+                  <option value="Algeria"></option>
+                  <option value="China"></option>
+                  <option value="India"></option> -->
+                </datalist>
+              </div>
+            </div>
+            <div class="ele">
+              <div class="title">State</div>
+              <div class="input_ele">
+                <input
+                  type="text"
+                  list="stateList2"
+                  id="state2"
+                  required
+                  autocomplete="off"
+                />
+                <datalist id="stateList2">
+                  <!-- <option value="Odisha"></option>
+                  <option value="Karnataka"></option>
+                  <option value="Maharashtra"></option>
+                  <option value="Kerala"></option>
+                  <option value="Uttar Pradesh"></option> -->
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ele">
+              <div class="title">City</div>
+              <div class="input_ele">
+                <input type="text" id="city2" name="city2" required />
+              </div>
+            </div>
+            <div class="ele">
+              <div class="title">Postal code</div>
+              <div class="input_ele">
+                <input type="text" id="pin2" name="pin2" required />
+              </div>
+            </div>
+          </div>
+          <div class="addr">
+            <input type="checkbox" id="addr" name="addr" onclick="func()" />Same
+            as present address
+          </div>
+        </fieldset>
+        <div class="agree">
+          <input type="checkbox" id="subs" name="subs" required />Subscribe to
+          news letter
+        </div>
+        <div class="submit">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+    <br />
+    <script src="index.js"></script>
+  </body>
+</html>
