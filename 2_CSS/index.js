@@ -12,14 +12,24 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 function dispName() {
-  const file = document.getElementById("dp").files[0].name;
-  if (file != "") {
-    document.getElementById("filename").innerText = file;
+  const file = document.getElementById("dp");
+  if (file.files[0].name != "") {
+    document.getElementById("filename").innerText = file.files[0].name;
     var card = document.getElementById("card");
     var icon = document.createElement("i");
     icon.className = "fa-solid fa-check";
     card.innerHTML = "";
     card.appendChild(icon);
+    const path = URL.createObjectURL(file.files[0]);
+    document.getElementById("profileImage").src = path;
+    // const reader = new FileReader();
+    // reader.readAsDataURL(file.files[0]);
+    // reader.onload = function (e) {
+    //   document.getElementById("profileImage").src = e.target.result;
+    // };
+    // image.src = file.value;
+    // console.log(image.src);
+    // document.getElementById("img-head").appendChild(image);
   }
 }
 
@@ -55,21 +65,38 @@ function popStates2() {
     }
   }
 }
+
+function popHobby() {
+  let hobby = document.getElementById("hobby").value;
+  if (hobby.trim()) {
+    let list = document.getElementById("hobbyList");
+    list.innerHTML = "";
+    let hobbyArr = ["Singing", "Dancing", "Playing"];
+    for (let i = 0; i < hobbyArr.length; i++) {
+      if (!hobby.includes(hobbyArr[i])) {
+        let option = document.createElement("option");
+        option.value = hobby + "," + hobbyArr[i];
+        list.appendChild(option);
+      }
+    }
+  }
+}
+
 function func() {
-  var address = document.getElementById("addr");
-  var line1 = document.getElementById("al1p");
-  var line2 = document.getElementById("al2p");
-  var country = document.getElementById("country2");
-  var state = document.getElementById("state2");
-  var city = document.getElementById("city2");
-  var pin = document.getElementById("pin2");
+  let address = document.getElementById("addr");
+  let line1 = document.getElementById("al1p");
+  let line2 = document.getElementById("al2p");
+  let country = document.getElementById("country2");
+  let state = document.getElementById("state2");
+  let city = document.getElementById("city2");
+  let pin = document.getElementById("pin2");
   if (address.checked == true) {
-    var pre_line1 = document.getElementById("al1").value;
-    var pre_line2 = document.getElementById("al2").value;
-    var pre_country = document.getElementById("country").value;
-    var pre_state = document.getElementById("state").value;
-    var pre_city = document.getElementById("city").value;
-    var pre_pin = document.getElementById("pin").value;
+    let pre_line1 = document.getElementById("al1").value;
+    let pre_line2 = document.getElementById("al2").value;
+    let pre_country = document.getElementById("country").value;
+    let pre_state = document.getElementById("state").value;
+    let pre_city = document.getElementById("city").value;
+    let pre_pin = document.getElementById("pin").value;
 
     line1.value = pre_line1;
     line2.value = pre_line2;
@@ -84,5 +111,19 @@ function func() {
     state.value = "";
     city.value = "";
     pin.value = "";
+  }
+}
+
+function validate() {
+  var patternName = /[A-Za-z]+/;
+  let fname = document.getElementById("fname").value;
+  let lname = document.getElementById("lname").value;
+  let hobby = document.getElementById("hobby").value;
+  let msg = document.getElementById("err");
+  if (fname.trim() == "" || lname.trim() == "") {
+    msg.innerText = "Enter a valid name";
+  }
+  if (!patternName.test(fname)) {
+    msg.innerText = "Enter a valid name";
   }
 }

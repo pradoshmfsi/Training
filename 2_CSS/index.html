@@ -15,12 +15,22 @@
     />
   </head>
   <body>
-    <form action="">
+    <form onsubmit="validate();return false">
       <div class="heading">
-        <div class="head">Register</div>
-        <div class="rect"></div>
+        <div class="txt-head">
+          <div class="head">Register</div>
+          <div class="rect"></div>
+        </div>
+        <div class="img-head">
+          <img
+            id="profileImage"
+            src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"
+            alt=""
+          />
+        </div>
       </div>
       <div class="container">
+        <div id="err"></div>
         <div class="row">
           <div class="ele">
             <div class="title">First Name</div>
@@ -76,28 +86,53 @@
 
           <div class="ele">
             <div class="title">Hobbies</div>
+            <!-- <select name="hobby" id="hobby">
+              <option value="Singing">Singing</option>
+              <option value="Dancing">Dancing</option>
+              <option value="Football">Football</option>
+              <option onchange="funcOther()">
+                Others:
+                <input type="text" id="otherHobby" />
+              </option>
+            </select> -->
             <div class="input_ele">
-              <input type="text" id="hobby" name="hobby" />
+              <input
+                type="text"
+                list="hobbyList"
+                id="hobby"
+                name="hobby"
+                autocomplete="off"
+                onchange="popHobby()"
+                multiple
+                required
+              />
+              <datalist id="hobbyList">
+                <option value="Singing"></option>
+                <option value="Dancing"></option>
+                <option value="Football"></option>
+              </datalist>
             </div>
           </div>
         </div>
         <div class="ele1">
-          <div class="title">Profile picture</div>
+          <div class="profile_pic">
+            <div class="title">Profile picture</div>
 
-          <div class="input_ele">
-            <label for="dp">
-              <div id="card" class="card">
-                <i class="fa-sharp fa-solid fa-plus"></i>
-              </div>
-            </label>
-            <div id="filename"></div>
-            <input
-              type="file"
-              name="dp"
-              id="dp"
-              onChange="dispName()"
-              required
-            />
+            <div class="input_ele">
+              <label for="dp">
+                <div id="card" class="card">
+                  <i class="fa-sharp fa-solid fa-plus"></i>
+                </div>
+              </label>
+              <div id="filename"></div>
+              <input
+                type="file"
+                name="dp"
+                id="dp"
+                onChange="dispName();"
+                required
+              />
+            </div>
           </div>
         </div>
         <fieldset>
@@ -159,6 +194,7 @@
                   id="state"
                   name="state"
                   required
+                  autocomplete="off"
                 />
                 <datalist id="stateList">
                   <!-- <option value="Odisha"></option>
@@ -185,7 +221,10 @@
             </div>
           </div>
         </fieldset>
-        <br />
+        <div class="addr">
+          <input type="checkbox" id="addr" name="addr" onclick="func()" />If
+          permanent address same as present address
+        </div>
         <fieldset>
           <legend>Permanent Address</legend>
           <div class="row">
@@ -268,10 +307,6 @@
                 <input type="text" id="pin2" name="pin2" required />
               </div>
             </div>
-          </div>
-          <div class="addr">
-            <input type="checkbox" id="addr" name="addr" onclick="func()" />Same
-            as present address
           </div>
         </fieldset>
         <div class="agree">
