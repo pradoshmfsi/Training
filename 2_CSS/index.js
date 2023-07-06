@@ -1,8 +1,8 @@
+require("dotenv").config();
 fetch("https://www.universal-tutorial.com/api/countries/", {
   method: "GET",
   headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJtZnNpLnByYWRvc2hzQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ik1ZUEFPS2J2b0hfUV9CaVBIWU5vMlc4VlBRRVAtTTNfN0FLREgyMlpjUkVyRVpUb0M0WkdyU0c1QUhxX0w0bl9XR0kifSwiZXhwIjoxNjg4NzE2NTI3fQ.Np0okMWDxN_87UPbMEgIS3Vo0XpIDH9gAWh0R4KFYTE",
+    Authorization: process.env.URL,
     Accept: "application/json",
   },
 })
