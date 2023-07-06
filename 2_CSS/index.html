@@ -30,7 +30,6 @@
         </div>
       </div>
       <div class="container">
-        <div id="err"></div>
         <div class="row">
           <div class="ele">
             <div class="title">First Name</div>
@@ -86,15 +85,6 @@
 
           <div class="ele">
             <div class="title">Hobbies</div>
-            <!-- <select name="hobby" id="hobby">
-              <option value="Singing">Singing</option>
-              <option value="Dancing">Dancing</option>
-              <option value="Football">Football</option>
-              <option onchange="funcOther()">
-                Others:
-                <input type="text" id="otherHobby" />
-              </option>
-            </select> -->
             <div class="input_ele">
               <input
                 type="text"
@@ -102,7 +92,7 @@
                 id="hobby"
                 name="hobby"
                 autocomplete="off"
-                onchange="popHobby()"
+                oninput="popHobby()"
                 multiple
                 required
               />
@@ -167,7 +157,10 @@
             <div class="ele">
               <div class="title">Country</div>
               <div class="input_ele">
-                <input
+                <select id="country" onchange="popStates()" required>
+                  <option value="-1"></option>
+                </select>
+                <!-- <input
                   type="text"
                   list="countryList"
                   id="country"
@@ -177,18 +170,16 @@
                   required
                 />
                 <datalist id="countryList">
-                  <!-- <option value="Afghanistan"></option>
-                  <option value="Albania"></option>
-                  <option value="Algeria"></option>
-                  <option value="China"></option>
-                  <option value="India"></option> -->
-                </datalist>
+                </datalist> -->
               </div>
             </div>
             <div class="ele">
               <div class="title">State</div>
               <div class="input_ele">
-                <input
+                <select id="state" required>
+                  <option value="-1"></option>
+                </select>
+                <!-- <input
                   type="text"
                   list="stateList"
                   id="state"
@@ -197,12 +188,7 @@
                   autocomplete="off"
                 />
                 <datalist id="stateList">
-                  <!-- <option value="Odisha"></option>
-                  <option value="Karnataka"></option>
-                  <option value="Maharashtra"></option>
-                  <option value="Kerala"></option>
-                  <option value="Uttar Pradesh"></option> -->
-                </datalist>
+                </datalist> -->
               </div>
             </div>
           </div>
@@ -221,12 +207,12 @@
             </div>
           </div>
         </fieldset>
-        <div class="addr">
-          <input type="checkbox" id="addr" name="addr" onclick="func()" />If
-          permanent address same as present address
-        </div>
         <fieldset>
           <legend>Permanent Address</legend>
+          <div class="addr">
+            <input type="checkbox" id="addr" name="addr" onclick="func()" />
+            Same as present address
+          </div>
           <div class="row">
             <div class="ele">
               <div class="title">Address Line 1</div>
@@ -257,7 +243,10 @@
             <div class="ele">
               <div class="title">Country</div>
               <div class="input_ele">
-                <input
+                <select id="country2" onchange="popStates2()" required>
+                  <option value="-1"></option>
+                </select>
+                <!-- <input
                   type="text"
                   list="countryList"
                   id="country2"
@@ -266,18 +255,17 @@
                   onchange="popStates2()"
                 />
                 <datalist id="countryList">
-                  <!-- <option value="Afghanistan"></option>
-                  <option value="Albania"></option>
-                  <option value="Algeria"></option>
-                  <option value="China"></option>
-                  <option value="India"></option> -->
-                </datalist>
+
+                </datalist> -->
               </div>
             </div>
             <div class="ele">
               <div class="title">State</div>
               <div class="input_ele">
-                <input
+                <select id="state2" required>
+                  <option value="-1"></option>
+                </select>
+                <!-- <input
                   type="text"
                   list="stateList2"
                   id="state2"
@@ -285,12 +273,7 @@
                   autocomplete="off"
                 />
                 <datalist id="stateList2">
-                  <!-- <option value="Odisha"></option>
-                  <option value="Karnataka"></option>
-                  <option value="Maharashtra"></option>
-                  <option value="Kerala"></option>
-                  <option value="Uttar Pradesh"></option> -->
-                </datalist>
+                </datalist> -->
               </div>
             </div>
           </div>
@@ -317,6 +300,7 @@
           <input type="submit" value="Submit" />
         </div>
       </div>
+      <div id="err"></div>
     </form>
     <br />
     <script src="index.js"></script>
