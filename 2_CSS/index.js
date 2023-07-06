@@ -1,8 +1,8 @@
-require("dotenv").config();
 fetch("https://www.universal-tutorial.com/api/countries/", {
   method: "GET",
   headers: {
-    Authorization: process.env.URL,
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJtZnNpLnByYWRvc2hzQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ik1ZUEFPS2J2b0hfUV9CaVBIWU5vMlc4VlBRRVAtTTNfN0FLREgyMlpjUkVyRVpUb0M0WkdyU0c1QUhxX0w0bl9XR0kifSwiZXhwIjoxNjg4NzE2NTI3fQ.Np0okMWDxN_87UPbMEgIS3Vo0XpIDH9gAWh0R4KFYTE",
     Accept: "application/json",
   },
 })
@@ -56,7 +56,7 @@ function dispName() {
   }
 }
 
-async function popStates() {
+function popStates() {
   let country = document.getElementById("country").value;
   console.log(country);
   document.getElementById("state").value = "";
@@ -94,7 +94,7 @@ async function popStates() {
       });
   }
 }
-async function popStates2() {
+function popStates2() {
   let country = document.getElementById("country2").value;
   document.getElementById("state2").value = "";
   if (country != "") {
