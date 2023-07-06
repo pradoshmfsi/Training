@@ -70,6 +70,9 @@ input[type="date"] {
   border-radius: 6px;
   font-family: Poppins;
 }
+#filename {
+  font-size: 12px;
+}
 select {
   padding: 8px;
   width: 100%;
