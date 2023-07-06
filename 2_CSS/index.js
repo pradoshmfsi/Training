@@ -118,6 +118,11 @@ function popStates2() {
           option.innerText = arr[i].state_name;
           state.appendChild(option);
         }
+        let address = document.getElementById("addr");
+        if (address.checked) {
+          let pre_state = document.getElementById("state").value;
+          document.getElementById("state2").value = pre_state;
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -163,7 +168,7 @@ async function func() {
     line2.value = pre_line2;
     country.value = pre_country;
     popStates2();
-    state.value = pre_state;
+
     city.value = pre_city;
     pin.value = pre_pin;
   } else {
