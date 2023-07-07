@@ -1,13 +1,41 @@
-fetch("https://www.universal-tutorial.com/api/countries/", {
-  method: "GET",
-  headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJtZnNpLnByYWRvc2hzQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ik1ZUEFPS2J2b0hfUV9CaVBIWU5vMlc4VlBRRVAtTTNfN0FLREgyMlpjUkVyRVpUb0M0WkdyU0c1QUhxX0w0bl9XR0kifSwiZXhwIjoxNjg4NzE2NTI3fQ.Np0okMWDxN_87UPbMEgIS3Vo0XpIDH9gAWh0R4KFYTE",
-    Accept: "application/json",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {
+let token = "";
+async function fetchKey() {
+  try {
+    const response = await fetch(
+      "https://www.universal-tutorial.com/api/getaccesstoken",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "api-token":
+            "MYPAOKbvoH_Q_BiPHYNo2W8VPQEP-M3_7AKDH22ZcRErEZToC4ZGrSG5AHq_L4n_WGI",
+          "user-email": "mfsi.pradoshs@gmail.com",
+        },
+      }
+    );
+
+    const data = await response.json();
+    token = "Bearer " + data.auth_token;
+    fetchCountry(token);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchCountry(token) {
+  try {
+    const response = await fetch(
+      "https://www.universal-tutorial.com/api/countries/",
+      {
+        method: "GET",
+        headers: {
+          Authorization: token,
+          Accept: "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
     let arr = data;
 
     let country = document.getElementById("country");
@@ -22,17 +50,11 @@ fetch("https://www.universal-tutorial.com/api/countries/", {
       country.appendChild(option);
       country2.appendChild(option2);
     }
-    // let country = document.getElementById("countryList");
-    // for (let i = 0; i < arr.length; i++) {
-    //   var option = document.createElement("option");
-    //   option.value = arr[i].country_name;
-    //   country.appendChild(option);
-    // }
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error(error);
-  });
-
+  }
+}
+fetchKey();
 function dispName() {
   const file = document.getElementById("dp");
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
@@ -53,78 +75,71 @@ function dispName() {
     }
   }
 }
-
-function popStates() {
+async function getStates(country) {
+  try {
+    let url = "https://www.universal-tutorial.com/api/states/" + country;
+    let res = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+        Accept: "application/json",
+      },
+    });
+    let data = await res.json();
+    let arr = data;
+    let state = document.getElementById("state");
+    for (let i = 0; i < arr.length; i++) {
+      var option = document.createElement("option");
+      option.value = arr[i].state_name;
+      option.innerText = arr[i].state_name;
+      state.appendChild(option);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function getStates2(country) {
+  try {
+    let url = "https://www.universal-tutorial.com/api/states/" + country;
+    let res = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+        Accept: "application/json",
+      },
+    });
+    let data = await res.json();
+    let arr = data;
+    let state = document.getElementById("state2");
+    for (let i = 0; i < arr.length; i++) {
+      var option = document.createElement("option");
+      option.value = arr[i].state_name;
+      option.innerText = arr[i].state_name;
+      state.appendChild(option);
+    }
+    let address = document.getElementById("addr");
+    if (address.checked) {
+      let pre_state = document.getElementById("state").value;
+      document.getElementById("state2").value = pre_state;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function popStates() {
   let country = document.getElementById("country").value;
   console.log(country);
   document.getElementById("state").value = "";
   if (country != "") {
-    let url = "https://www.universal-tutorial.com/api/states/" + country;
-    fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJtZnNpLnByYWRvc2hzQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ik1ZUEFPS2J2b0hfUV9CaVBIWU5vMlc4VlBRRVAtTTNfN0FLREgyMlpjUkVyRVpUb0M0WkdyU0c1QUhxX0w0bl9XR0kifSwiZXhwIjoxNjg4NzE2NTI3fQ.Np0okMWDxN_87UPbMEgIS3Vo0XpIDH9gAWh0R4KFYTE",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        let arr = data;
-        let state = document.getElementById("state");
-        for (let i = 0; i < arr.length; i++) {
-          var option = document.createElement("option");
-          option.value = arr[i].state_name;
-          option.innerText = arr[i].state_name;
-          state.appendChild(option);
-        }
-        // let state = document.getElementById("stateList");
-        // state.innerHTML = "";
-        // for (let i = 0; i < arr.length; i++) {
-        //   var option = document.createElement("option");
-        //   option.value = arr[i].state_name;
-        //   state.appendChild(option);
-        // }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    console.log(country + "Hi");
+    getStates(country);
   }
 }
 function popStates2() {
   let country = document.getElementById("country2").value;
   document.getElementById("state2").value = "";
   if (country != "") {
-    let url = "https://www.universal-tutorial.com/api/states/" + country;
-    fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJtZnNpLnByYWRvc2hzQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6Ik1ZUEFPS2J2b0hfUV9CaVBIWU5vMlc4VlBRRVAtTTNfN0FLREgyMlpjUkVyRVpUb0M0WkdyU0c1QUhxX0w0bl9XR0kifSwiZXhwIjoxNjg4NzE2NTI3fQ.Np0okMWDxN_87UPbMEgIS3Vo0XpIDH9gAWh0R4KFYTE",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        let arr = data;
-        let state = document.getElementById("state2");
-        for (let i = 0; i < arr.length; i++) {
-          var option = document.createElement("option");
-          option.value = arr[i].state_name;
-          option.innerText = arr[i].state_name;
-          state.appendChild(option);
-        }
-        let address = document.getElementById("addr");
-        if (address.checked) {
-          let pre_state = document.getElementById("state").value;
-          document.getElementById("state2").value = pre_state;
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    getStates2(country);
   }
 }
 
@@ -235,7 +250,7 @@ function validate(event) {
       flag_id = "email_title";
     }
     let span = document.createElement("span");
-    span.innerText = "*Invalid email";
+    span.innerText = "Invalid email";
     document.getElementById("email_title").appendChild(span);
   }
   //GENDER VALIDATION
