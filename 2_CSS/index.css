@@ -188,7 +188,17 @@ input::placeholder {
   margin: 2%;
   font-size: 15px;
 }
-
+span {
+  color: red;
+  font-size: 15px;
+  margin: 5%;
+}
+/* #hobby_title::after {
+  content: " *required";
+  color: red;
+  font-size: 15px;
+  margin-left: 5%;
+} */
 @media only screen and (max-width: 850px) {
   .heading {
     display: block;

@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <form onsubmit="validate();return false">
+    <form onsubmit="validate(event)">
       <div class="heading">
         <div class="txt-head">
           <div class="head">Register</div>
@@ -32,59 +32,47 @@
       <div class="container">
         <div class="row">
           <div class="ele">
-            <div class="title">First Name</div>
+            <div class="title" id="fname_title">First Name</div>
             <div class="input_ele">
-              <input type="text" id="fname" name="fname" autofocus required />
+              <input type="text" id="fname" name="fname" autofocus />
             </div>
           </div>
 
           <div class="ele">
-            <div class="title">Last Name</div>
+            <div class="title" id="lname_title">Last Name</div>
             <div class="input_ele">
-              <input type="text" id="lname" name="lname" required />
+              <input type="text" id="lname" name="lname" />
             </div>
           </div>
         </div>
         <div class="row">
           <div class="ele">
-            <div class="title">Email</div>
+            <div class="title" id="email_title">Email</div>
             <div class="input_ele">
-              <input type="email" id="email" name="email" required />
+              <input type="text" id="email" name="email" />
             </div>
           </div>
 
           <div class="ele">
-            <div class="title">Gender</div>
+            <div class="title" id="gender_title">Gender</div>
             <div class="input_ele">
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value="male"
-                required
-              />
+              <input type="radio" id="male" name="gender" value="male" />
               <label for="male">Male</label>
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="female"
-                required
-              />
+              <input type="radio" id="female" name="gender" value="female" />
               <label for="female">Female</label>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="ele">
-            <div class="title">Date of birth</div>
+            <div class="title" id="dob_title">Date of birth</div>
             <div class="input_ele">
-              <input type="date" id="date" name="date" required />
+              <input type="date" id="date" name="date" />
             </div>
           </div>
 
           <div class="ele">
-            <div class="title">Hobbies</div>
+            <div class="title" id="hobby_title">Hobbies</div>
             <div class="input_ele">
               <input
                 type="text"
@@ -94,7 +82,6 @@
                 autocomplete="off"
                 oninput="popHobby()"
                 multiple
-                required
               />
               <datalist id="hobbyList">
                 <option value="Singing"></option>
@@ -106,7 +93,7 @@
         </div>
         <div class="ele1">
           <div class="profile_pic">
-            <div class="title">Profile picture</div>
+            <div class="title" id="dp_title">Profile picture</div>
 
             <div class="input_ele">
               <label for="dp">
@@ -115,13 +102,7 @@
                 </div>
               </label>
               <div id="filename"></div>
-              <input
-                type="file"
-                name="dp"
-                id="dp"
-                onChange="dispName();"
-                required
-              />
+              <input type="file" name="dp" id="dp" onChange="dispName();" />
             </div>
           </div>
         </div>
@@ -300,7 +281,6 @@
           <input type="submit" value="Submit" />
         </div>
       </div>
-      <div id="err"></div>
     </form>
     <br />
     <script src="index.js"></script>

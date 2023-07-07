@@ -8,7 +8,6 @@ fetch("https://www.universal-tutorial.com/api/countries/", {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     let arr = data;
 
     let country = document.getElementById("country");
@@ -36,23 +35,22 @@ fetch("https://www.universal-tutorial.com/api/countries/", {
 
 function dispName() {
   const file = document.getElementById("dp");
+  const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
   if (file.files[0].name != "") {
-    document.getElementById("filename").innerText = file.files[0].name;
-    var card = document.getElementById("card");
-    var icon = document.createElement("i");
-    icon.className = "fa-solid fa-check";
-    card.innerHTML = "";
-    card.appendChild(icon);
-    const path = URL.createObjectURL(file.files[0]);
-    document.getElementById("profileImage").src = path;
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file.files[0]);
-    // reader.onload = function (e) {
-    //   document.getElementById("profileImage").src = e.target.result;
-    // };
-    // image.src = file.value;
-    // console.log(image.src);
-    // document.getElementById("img-head").appendChild(image);
+    if (allowedFormats.includes(file.files[0].type)) {
+      document.getElementById("filename").innerText = file.files[0].name;
+      var card = document.getElementById("card");
+      var icon = document.createElement("i");
+      icon.className = "fa-solid fa-check";
+      card.innerHTML = "";
+      card.appendChild(icon);
+      const path = URL.createObjectURL(file.files[0]);
+      document.getElementById("profileImage").src = path;
+    } else {
+      let filename = document.getElementById("filename");
+      filename.style.color = "red";
+      filename.innerText = "Invalid file format(Accepts only jpg, png)";
+    }
   }
 }
 
@@ -181,22 +179,101 @@ async function func() {
   }
 }
 
-function validate() {
-  var patternName = /[A-Za-z]+/;
+function validate(event) {
+  event.preventDefault();
+  var patternName = /[A-Za-z ]+/;
   let fname = document.getElementById("fname").value;
   let lname = document.getElementById("lname").value;
   let hobby = document.getElementById("hobby").value;
-  let msg = document.getElementById("err");
-  if (fname.trim() == "" || lname.trim() == "") {
-    msg.innerText = "Enter a valid name";
+  let flag_id = "";
+
+  //FIRST NAME VALIDATION
+  if (fname.trim() == "" || !patternName.test(fname)) {
+    if (!flag_id) {
+      flag_id = "fname";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Not valid";
+    document.getElementById("fname_title").appendChild(span);
   }
-  if (!patternName.test(fname) || !patternName.test(lname)) {
-    msg.innerText = "Enter a valid name";
+
+  //LAST NAME VALIDATION
+  if (lname.trim() == "" || !patternName.test(lname)) {
+    if (!flag_id) {
+      flag_id = "lname";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Not valid";
+    document.getElementById("lname_title").appendChild(span);
   }
-  if (hobby.trim() == "" || hobby.trim() == "") {
-    msg.innerText = "Enter a valid name";
+
+  //EMAIL VALIDATION
+  let email = document.getElementById("email").value;
+  let emailPattern = /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
+  if (email.trim() == "") {
+    if (!flag_id) {
+      flag_id = "email_title";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Required";
+    document.getElementById("email_title").appendChild(span);
+  } else if (!emailPattern.test(email)) {
+    if (!flag_id) {
+      flag_id = "email_title";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Invalid email";
+    document.getElementById("email_title").appendChild(span);
   }
-  if (!patternName.test(hobby) || !patternName.test(hobby)) {
-    msg.innerText = "Enter a valid hobby";
+  //GENDER VALIDATION
+  let male = document.getElementById("male");
+  let female = document.getElementById("female");
+  if (!male.checked && !female.checked) {
+    if (!flag_id) {
+      flag_id = "gender_title";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Required";
+    document.getElementById("gender_title").appendChild(span);
+  }
+
+  let date = document.getElementById("date").value;
+  if (date == "") {
+    if (!flag_id) {
+      flag_id = "date";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Required";
+    document.getElementById("dob_title").appendChild(span);
+  }
+
+  //HOBBY VALIDATION
+  if (hobby.trim() == "") {
+    if (!flag_id) {
+      flag_id = "hobby";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Required";
+    document.getElementById("hobby_title").appendChild(span);
+  }
+
+  //DP VALIDATION
+
+  const file = document.getElementById("dp");
+  if (!file.files[0]) {
+    if (!flag_id) {
+      flag_id = "dp";
+    }
+    let span = document.createElement("span");
+    span.innerText = "*Required";
+    document.getElementById("dp_title").appendChild(span);
+  }
+
+  if (flag_id) {
+    document
+      .getElementById(flag_id)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    return true;
   }
 }
