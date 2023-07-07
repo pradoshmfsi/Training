@@ -188,22 +188,35 @@ function validate(event) {
   let flag_id = "";
 
   //FIRST NAME VALIDATION
-  if (fname.trim() == "" || !patternName.test(fname)) {
+  if (fname.trim() == "") {
     if (!flag_id) {
       flag_id = "fname";
     }
     let span = document.createElement("span");
-    span.innerText = "*Not valid";
+    span.innerText = "Required";
+    document.getElementById("fname_title").appendChild(span);
+  } else if (!patternName.test(fname)) {
+    if (!flag_id) {
+      flag_id = "fname";
+    }
+    let span = document.createElement("span");
+    span.innerText = "Not valid";
     document.getElementById("fname_title").appendChild(span);
   }
-
-  //LAST NAME VALIDATION
-  if (lname.trim() == "" || !patternName.test(lname)) {
+  if (lname.trim() == "") {
+    //LAST NAME VALIDATION
     if (!flag_id) {
       flag_id = "lname";
     }
     let span = document.createElement("span");
-    span.innerText = "*Not valid";
+    span.innerText = "Required";
+    document.getElementById("lname_title").appendChild(span);
+  } else if (!patternName.test(lname)) {
+    if (!flag_id) {
+      flag_id = "lname";
+    }
+    let span = document.createElement("span");
+    span.innerText = "Not valid";
     document.getElementById("lname_title").appendChild(span);
   }
 
@@ -215,7 +228,7 @@ function validate(event) {
       flag_id = "email_title";
     }
     let span = document.createElement("span");
-    span.innerText = "*Required";
+    span.innerText = "Required";
     document.getElementById("email_title").appendChild(span);
   } else if (!emailPattern.test(email)) {
     if (!flag_id) {
@@ -233,7 +246,7 @@ function validate(event) {
       flag_id = "gender_title";
     }
     let span = document.createElement("span");
-    span.innerText = "*Required";
+    span.innerText = "Required";
     document.getElementById("gender_title").appendChild(span);
   }
 
@@ -243,19 +256,19 @@ function validate(event) {
       flag_id = "date";
     }
     let span = document.createElement("span");
-    span.innerText = "*Required";
+    span.innerText = "Required";
     document.getElementById("dob_title").appendChild(span);
   }
 
-  //HOBBY VALIDATION
-  if (hobby.trim() == "") {
-    if (!flag_id) {
-      flag_id = "hobby";
-    }
-    let span = document.createElement("span");
-    span.innerText = "*Required";
-    document.getElementById("hobby_title").appendChild(span);
-  }
+  // //HOBBY VALIDATION
+  // if (hobby.trim() == "") {
+  //   if (!flag_id) {
+  //     flag_id = "hobby";
+  //   }
+  //   let span = document.createElement("span");
+  //   span.innerText = "Required";
+  //   document.getElementById("hobby_title").appendChild(span);
+  // }
 
   //DP VALIDATION
 
@@ -265,8 +278,38 @@ function validate(event) {
       flag_id = "dp";
     }
     let span = document.createElement("span");
-    span.innerText = "*Required";
+    span.innerText = "Required";
     document.getElementById("dp_title").appendChild(span);
+  }
+
+  //Present Address
+  let pre_line1 = document.getElementById("al1").value;
+  // let pre_line2 = document.getElementById("al2").value;
+  let pre_country = document.getElementById("country").value;
+  let pre_state = document.getElementById("state").value;
+  let pre_city = document.getElementById("city").value;
+  let pre_pin = document.getElementById("pin").value;
+
+  if (!pre_line1 || !pre_country || !pre_state || !pre_city || !pre_pin) {
+    if (!flag_id) {
+      flag_id = "present_address";
+    }
+    let msg = document.getElementById("present_address");
+    msg.innerText = "*Fill all the required fields";
+  }
+
+  let line1 = document.getElementById("al1p").value;
+  // let line2 = document.getElementById("al2p").value;
+  let country = document.getElementById("country2").value;
+  let state = document.getElementById("state2").value;
+  let city = document.getElementById("city2").value;
+  let pin = document.getElementById("pin2").value;
+  if (!line1 || !country || !state || !city || !pin) {
+    if (!flag_id) {
+      flag_id = "permanent_address";
+    }
+    let msg2 = document.getElementById("permanent_address");
+    msg2.innerText = "*Fill all the required fields";
   }
 
   if (flag_id) {

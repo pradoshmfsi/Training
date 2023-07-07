@@ -32,14 +32,18 @@
       <div class="container">
         <div class="row">
           <div class="ele">
-            <div class="title" id="fname_title">First Name</div>
+            <div class="title" id="fname_title">
+              First Name <span style="margin: 0px; color: red">*</span>
+            </div>
             <div class="input_ele">
               <input type="text" id="fname" name="fname" autofocus />
             </div>
           </div>
 
           <div class="ele">
-            <div class="title" id="lname_title">Last Name</div>
+            <div class="title" id="lname_title">
+              Last Name <span style="margin: 0px; color: red">*</span>
+            </div>
             <div class="input_ele">
               <input type="text" id="lname" name="lname" />
             </div>
@@ -47,14 +51,18 @@
         </div>
         <div class="row">
           <div class="ele">
-            <div class="title" id="email_title">Email</div>
+            <div class="title" id="email_title">
+              Email <span style="margin: 0px; color: red">*</span>
+            </div>
             <div class="input_ele">
               <input type="text" id="email" name="email" />
             </div>
           </div>
 
           <div class="ele">
-            <div class="title" id="gender_title">Gender</div>
+            <div class="title" id="gender_title">
+              Gender <span style="margin: 0px; color: red">*</span>
+            </div>
             <div class="input_ele">
               <input type="radio" id="male" name="gender" value="male" />
               <label for="male">Male</label>
@@ -65,7 +73,9 @@
         </div>
         <div class="row">
           <div class="ele">
-            <div class="title" id="dob_title">Date of birth</div>
+            <div class="title" id="dob_title">
+              Date of birth <span style="margin: 0px; color: red">*</span>
+            </div>
             <div class="input_ele">
               <input type="date" id="date" name="date" />
             </div>
@@ -93,7 +103,9 @@
         </div>
         <div class="ele1">
           <div class="profile_pic">
-            <div class="title" id="dp_title">Profile picture</div>
+            <div class="title" id="dp_title">
+              Profile picture <span style="margin: 0px; color: red">*</span>
+            </div>
 
             <div class="input_ele">
               <label for="dp">
@@ -108,17 +120,14 @@
         </div>
         <fieldset>
           <legend>Present Address</legend>
+          <div id="present_address"></div>
           <div class="row">
             <div class="ele">
-              <div class="title">Address Line 1</div>
+              <div class="title">
+                Address Line 1 <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input
-                  type="text"
-                  id="al1"
-                  name="al1"
-                  placeholder="Plot"
-                  required
-                />
+                <input type="text" id="al1" name="al1" placeholder="Plot" />
               </div>
             </div>
 
@@ -136,9 +145,11 @@
           </div>
           <div class="row">
             <div class="ele">
-              <div class="title">Country</div>
+              <div class="title">
+                Country <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <select id="country" onchange="popStates()" required>
+                <select id="country" onchange="popStates()">
                   <option value="-1"></option>
                 </select>
                 <!-- <input
@@ -155,9 +166,11 @@
               </div>
             </div>
             <div class="ele">
-              <div class="title">State</div>
+              <div class="title">
+                State <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <select id="state" required>
+                <select id="state">
                   <option value="-1"></option>
                 </select>
                 <!-- <input
@@ -175,36 +188,37 @@
           </div>
           <div class="row">
             <div class="ele">
-              <div class="title">City</div>
+              <div class="title">
+                City <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input type="text" id="city" name="city" required />
+                <input type="text" id="city" name="city" />
               </div>
             </div>
             <div class="ele">
-              <div class="title">Postal code</div>
+              <div class="title">
+                Postal code <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input type="text" id="pin" name="pin" required />
+                <input type="text" id="pin" name="pin" />
               </div>
             </div>
           </div>
         </fieldset>
         <fieldset>
           <legend>Permanent Address</legend>
+          <div id="permanent_address"></div>
           <div class="addr">
             <input type="checkbox" id="addr" name="addr" onclick="func()" />
             Same as present address
           </div>
           <div class="row">
             <div class="ele">
-              <div class="title">Address Line 1</div>
+              <div class="title">
+                Address Line 1 <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input
-                  type="text"
-                  id="al1p"
-                  name="al1p"
-                  placeholder="Plot"
-                  required
-                />
+                <input type="text" id="al1p" name="al1p" placeholder="Plot" />
               </div>
             </div>
 
@@ -222,9 +236,11 @@
           </div>
           <div class="row">
             <div class="ele">
-              <div class="title">Country</div>
+              <div class="title">
+                Country <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <select id="country2" onchange="popStates2()" required>
+                <select id="country2" onchange="popStates2()">
                   <option value="-1"></option>
                 </select>
                 <!-- <input
@@ -241,9 +257,11 @@
               </div>
             </div>
             <div class="ele">
-              <div class="title">State</div>
+              <div class="title">
+                State <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <select id="state2" required>
+                <select id="state2">
                   <option value="-1"></option>
                 </select>
                 <!-- <input
@@ -260,22 +278,26 @@
           </div>
           <div class="row">
             <div class="ele">
-              <div class="title">City</div>
+              <div class="title">
+                City <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input type="text" id="city2" name="city2" required />
+                <input type="text" id="city2" name="city2" />
               </div>
             </div>
             <div class="ele">
-              <div class="title">Postal code</div>
+              <div class="title">
+                Postal code <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
-                <input type="text" id="pin2" name="pin2" required />
+                <input type="text" id="pin2" name="pin2" />
               </div>
             </div>
           </div>
         </fieldset>
         <div class="agree">
-          <input type="checkbox" id="subs" name="subs" required />Subscribe to
-          news letter
+          <input type="checkbox" id="subs" name="subs" />Subscribe to news
+          letter
         </div>
         <div class="submit">
           <input type="submit" value="Submit" />

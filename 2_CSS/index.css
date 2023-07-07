@@ -191,10 +191,16 @@ input::placeholder {
 span {
   color: red;
   font-size: 15px;
-  margin: 5%;
 }
+#present_address,
+#permanent_address {
+  color: red;
+  margin: 1%;
+  text-align: center;
+}
+
 /* #hobby_title::after {
-  content: " *required";
+  content: " Required";
   color: red;
   font-size: 15px;
   margin-left: 5%;
