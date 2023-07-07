@@ -145,7 +145,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: rgb(27, 183, 255);
 }
-label {
+#dp_label {
   display: block;
   width: 10%;
 }
@@ -216,6 +216,9 @@ span {
   .row {
     display: block;
   }
+  /* div .ele {
+    width: 95%;
+  } */
   .ele {
     width: 95%;
   }

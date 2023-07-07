@@ -43,10 +43,13 @@ async function fetchCountry(token) {
     for (let i = 0; i < arr.length; i++) {
       let option = document.createElement("option");
       let option2 = document.createElement("option");
+
       option.value = arr[i].country_name;
       option.innerText = arr[i].country_name;
+
       option2.value = arr[i].country_name;
       option2.innerText = arr[i].country_name;
+
       country.appendChild(option);
       country2.appendChild(option2);
     }
@@ -54,13 +57,16 @@ async function fetchCountry(token) {
     console.error(error);
   }
 }
+
 fetchKey();
 function dispName() {
   const file = document.getElementById("dp");
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
   if (file.files[0].name != "") {
     if (allowedFormats.includes(file.files[0].type)) {
-      document.getElementById("filename").innerText = file.files[0].name;
+      let filename = document.getElementById("filename");
+      filename.innerText = file.files[0].name;
+      filename.style.color = "black";
       var card = document.getElementById("card");
       var icon = document.createElement("i");
       icon.className = "fa-solid fa-check";
@@ -194,6 +200,18 @@ async function func() {
   }
 }
 
+// function validateById(id) {
+//   let data = document.getElementById(id).value;
+//   console.log(data);
+//   let text = id + "_title";
+//   let span = document.getElementById(text).getElementsByTagName("span")[0];
+//   if (data == "" || data.trim() == "") {
+//     span.innerText = "*Required";
+//   } else {
+//     span.innerText = "*";
+//   }
+// }
+
 function validate(event) {
   event.preventDefault();
   var patternName = /[A-Za-z ]+/;
@@ -203,76 +221,81 @@ function validate(event) {
   let flag_id = "";
 
   //FIRST NAME VALIDATION
+  let span = document
+    .getElementById("fname_title")
+    .getElementsByTagName("span")[0];
   if (fname.trim() == "") {
     if (!flag_id) {
       flag_id = "fname";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("fname_title").appendChild(span);
+    span.innerText = "*Required";
   } else if (!patternName.test(fname)) {
     if (!flag_id) {
       flag_id = "fname";
     }
-    let span = document.createElement("span");
-    span.innerText = "Not valid";
-    document.getElementById("fname_title").appendChild(span);
+    span.innerText = "*Not valid";
+  } else {
+    span.innerText = "*";
   }
+
+  span = document.getElementById("lname_title").getElementsByTagName("span")[0];
+
   if (lname.trim() == "") {
     //LAST NAME VALIDATION
     if (!flag_id) {
       flag_id = "lname";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("lname_title").appendChild(span);
+    span.innerText = "*Required";
   } else if (!patternName.test(lname)) {
     if (!flag_id) {
       flag_id = "lname";
     }
-    let span = document.createElement("span");
-    span.innerText = "Not valid";
-    document.getElementById("lname_title").appendChild(span);
+    span.innerText = "*Not valid";
+  } else {
+    span.innerText = "*";
   }
 
   //EMAIL VALIDATION
   let email = document.getElementById("email").value;
   let emailPattern = /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
+  span = document.getElementById("email_title").getElementsByTagName("span")[0];
   if (email.trim() == "") {
     if (!flag_id) {
       flag_id = "email_title";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("email_title").appendChild(span);
+    span.innerText = "*Required";
   } else if (!emailPattern.test(email)) {
     if (!flag_id) {
       flag_id = "email_title";
     }
-    let span = document.createElement("span");
-    span.innerText = "Invalid email";
-    document.getElementById("email_title").appendChild(span);
+    span.innerText = "*Invalid email";
+  } else {
+    span.innerText = "*";
   }
   //GENDER VALIDATION
+  span = document
+    .getElementById("gender_title")
+    .getElementsByTagName("span")[0];
   let male = document.getElementById("male");
   let female = document.getElementById("female");
   if (!male.checked && !female.checked) {
     if (!flag_id) {
       flag_id = "gender_title";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("gender_title").appendChild(span);
-  }
 
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
+  }
+  span = document.getElementById("dob_title").getElementsByTagName("span")[0];
   let date = document.getElementById("date").value;
   if (date == "") {
     if (!flag_id) {
       flag_id = "date";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("dob_title").appendChild(span);
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
   }
 
   // //HOBBY VALIDATION
@@ -286,15 +309,15 @@ function validate(event) {
   // }
 
   //DP VALIDATION
-
+  span = document.getElementById("dp_title").getElementsByTagName("span")[0];
   const file = document.getElementById("dp");
   if (!file.files[0]) {
     if (!flag_id) {
       flag_id = "dp";
     }
-    let span = document.createElement("span");
-    span.innerText = "Required";
-    document.getElementById("dp_title").appendChild(span);
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
   }
 
   //Present Address
@@ -311,6 +334,8 @@ function validate(event) {
     }
     let msg = document.getElementById("present_address");
     msg.innerText = "*Fill all the required fields";
+  } else {
+    msg.innerText = "";
   }
 
   let line1 = document.getElementById("al1p").value;
@@ -325,6 +350,8 @@ function validate(event) {
     }
     let msg2 = document.getElementById("permanent_address");
     msg2.innerText = "*Fill all the required fields";
+  } else {
+    msg2.innerText = "";
   }
 
   if (flag_id) {
@@ -335,3 +362,8 @@ function validate(event) {
     return true;
   }
 }
+
+// let inputs = document.getElementsByTagName("input");
+// for(let i=0;i<inputs.length;i++){
+//   inputs[i].addEventListener("focusout", validate());
+// }
