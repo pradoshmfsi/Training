@@ -80,6 +80,12 @@ function dispName() {
       filename.innerText = "Invalid file format(Accepts only jpg, png)";
     }
   }
+  span = document.getElementById("dp_title").getElementsByTagName("span")[0];
+  if (!file.files[0]) {
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
+  }
 }
 async function getStates(country) {
   try {
@@ -200,17 +206,74 @@ async function func() {
   }
 }
 
-// function validateById(id) {
-//   let data = document.getElementById(id).value;
-//   console.log(data);
-//   let text = id + "_title";
-//   let span = document.getElementById(text).getElementsByTagName("span")[0];
-//   if (data == "" || data.trim() == "") {
-//     span.innerText = "*Required";
-//   } else {
-//     span.innerText = "*";
-//   }
-// }
+function validateTextById(id) {
+  let data = document.getElementById(id).value;
+  console.log(data);
+  let text = id + "_title";
+  let span = document.getElementById(text).getElementsByTagName("span")[0];
+  if (data == "" || data.trim() == "") {
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
+  }
+}
+function validateDate() {
+  span = document.getElementById("dob_title").getElementsByTagName("span")[0];
+  let date = document.getElementById("date").value;
+  if (date == "") {
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
+  }
+}
+function validateGender() {
+  span = document
+    .getElementById("gender_title")
+    .getElementsByTagName("span")[0];
+  let male = document.getElementById("male");
+  let female = document.getElementById("female");
+  if (!male.checked && !female.checked) {
+    span.innerText = "*Required";
+  } else {
+    span.innerText = "*";
+  }
+}
+function validatePresentAddress() {
+  let pre_line1 = document.getElementById("al1").value;
+  let pre_line2 = document.getElementById("al2").value;
+  let pre_country = document.getElementById("country").value;
+  let pre_state = document.getElementById("state").value;
+  let pre_city = document.getElementById("city").value;
+  let pre_pin = document.getElementById("pin").value;
+  let msg = document.getElementById("present_address");
+  if (
+    !pre_line1 ||
+    !pre_line2 ||
+    !pre_country ||
+    !pre_state ||
+    !pre_city ||
+    !pre_pin
+  ) {
+    msg.innerText = "*Fill all the required fields";
+  } else {
+    msg.innerText = "";
+  }
+}
+
+function validatePermanentAddress() {
+  let line1 = document.getElementById("al1p").value;
+  let line2 = document.getElementById("al2p").value;
+  let country = document.getElementById("country2").value;
+  let state = document.getElementById("state2").value;
+  let city = document.getElementById("city2").value;
+  let pin = document.getElementById("pin2").value;
+  let msg2 = document.getElementById("permanent_address");
+  if (!line1 || !line2 || !country || !state || !city || !pin) {
+    msg2.innerText = "*Fill all the required fields";
+  } else {
+    msg2.innerText = "";
+  }
+}
 
 function validate(event) {
   event.preventDefault();
@@ -322,13 +385,20 @@ function validate(event) {
 
   //Present Address
   let pre_line1 = document.getElementById("al1").value;
-  // let pre_line2 = document.getElementById("al2").value;
+  let pre_line2 = document.getElementById("al2").value;
   let pre_country = document.getElementById("country").value;
   let pre_state = document.getElementById("state").value;
   let pre_city = document.getElementById("city").value;
   let pre_pin = document.getElementById("pin").value;
 
-  if (!pre_line1 || !pre_country || !pre_state || !pre_city || !pre_pin) {
+  if (
+    !pre_line1 ||
+    !pre_line2 ||
+    !pre_country ||
+    !pre_state ||
+    !pre_city ||
+    !pre_pin
+  ) {
     if (!flag_id) {
       flag_id = "present_address";
     }
@@ -339,12 +409,12 @@ function validate(event) {
   }
 
   let line1 = document.getElementById("al1p").value;
-  // let line2 = document.getElementById("al2p").value;
+  let line2 = document.getElementById("al2p").value;
   let country = document.getElementById("country2").value;
   let state = document.getElementById("state2").value;
   let city = document.getElementById("city2").value;
   let pin = document.getElementById("pin2").value;
-  if (!line1 || !country || !state || !city || !pin) {
+  if (!line1 || !line2 || !country || !state || !city || !pin) {
     if (!flag_id) {
       flag_id = "permanent_address";
     }

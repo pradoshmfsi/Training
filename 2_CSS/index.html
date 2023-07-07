@@ -36,7 +36,13 @@
               First Name <span style="margin: 0px; color: red">*</span>
             </div>
             <div class="input_ele">
-              <input type="text" id="fname" name="fname" autofocus />
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                onchange="validateTextById('fname')"
+                autofocus
+              />
             </div>
           </div>
 
@@ -45,7 +51,12 @@
               Last Name <span style="margin: 0px; color: red">*</span>
             </div>
             <div class="input_ele">
-              <input type="text" id="lname" name="lname" />
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                onchange="validateTextById('lname')"
+              />
             </div>
           </div>
         </div>
@@ -55,7 +66,12 @@
               Email <span style="margin: 0px; color: red">*</span>
             </div>
             <div class="input_ele">
-              <input type="text" id="email" name="email" />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                onchange="validateTextById('email')"
+              />
             </div>
           </div>
 
@@ -64,9 +80,21 @@
               Gender <span style="margin: 0px; color: red">*</span>
             </div>
             <div class="input_ele">
-              <input type="radio" id="male" name="gender" value="male" />
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                onchange="validateGender()"
+              />
               <label for="male">Male</label>
-              <input type="radio" id="female" name="gender" value="female" />
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                onchange="validateGender()"
+              />
               <label for="female">Female</label>
             </div>
           </div>
@@ -77,7 +105,13 @@
               Date of birth <span style="margin: 0px; color: red">*</span>
             </div>
             <div class="input_ele">
-              <input type="date" id="date" name="date" max="2015-01-01" />
+              <input
+                type="date"
+                id="date"
+                name="date"
+                max="2015-01-01"
+                onchange="validateDate()"
+              />
             </div>
           </div>
 
@@ -127,18 +161,27 @@
                 Address Line 1 <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="al1" name="al1" placeholder="Plot" />
+                <input
+                  type="text"
+                  id="al1"
+                  name="al1"
+                  placeholder="Plot"
+                  onchange="validatePresentAddress()"
+                />
               </div>
             </div>
 
             <div class="ele">
-              <div class="title">Address Line 2</div>
+              <div class="title">
+                Address Line 2 <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
                 <input
                   type="text"
                   id="al2"
                   name="al2"
                   placeholder="Street Area"
+                  onchange="validatePresentAddress()"
                 />
               </div>
             </div>
@@ -149,20 +192,12 @@
                 Country <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <select id="country" onchange="popStates()">
+                <select
+                  id="country"
+                  onchange="popStates();validatePresentAddress()"
+                >
                   <option value="-1"></option>
                 </select>
-                <!-- <input
-                  type="text"
-                  list="countryList"
-                  id="country"
-                  name="country"
-                  onchange="popStates()"
-                  autocomplete="off"
-                  required
-                />
-                <datalist id="countryList">
-                </datalist> -->
               </div>
             </div>
             <div class="ele">
@@ -170,19 +205,9 @@
                 State <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <select id="state">
+                <select id="state" onchange="validatePresentAddress()">
                   <option value="-1"></option>
                 </select>
-                <!-- <input
-                  type="text"
-                  list="stateList"
-                  id="state"
-                  name="state"
-                  required
-                  autocomplete="off"
-                />
-                <datalist id="stateList">
-                </datalist> -->
               </div>
             </div>
           </div>
@@ -192,7 +217,12 @@
                 City <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="city" name="city" />
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  onchange="validatePresentAddress()"
+                />
               </div>
             </div>
             <div class="ele">
@@ -200,7 +230,12 @@
                 Postal code <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="pin" name="pin" />
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  onchange="validatePresentAddress()"
+                />
               </div>
             </div>
           </div>
@@ -218,18 +253,27 @@
                 Address Line 1 <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="al1p" name="al1p" placeholder="Plot" />
+                <input
+                  type="text"
+                  id="al1p"
+                  name="al1p"
+                  placeholder="Plot"
+                  onchange="validatePermanentAddress()"
+                />
               </div>
             </div>
 
             <div class="ele">
-              <div class="title">Address Line 2</div>
+              <div class="title">
+                Address Line 2 <span style="margin: 0px; color: red">*</span>
+              </div>
               <div class="input_ele">
                 <input
                   type="text"
                   id="al2p"
                   name="al2p"
                   placeholder="Street Area"
+                  onchange="validatePermanentAddress()"
                 />
               </div>
             </div>
@@ -240,7 +284,10 @@
                 Country <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <select id="country2" onchange="popStates2()">
+                <select
+                  id="country2"
+                  onchange="popStates2();validatePermanentAddress()"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
@@ -250,18 +297,9 @@
                 State <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <select id="state2">
+                <select id="state2" onchange="validatePermanentAddress()">
                   <option value="-1"></option>
                 </select>
-                <!-- <input
-                  type="text"
-                  list="stateList2"
-                  id="state2"
-                  required
-                  autocomplete="off"
-                />
-                <datalist id="stateList2">
-                </datalist> -->
               </div>
             </div>
           </div>
@@ -271,7 +309,12 @@
                 City <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="city2" name="city2" />
+                <input
+                  type="text"
+                  id="city2"
+                  name="city2"
+                  onchange="validatePermanentAddress()"
+                />
               </div>
             </div>
             <div class="ele">
@@ -279,15 +322,23 @@
                 Postal code <span style="margin: 0px; color: red">*</span>
               </div>
               <div class="input_ele">
-                <input type="text" id="pin2" name="pin2" />
+                <input
+                  type="text"
+                  id="pin2"
+                  name="pin2"
+                  onchange="validatePermanentAddress()"
+                />
               </div>
             </div>
           </div>
         </fieldset>
         <div class="agree">
-          <input type="checkbox" id="subs" name="subs" /><label for="subs"
-            >Subscribe to news letter</label
-          >
+          <input
+            type="checkbox"
+            id="subs"
+            name="subs"
+            onchange="validatePermanentAddress()"
+          /><label for="subs">Subscribe to news letter</label>
         </div>
         <div class="submit">
           <input type="submit" value="Submit" />
