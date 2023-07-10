@@ -386,7 +386,7 @@ function showDetailsAfterSubmit() {
     let valueString = item.getAttribute("showDetails");
     const attributes = valueString.split("|");
     if (attributes.length == 2) {
-      userObj[attributes[1]] = document.getElementById(attributes[1]).value;
+      userObj[attributes[1]] = item.value;
       // console.log(document.getElementById(attributes[1] + "Detail"));
       document.getElementById(attributes[1] + "Detail").innerText =
         attributes[0] + " : " + userObj[attributes[1]];
@@ -396,10 +396,16 @@ function showDetailsAfterSubmit() {
         userObj[attributes[1]] = inputRadios[0].checked
           ? inputRadios[0].value
           : inputRadios[1].value;
-      } else {
+      } else if (attributes[2] == "checkbox") {
         userObj[attributes[1]] = item.checked ? true : false;
         document.getElementById("ifSubscribedDetail").innerText =
           attributes[0] + " : " + userObj[attributes[1]];
+      } else {
+        console.log(item.files[0]);
+        userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
+        // console.log(document.getElementById(attributes[1] + "Detail"));
+        document.getElementById(attributes[1] + "Detail").src =
+          userObj[attributes[1]];
       }
     }
   });
