@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <form onsubmit="validate(event)">
+    <form>
       <div class="form-heading">
         <div class="form-heading-element">
           <div class="form-heading-text">Register</div>
@@ -33,59 +33,48 @@
         <div class="input-row">
           <div class="input-container">
             <div class="title" id="firstNameTitle">
-              First Name <span style="margin: 0px; color: red">*</span>
+              First Name <span>*</span>
             </div>
             <div class="input-element">
               <input
                 type="text"
                 id="firstName"
                 name="firstName"
-                onchange="validateTextById('firstName')"
+                isRequired="true"
                 autofocus
               />
             </div>
           </div>
 
           <div class="input-container">
-            <div class="title" id="lastNameTitle">
-              Last Name <span style="margin: 0px; color: red">*</span>
-            </div>
+            <div class="title" id="lastNameTitle">Last Name <span>*</span></div>
             <div class="input-element">
               <input
                 type="text"
                 id="lastName"
                 name="lastName"
-                onchange="validateTextById('lastName')"
+                isRequired="true"
               />
             </div>
           </div>
         </div>
         <div class="input-row">
           <div class="input-container">
-            <div class="title" id="emailTitle">
-              Email <span style="margin: 0px; color: red">*</span>
-            </div>
+            <div class="title" id="emailTitle">Email <span>*</span></div>
             <div class="input-element">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                onchange="validateTextById('email')"
-              />
+              <input type="text" id="email" name="email" isRequired="true" />
             </div>
           </div>
 
           <div class="input-container">
-            <div class="title" id="genderTitle">
-              Gender <span style="margin: 0px; color: red">*</span>
-            </div>
+            <div class="title" id="genderTitle">Gender <span>*</span></div>
             <div class="input-element">
               <input
                 type="radio"
                 id="male"
                 name="gender"
                 value="male"
-                onchange="validateGender()"
+                isRequired="true"
               />
               <label for="male">Male</label>
               <input
@@ -93,7 +82,7 @@
                 id="female"
                 name="gender"
                 value="female"
-                onchange="validateGender()"
+                isRequired="true"
               />
               <label for="female">Female</label>
             </div>
@@ -101,16 +90,14 @@
         </div>
         <div class="input-row">
           <div class="input-container">
-            <div class="title" id="dobTitle">
-              Date of birth <span style="margin: 0px; color: red">*</span>
-            </div>
+            <div class="title" id="dobTitle">Date of birth <span>*</span></div>
             <div class="input-element">
               <input
                 type="date"
                 id="date"
                 name="date"
                 max="2015-01-01"
-                onchange="validateDate()"
+                isRequired="true"
               />
             </div>
           </div>
@@ -124,7 +111,6 @@
                 id="hobby"
                 name="hobby"
                 autocomplete="off"
-                oninput="populateHobby()"
                 multiple
               />
               <datalist id="hobbyList">
@@ -137,23 +123,16 @@
         </div>
         <div class="input-container-dp">
           <div class="profile-pic">
-            <div class="title" id="dpTitle">
-              Profile picture <span style="margin: 0px; color: red">*</span>
-            </div>
+            <div class="title" id="dpTitle">Profile picture <span>*</span></div>
 
             <div class="input-element">
               <label id="dp-label" for="dp">
                 <div id="card" class="card">
-                  <i class="fa-sharp fa-solid fa-plus"></i>
+                  <i class="fa-sharp fa-solid fa-plus" id="iconForAddPic"></i>
                 </div>
               </label>
               <div id="filename"></div>
-              <input
-                type="file"
-                name="dp"
-                id="dp"
-                onChange="displayProfilePicName();"
-              />
+              <input type="file" name="dp" id="dp" isRequired="true" />
             </div>
           </div>
         </div>
@@ -162,9 +141,7 @@
           <div id="errMsgPresentAddress"></div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                Address Line 1 <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Address Line 1 <span>*</span></div>
               <div class="input-element">
                 <input
                   type="text"
@@ -176,9 +153,7 @@
             </div>
 
             <div class="input-container">
-              <div class="title">
-                Address Line 2 <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Address Line 2</div>
               <div class="input-element">
                 <input
                   type="text"
@@ -191,19 +166,18 @@
           </div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                Country <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Country <span>*</span></div>
               <div class="input-element">
-                <select id="presentCountry" onchange="populateStatesPresent()">
+                <select
+                  id="presentCountry"
+                  onchange="populateStates('present')"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
             </div>
             <div class="input-container">
-              <div class="title">
-                State <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">State <span>*</span></div>
               <div class="input-element">
                 <select id="presentState">
                   <option value="-1"></option>
@@ -213,17 +187,13 @@
           </div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                City <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">City <span>*</span></div>
               <div class="input-element">
                 <input type="text" id="presentCity" name="presentCity" />
               </div>
             </div>
             <div class="input-container">
-              <div class="title">
-                Postal code <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Postal code <span>*</span></div>
               <div class="input-element">
                 <input type="text" id="presentPin" name="presentPin" />
               </div>
@@ -248,9 +218,7 @@
           </div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                Address Line 1 <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Address Line 1 <span>*</span></div>
               <div class="input-element">
                 <input
                   type="text"
@@ -262,9 +230,7 @@
             </div>
 
             <div class="input-container">
-              <div class="title">
-                Address Line 2 <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Address Line 2 <span>*</span></div>
               <div class="input-element">
                 <input
                   type="text"
@@ -277,22 +243,18 @@
           </div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                Country <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Country <span>*</span></div>
               <div class="input-element">
                 <select
                   id="permanentCountry"
-                  onchange="populateStatesPermanent()"
+                  onchange="populateStates('permanent')"
                 >
                   <option value="-1"></option>
                 </select>
               </div>
             </div>
             <div class="input-container">
-              <div class="title">
-                State <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">State <span>*</span></div>
               <div class="input-element">
                 <select id="permanentState">
                   <option value="-1"></option>
@@ -302,17 +264,13 @@
           </div>
           <div class="input-row">
             <div class="input-container">
-              <div class="title">
-                City <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">City <span>*</span></div>
               <div class="input-element">
                 <input type="text" id="permanentCity" name="permanentCity" />
               </div>
             </div>
             <div class="input-container">
-              <div class="title">
-                Postal code <span style="margin: 0px; color: red">*</span>
-              </div>
+              <div class="title">Postal code <span>*</span></div>
               <div class="input-element">
                 <input type="text" id="permanentPin" name="permanentPin" />
               </div>

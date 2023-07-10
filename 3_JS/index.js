@@ -1,5 +1,52 @@
-firstName.value = "asdas";
 let token = "";
+const textRegex = /[A-Za-z ]+/;
+const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+
+let form = document.getElementsByTagName("form")[0];
+form.addEventListener("submit", (event) => {
+  validate(event);
+});
+
+let inputElements = form.querySelectorAll("[isRequired='true'][type='text']");
+
+for (let count = 0; count < inputElements.length; count++) {
+  let inputElement = inputElements[count];
+  let inputElementId = inputElement.id;
+  console.log(inputElementId);
+  if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
+    inputElement.addEventListener("change", () => {
+      validateTextById(inputElementId, textRegex);
+    });
+  } else {
+    inputElement.addEventListener("change", () => {
+      validateTextById(inputElementId, emailRegex);
+    });
+  }
+}
+
+form.querySelectorAll("[isRequired='true'][type='radio']").forEach((item) => {
+  item.addEventListener("change", () => {
+    validateGender();
+  });
+});
+
+form.querySelectorAll("[isRequired='true'][type='date']").forEach((item) => {
+  item.addEventListener("change", () => {
+    validateDate();
+  });
+});
+
+document.getElementById("hobby").addEventListener("input", () => {
+  populateHobby();
+});
+
+document.getElementById("dp").addEventListener("change", () => {
+  displayProfilePicName();
+});
+
+
+
+
 async function fetchKey() {
   try {
     const response = await fetch(
@@ -59,39 +106,41 @@ async function fetchCountry(token) {
   }
 }
 
-fetchKey();
+function validateDP() {
+  span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
+  const file = document.getElementById("dp");
+  if (!file.files[0]) {
+    span.innerText = "*Required";
+    return false;
+  } else {
+    span.innerText = "*";
+    return true;
+  }
+}
+
 function displayProfilePicName() {
   const file = document.getElementById("dp");
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
-
-  if (file.files[0].name != "") {
+  let filename = document.getElementById("filename");
+  if (validateDP()) {
     if (allowedFormats.includes(file.files[0].type)) {
-      let filename = document.getElementById("filename");
       filename.innerText = file.files[0].name;
       filename.style.color = "black";
 
-      var card = document.getElementById("card");
-      var icon = document.createElement("i");
+      var icon = document.getElementById("iconForAddPic");
       icon.className = "fa-solid fa-check";
-      card.innerHTML = "";
-      card.appendChild(icon);
 
       const path = URL.createObjectURL(file.files[0]);
       document.getElementById("profileImage").src = path;
     } else {
-      let filename = document.getElementById("filename");
       filename.style.color = "red";
       filename.innerText = "Invalid file format(Accepts only jpg, png)";
     }
   }
-  span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
-  if (!file.files[0]) {
-    span.innerText = "*Required";
-  } else {
-    span.innerText = "*";
-  }
 }
-async function getStatesPresent(country) {
+
+async function getStates(country, addressType) {
+  let stateId = addressType + "State";
   try {
     let url = "https://www.universal-tutorial.com/api/states/" + country;
     let res = await fetch(url, {
@@ -101,9 +150,10 @@ async function getStatesPresent(country) {
         Accept: "application/json",
       },
     });
+
     let data = await res.json();
     let arr = data;
-    let state = document.getElementById("presentState");
+    let state = document.getElementById(stateId);
 
     for (let i = 0; i < arr.length; i++) {
       var option = document.createElement("option");
@@ -115,49 +165,20 @@ async function getStatesPresent(country) {
     console.log(error);
   }
 }
-async function getStatesPermanent(country) {
-  try {
-    let url = "https://www.universal-tutorial.com/api/states/" + country;
-    let res = await fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization: token,
-        Accept: "application/json",
-      },
-    });
+async function populateStates(addressType) {
+  let countryId = addressType + "Country";
 
-    let data = await res.json();
-    let arr = data;
-    let state = document.getElementById("permanentState");
-
-    for (let i = 0; i < arr.length; i++) {
-      var option = document.createElement("option");
-      option.value = arr[i].state_name;
-      option.innerText = arr[i].state_name;
-      state.appendChild(option);
-    }
-
+  let country = document.getElementById(countryId).value;
+  document.getElementById(addressType + "State").value = "";
+  if (country != "") {
+    await getStates(country, addressType);
+  }
+  if (addressType == "permanent") {
     let address = document.getElementById("ifPresentSameAsPermanent");
     if (address.checked) {
       let presentAddressState = document.getElementById("presentState").value;
       document.getElementById("permanentState").value = presentAddressState;
     }
-  } catch (error) {
-    console.log(error);
-  }
-}
-async function populateStatesPresent() {
-  let country = document.getElementById("presentCountry").value;
-  document.getElementById("presentState").value = "";
-  if (country != "") {
-    getStatesPresent(country);
-  }
-}
-function populateStatesPermanent() {
-  let country = document.getElementById("permanentCountry").value;
-  document.getElementById("permanentState").value = "";
-  if (country != "") {
-    getStatesPermanent(country);
   }
 }
 
@@ -203,8 +224,7 @@ async function populatePermanentAsPresent() {
     permanentAddressLine1.value = presentAddressLine1;
     permanentAddressLine2.value = presentAddressLine2;
     permanentCountry.value = presentAddressCountry;
-    populateStatesPermanent();
-
+    populateStates("permanent");
     permanentCity.value = presentAddressCity;
     permanentPin.value = presentAddressPin;
   } else {
@@ -217,24 +237,33 @@ async function populatePermanentAsPresent() {
   }
 }
 
-function validateTextById(id) {
+function validateTextById(id, patternName) {
+  console.log(id, patternName);
   let data = document.getElementById(id).value;
-  console.log(data);
   let text = id + "Title";
   let span = document.getElementById(text).getElementsByTagName("span")[0];
-  if (data == "" || data.trim() == "") {
+  console.log(data);
+  if (data === "" || data.trim() === "") {
     span.innerText = "*Required";
+    return false;
+  } else if (!patternName.test(data)) {
+    span.innerText = "*Not valid";
+    return false;
   } else {
     span.innerText = "*";
+    return true;
   }
 }
+
 function validateDate() {
   span = document.getElementById("dobTitle").getElementsByTagName("span")[0];
   let date = document.getElementById("date").value;
   if (date == "") {
     span.innerText = "*Required";
+    return false;
   } else {
     span.innerText = "*";
+    return true;
   }
 }
 
@@ -244,230 +273,95 @@ function validateGender() {
   let female = document.getElementById("female");
   if (!male.checked && !female.checked) {
     span.innerText = "*Required";
+    return false;
   } else {
     span.innerText = "*";
+    return true;
   }
 }
 
-function validatePresentAddress() {
-  let presentAddressLine1 = document.getElementById(
-    "presentAddressLine1"
+function validateAddress(addressType) {
+  let msg = "";
+  let AddressLine1 = document.getElementById(
+    addressType + "AddressLine1"
   ).value;
-  let presentAddressLine2 = document.getElementById(
-    "presentAddressLine2"
+  let AddressLine2 = document.getElementById(
+    addressType + "AddressLine2"
   ).value;
-  let presentAddressCountry = document.getElementById("presentCountry").value;
-  let presentAddressState = document.getElementById("presentState").value;
-  let presentAddressCity = document.getElementById("presentCity").value;
-  let presentAddressPin = document.getElementById("presentPin").value;
-  let msg = document.getElementById("errMsgPresentAddress");
+  let AddressCountry = document.getElementById(addressType + "Country").value;
+  let AddressState = document.getElementById(addressType + "State").value;
+  let AddressCity = document.getElementById(addressType + "City").value;
+  let AddressPin = document.getElementById(addressType + "Pin").value;
+  if (addressType == "present") {
+    msg = document.getElementById("errMsgPresentAddress");
+  } else {
+    msg = document.getElementById("errMsgPermanentAddress");
+  }
+
   if (
-    !presentAddressLine1 ||
-    !presentAddressLine2 ||
-    !presentAddressCountry ||
-    !presentAddressState ||
-    !presentAddressCity ||
-    !presentAddressPin
+    !AddressLine1 ||
+    !AddressLine2 ||
+    !AddressCountry ||
+    !AddressState ||
+    !AddressCity ||
+    !AddressPin
   ) {
     msg.innerText = "*Fill all the required fields";
+    return false;
   } else {
     msg.innerText = "";
+    return true;
   }
 }
-
-function validatePermanentAddress() {
-  let permanentAddressLine1 = document.getElementById(
-    "permanentAddressLine1"
-  ).value;
-  let permanentAddressLine2 = document.getElementById(
-    "permanentAddressLine2"
-  ).value;
-  let permanentCountry = document.getElementById("permanentCountry").value;
-  let permanentState = document.getElementById("permanentState").value;
-  let pemanentCity = document.getElementById("permanentCity").value;
-  let permanentPin = document.getElementById("permanentPin").value;
-  let msgPermanent = document.getElementById("errMsgPermanentAddress");
-  if (
-    !permanentAddressLine1 ||
-    !permanentAddressLine2 ||
-    !permanentCountry ||
-    !permanentState ||
-    !pemanentCity ||
-    !permanentPin
-  ) {
-    msgPermanent.innerText = "*Fill all the required fields";
-  } else {
-    msgPermanent.innerText = "";
-  }
-}
-
 function validate(event) {
   event.preventDefault();
-  var patternName = /[A-Za-z ]+/;
-  let firstName = document.getElementById("firstName").value;
-  let lastName = document.getElementById("lastName").value;
-  // let hobby = document.getElementById("hobby").value;
   let flagForFirstError = "";
 
-  //FIRST NAME VALIDATION
-  let span = document
-    .getElementById("firstNameTitle")
-    .getElementsByTagName("span")[0];
-
-  if (firstName.trim() == "") {
+  if (!validateTextById("firstName", textRegex)) {
     if (!flagForFirstError) {
       flagForFirstError = "firstName";
     }
-    span.innerText = "*Required";
-  } else if (!patternName.test(firstName)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "firstName";
-    }
-    span.innerText = "*Not valid";
-  } else {
-    span.innerText = "*";
   }
 
-  span = document
-    .getElementById("lastNameTitle")
-    .getElementsByTagName("span")[0];
-
-  if (lastName.trim() == "") {
-    //LAST NAME VALIDATION
+  if (!validateTextById("lastName", textRegex)) {
     if (!flagForFirstError) {
       flagForFirstError = "lastName";
     }
-    span.innerText = "*Required";
-  } else if (!patternName.test(lastName)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "lastName";
-    }
-    span.innerText = "*Not valid";
-  } else {
-    span.innerText = "*";
   }
 
-  //EMAIL VALIDATION
-  let email = document.getElementById("email").value;
-  let emailPattern = /^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
-
-  span = document.getElementById("emailTitle").getElementsByTagName("span")[0];
-
-  if (email.trim() == "") {
+  if (!validateTextById("email", emailRegex)) {
     if (!flagForFirstError) {
-      flagForFirstError = "emailTitle";
+      flagForFirstError = "email";
     }
-    span.innerText = "*Required";
-  } else if (!emailPattern.test(email)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "emailTitle";
-    }
-    span.innerText = "*Invalid email";
-  } else {
-    span.innerText = "*";
   }
 
-  //GENDER VALIDATION
-  span = document.getElementById("genderTitle").getElementsByTagName("span")[0];
-  let male = document.getElementById("male");
-  let female = document.getElementById("female");
-  if (!male.checked && !female.checked) {
+  if (!validateGender()) {
     if (!flagForFirstError) {
       flagForFirstError = "genderTitle";
     }
-
-    span.innerText = "*Required";
-  } else {
-    span.innerText = "*";
   }
-  span = document.getElementById("dobTitle").getElementsByTagName("span")[0];
-  let date = document.getElementById("date").value;
-  if (date == "") {
+
+  if (!validateDate()) {
     if (!flagForFirstError) {
       flagForFirstError = "date";
     }
-    span.innerText = "*Required";
-  } else {
-    span.innerText = "*";
   }
 
-  // //HOBBY VALIDATION
-  // if (hobby.trim() == "") {
-  //   if (!flagForFirstError) {
-  //     flagForFirstError = "hobby";
-  //   }
-  //   let span = document.createElement("span");
-  //   span.innerText = "Required";
-  //   document.getElementById("hobbyTitle").appendChild(span);
-  // }
-
-  //DP VALIDATION
-  span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
-  const file = document.getElementById("dp");
-  if (!file.files[0]) {
+  if (!validateDP()) {
     if (!flagForFirstError) {
       flagForFirstError = "dp";
     }
-    span.innerText = "*Required";
-  } else {
-    span.innerText = "*";
   }
 
-  //Present Address
-  let presentAddressLine1 = document.getElementById(
-    "presentAddressLine1"
-  ).value;
-  let presentAddressLine2 = document.getElementById(
-    "presentAddressLine2"
-  ).value;
-  let presentAddressCountry = document.getElementById("presentCountry").value;
-  let presentAddressState = document.getElementById("presentState").value;
-  let presentAddressCity = document.getElementById("presentCity").value;
-  let presentAddressPin = document.getElementById("presentPin").value;
-  let msg = document.getElementById("errMsgPresentAddress");
-  if (
-    !presentAddressLine1 ||
-    !presentAddressLine2 ||
-    !presentAddressCountry ||
-    !presentAddressState ||
-    !presentAddressCity ||
-    !presentAddressPin
-  ) {
+  if (!validateAddress("present")) {
     if (!flagForFirstError) {
       flagForFirstError = "errMsgPresentAddress";
     }
-
-    msg.innerText = "*Fill all the required fields";
-  } else {
-    msg.innerText = "";
   }
-
-  let permanentAddressLine1 = document.getElementById(
-    "permanentAddressLine1"
-  ).value;
-  let permanentAddressLine2 = document.getElementById(
-    "permanentAddressLine2"
-  ).value;
-  let permanentCountry = document.getElementById("permanentCountry").value;
-  let permanentState = document.getElementById("permanentState").value;
-  let permanentCity = document.getElementById("permanentCity").value;
-  let permanentPin = document.getElementById("permanentPin").value;
-  let msgPermanent = document.getElementById("errMsgPermanentAddress");
-  if (
-    !permanentAddressLine1 ||
-    !permanentAddressLine2 ||
-    !permanentCountry ||
-    !permanentState ||
-    !permanentCity ||
-    !permanentPin
-  ) {
+  if (!validateAddress("permanent")) {
     if (!flagForFirstError) {
       flagForFirstError = "errMsgPermanentAddress";
     }
-
-    msgPermanent.innerText = "*Fill all the required fields";
-  } else {
-    msgPermanent.innerText = "";
   }
 
   if (flagForFirstError) {
@@ -479,7 +373,4 @@ function validate(event) {
   }
 }
 
-// let inputs = document.getElementsByTagName("input");
-// for(let i=0;i<inputs.length;i++){
-//   inputs[i].addEventListener("focusout", validate());
-// }
+fetchKey();

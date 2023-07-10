@@ -191,6 +191,7 @@ input::placeholder {
 span {
   color: red;
   font-size: 15px;
+  margin: 0px;
 }
 #errMsgPresentAddress,
 #errMsgPermanentAddress {
