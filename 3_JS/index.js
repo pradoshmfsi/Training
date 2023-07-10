@@ -3,16 +3,15 @@ const textRegex = /[A-Za-z ]+/;
 const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
 let form = document.getElementsByTagName("form")[0];
+let inputElements = form.querySelectorAll("[isRequired='true'][type='text']");
+
 form.addEventListener("submit", (event) => {
   validate(event);
 });
 
-let inputElements = form.querySelectorAll("[isRequired='true'][type='text']");
-
 for (let count = 0; count < inputElements.length; count++) {
   let inputElement = inputElements[count];
   let inputElementId = inputElement.id;
-  console.log(inputElementId);
   if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
     inputElement.addEventListener("change", () => {
       validateTextById(inputElementId, textRegex);
@@ -44,7 +43,18 @@ document.getElementById("dp").addEventListener("change", () => {
   displayProfilePicName();
 });
 
+document
+  .getElementById("ifPresentSameAsPermanent")
+  .addEventListener("click", () => {
+    populatePermanentAsPresent();
+  });
 
+const selectCountryElements = document.querySelectorAll(`[id*="Country"]`);
+selectCountryElements.forEach((item) => {
+  item.addEventListener("change", () => {
+    populateStates(item.getAttribute("addressType"));
+  });
+});
 
 async function fetchKey() {
   try {
@@ -88,17 +98,17 @@ async function fetchCountry(token) {
     let presentCountry = document.getElementById("presentCountry");
     let permanentCountry = document.getElementById("permanentCountry");
     for (let i = 0; i < arr.length; i++) {
-      let option = document.createElement("option");
-      let option2 = document.createElement("option");
+      let optionPresent = document.createElement("option");
+      let optionPermanent = document.createElement("option");
 
-      option.value = arr[i].country_name;
-      option.innerText = arr[i].country_name;
+      optionPresent.value = arr[i].country_name;
+      optionPresent.innerText = arr[i].country_name;
 
-      option2.value = arr[i].country_name;
-      option2.innerText = arr[i].country_name;
+      optionPermanent.value = arr[i].country_name;
+      optionPermanent.innerText = arr[i].country_name;
 
-      presentCountry.appendChild(option);
-      permanentCountry.appendChild(option2);
+      presentCountry.appendChild(optionPresent);
+      permanentCountry.appendChild(optionPermanent);
     }
   } catch (error) {
     console.error(error);
@@ -216,14 +226,15 @@ async function populatePermanentAsPresent() {
       "presentAddressLine2"
     ).value;
     let presentAddressCountry = document.getElementById("presentCountry").value;
-    // let presentAddressState = document.getElementById("presentState").value;
     let presentAddressCity = document.getElementById("presentCity").value;
     let presentAddressPin = document.getElementById("presentPin").value;
 
     permanentAddressLine1.value = presentAddressLine1;
     permanentAddressLine2.value = presentAddressLine2;
     permanentCountry.value = presentAddressCountry;
+
     populateStates("permanent");
+
     permanentCity.value = presentAddressCity;
     permanentPin.value = presentAddressPin;
   } else {
@@ -237,11 +248,9 @@ async function populatePermanentAsPresent() {
 }
 
 function validateTextById(id, patternName) {
-  console.log(id, patternName);
   let data = document.getElementById(id).value;
   let text = id + "Title";
   let span = document.getElementById(text).getElementsByTagName("span")[0];
-  console.log(data);
   if (data === "" || data.trim() === "") {
     span.innerText = "*Required";
     return false;
@@ -364,8 +373,37 @@ function validate(event) {
       .getElementById(flagForFirstError)
       .scrollIntoView({ behavior: "smooth", block: "center" });
   } else {
+    showDetailsAfterSubmit();
     return true;
   }
 }
 
+function showDetailsAfterSubmit() {
+  const userObj = {};
+  const detailElements = document.querySelectorAll(`[showDetails*="|"]`);
+  // console.log(detailElements);
+  detailElements.forEach((item) => {
+    let valueString = item.getAttribute("showDetails");
+    const attributes = valueString.split("|");
+    if (attributes.length == 2) {
+      userObj[attributes[1]] = document.getElementById(attributes[1]).value;
+      // console.log(document.getElementById(attributes[1] + "Detail"));
+      document.getElementById(attributes[1] + "Detail").innerText =
+        attributes[0] + " : " + userObj[attributes[1]];
+    } else {
+      if (attributes[2] == "radio") {
+        const inputRadios = item.getElementsByTagName("input");
+        userObj[attributes[1]] = inputRadios[0].checked
+          ? inputRadios[0].value
+          : inputRadios[1].value;
+      } else {
+        userObj[attributes[1]] = item.checked ? true : false;
+        document.getElementById("ifSubscribedDetail").innerText =
+          attributes[0] + " : " + userObj[attributes[1]];
+      }
+    }
+  });
+  console.log(userObj);
+  document.getElementsByClassName("show-details")[0].style.display = "block ";
+}
 fetchKey();

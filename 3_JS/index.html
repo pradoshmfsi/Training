@@ -41,6 +41,7 @@
                 id="firstName"
                 name="firstName"
                 isRequired="true"
+                showDetails="First Name|firstName"
                 autofocus
               />
             </div>
@@ -54,6 +55,7 @@
                 id="lastName"
                 name="lastName"
                 isRequired="true"
+                showDetails="Last Name|lastName"
               />
             </div>
           </div>
@@ -62,13 +64,19 @@
           <div class="input-container">
             <div class="title" id="emailTitle">Email <span>*</span></div>
             <div class="input-element">
-              <input type="text" id="email" name="email" isRequired="true" />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                isRequired="true"
+                showDetails="Email|email"
+              />
             </div>
           </div>
 
           <div class="input-container">
             <div class="title" id="genderTitle">Gender <span>*</span></div>
-            <div class="input-element">
+            <div class="input-element" showDetails="Gender|gender|radio">
               <input
                 type="radio"
                 id="male"
@@ -98,6 +106,7 @@
                 name="date"
                 max="2015-01-01"
                 isRequired="true"
+                showDetails="Date Of Birth|date"
               />
             </div>
           </div>
@@ -111,6 +120,7 @@
                 id="hobby"
                 name="hobby"
                 autocomplete="off"
+                showDetails="Hobbies|hobby"
                 multiple
               />
               <datalist id="hobbyList">
@@ -132,7 +142,13 @@
                 </div>
               </label>
               <div id="filename"></div>
-              <input type="file" name="dp" id="dp" isRequired="true" />
+              <input
+                type="file"
+                name="dp"
+                id="dp"
+                isRequired="true"
+                showDetails="Profile Picture|dp|file"
+              />
             </div>
           </div>
         </div>
@@ -148,6 +164,7 @@
                   id="presentAddressLine1"
                   name="presentAddressLine1"
                   placeholder="Plot"
+                  showDetails="Present Address Line 1|presentAddressLine1"
                 />
               </div>
             </div>
@@ -160,6 +177,7 @@
                   id="presentAddressLine2"
                   name="presentAddressLine2"
                   placeholder="Street Area"
+                  showDetails="Present Address Line 2|presentAddressLine2"
                 />
               </div>
             </div>
@@ -170,7 +188,8 @@
               <div class="input-element">
                 <select
                   id="presentCountry"
-                  onchange="populateStates('present')"
+                  addressType="present"
+                  showDetails="Present Country|presentCountry"
                 >
                   <option value="-1"></option>
                 </select>
@@ -179,7 +198,10 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select id="presentState">
+                <select
+                  id="presentState"
+                  showDetails="Present State|presentState"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
@@ -189,13 +211,23 @@
             <div class="input-container">
               <div class="title">City <span>*</span></div>
               <div class="input-element">
-                <input type="text" id="presentCity" name="presentCity" />
+                <input
+                  type="text"
+                  id="presentCity"
+                  name="presentCity"
+                  showDetails="Present City|presentCity"
+                />
               </div>
             </div>
             <div class="input-container">
               <div class="title">Postal code <span>*</span></div>
               <div class="input-element">
-                <input type="text" id="presentPin" name="presentPin" />
+                <input
+                  type="text"
+                  id="presentPin"
+                  name="presentPin"
+                  showDetails="Present Pin|presentPin"
+                />
               </div>
             </div>
           </div>
@@ -207,10 +239,7 @@
             <input
               type="checkbox"
               id="ifPresentSameAsPermanent"
-              t
               name="ifPresentSameAsPermanent"
-              t
-              onclick="populatePermanentAsPresent()"
             />
             <label for="ifPresentSameAsPermanent"
               >Same as present address</label
@@ -225,6 +254,7 @@
                   id="permanentAddressLine1"
                   name="permanentAddressLine1"
                   placeholder="Plot"
+                  showDetails="Permanent Address Line 1|permanentAddressLine1"
                 />
               </div>
             </div>
@@ -237,6 +267,7 @@
                   id="permanentAddressLine2"
                   name="permanentAddressLine2"
                   placeholder="Street Area"
+                  showDetails="Permanent Address Line 2|permanentAddressLine2"
                 />
               </div>
             </div>
@@ -247,7 +278,8 @@
               <div class="input-element">
                 <select
                   id="permanentCountry"
-                  onchange="populateStates('permanent')"
+                  addressType="permanent"
+                  showDetails="Permanent Country|permanentCountry"
                 >
                   <option value="-1"></option>
                 </select>
@@ -256,7 +288,10 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select id="permanentState">
+                <select
+                  id="permanentState"
+                  showDetails="Permanent State|permanentState"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
@@ -266,22 +301,34 @@
             <div class="input-container">
               <div class="title">City <span>*</span></div>
               <div class="input-element">
-                <input type="text" id="permanentCity" name="permanentCity" />
+                <input
+                  type="text"
+                  id="permanentCity"
+                  name="permanentCity"
+                  showDetails="Permanent City|permanentCity"
+                />
               </div>
             </div>
             <div class="input-container">
               <div class="title">Postal code <span>*</span></div>
               <div class="input-element">
-                <input type="text" id="permanentPin" name="permanentPin" />
+                <input
+                  type="text"
+                  id="permanentPin"
+                  name="permanentPin"
+                  showDetails="Permanent Pin|permanentPin"
+                />
               </div>
             </div>
           </div>
         </fieldset>
         <div class="input-checkbox">
-          <input type="checkbox" id="ifSubscribed" name="ifSubscribed" /><label
-            for="ifSubscribed"
-            >Subscribe to news letter</label
-          >
+          <input
+            type="checkbox"
+            id="ifSubscribed"
+            name="ifSubscribed"
+            showDetails="Subscribed to News Letter|ifSubscribed|checkbox"
+          /><label for="ifSubscribed">Subscribe to news letter</label>
         </div>
         <div class="submit">
           <input type="submit" value="Submit" />
@@ -289,6 +336,39 @@
       </div>
     </form>
     <br />
+    <div class="show-details">
+      <h5>Personal Details</h5>
+
+      <div class="personal-details">
+        <div id="firstNameDetail"></div>
+        <div id="lastNameDetail"></div>
+        <div id="emailDetail"></div>
+        <div id="genderDetail"></div>
+        <div id="dateDetail"></div>
+        <div id="hobbyDetail"></div>
+      </div>
+      <h5>Present Address</h5>
+
+      <div class="present-address-details">
+        <div id="presentAddressLine1Detail"></div>
+        <div id="presentAddressLine2Detail"></div>
+        <div id="presentCountryDetail"></div>
+        <div id="presentStateDetail"></div>
+        <div id="presentCityDetail"></div>
+        <div id="presentPinDetail"></div>
+      </div>
+      <h5>Permanent Address</h5>
+
+      <div class="permanent-address-details">
+        <div id="permanentAddressLine1Detail"></div>
+        <div id="permanentAddressLine2Detail"></div>
+        <div id="permanentCountryDetail"></div>
+        <div id="permanentStateDetail"></div>
+        <div id="permanentCityDetail"></div>
+        <div id="permanentPinDetail"></div>
+      </div>
+      <h6><div id="ifSubscribedDetail"></div></h6>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

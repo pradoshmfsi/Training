@@ -206,6 +206,18 @@ span {
   font-size: 15px;
   margin-left: 5%;
 } */
+
+.show-details {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  padding: 5%;
+  display: none;
+}
+.personal-details {
+  font-size: 15px;
+}
+
 @media only screen and (max-width: 850px) {
   .form-heading {
     display: block;
