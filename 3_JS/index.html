@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <form onsubmit="validate(event)">
+      <div class="form-heading">
+        <div class="form-heading-element">
+          <div class="form-heading-text">Register</div>
+          <div class="form-heading-graphic"></div>
+        </div>
+        <div class="form-heading-image">
+          <img
+            id="profileImage"
+            src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="container">
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="firstNameTitle">
+              First Name <span style="margin: 0px; color: red">*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                onchange="validateTextById('firstName')"
+                autofocus
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="lastNameTitle">
+              Last Name <span style="margin: 0px; color: red">*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                onchange="validateTextById('lastName')"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="emailTitle">
+              Email <span style="margin: 0px; color: red">*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                onchange="validateTextById('email')"
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="genderTitle">
+              Gender <span style="margin: 0px; color: red">*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                onchange="validateGender()"
+              />
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                onchange="validateGender()"
+              />
+              <label for="female">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="dobTitle">
+              Date of birth <span style="margin: 0px; color: red">*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="date"
+                id="date"
+                name="date"
+                max="2015-01-01"
+                onchange="validateDate()"
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="hobbyTitle">Hobbies</div>
+            <div class="input-element">
+              <input
+                type="text"
+                list="hobbyList"
+                id="hobby"
+                name="hobby"
+                autocomplete="off"
+                oninput="populateHobby()"
+                multiple
+              />
+              <datalist id="hobbyList">
+                <option value="Singing"></option>
+                <option value="Dancing"></option>
+                <option value="Football"></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+        <div class="input-container-dp">
+          <div class="profile-pic">
+            <div class="title" id="dpTitle">
+              Profile picture <span style="margin: 0px; color: red">*</span>
+            </div>
+
+            <div class="input-element">
+              <label id="dp-label" for="dp">
+                <div id="card" class="card">
+                  <i class="fa-sharp fa-solid fa-plus"></i>
+                </div>
+              </label>
+              <div id="filename"></div>
+              <input
+                type="file"
+                name="dp"
+                id="dp"
+                onChange="displayProfilePicName();"
+              />
+            </div>
+          </div>
+        </div>
+        <fieldset>
+          <legend>Present Address</legend>
+          <div id="errMsgPresentAddress"></div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                Address Line 1 <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentAddressLine1"
+                  name="presentAddressLine1"
+                  placeholder="Plot"
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="title">
+                Address Line 2 <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentAddressLine2"
+                  name="presentAddressLine2"
+                  placeholder="Street Area"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                Country <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <select id="presentCountry" onchange="populateStatesPresent()">
+                  <option value="-1"></option>
+                </select>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="title">
+                State <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <select id="presentState">
+                  <option value="-1"></option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                City <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input type="text" id="presentCity" name="presentCity" />
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="title">
+                Postal code <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input type="text" id="presentPin" name="presentPin" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Permanent Address</legend>
+          <div id="errMsgPermanentAddress"></div>
+          <div class="input-checkbox">
+            <input
+              type="checkbox"
+              id="ifPresentSameAsPermanent"
+              t
+              name="ifPresentSameAsPermanent"
+              t
+              onclick="populatePermanentAsPresent()"
+            />
+            <label for="ifPresentSameAsPermanent"
+              >Same as present address</label
+            >
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                Address Line 1 <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentAddressLine1"
+                  name="permanentAddressLine1"
+                  placeholder="Plot"
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="title">
+                Address Line 2 <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentAddressLine2"
+                  name="permanentAddressLine2"
+                  placeholder="Street Area"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                Country <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <select
+                  id="permanentCountry"
+                  onchange="populateStatesPermanent()"
+                >
+                  <option value="-1"></option>
+                </select>
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="title">
+                State <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <select id="permanentState">
+                  <option value="-1"></option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title">
+                City <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input type="text" id="permanentCity" name="permanentCity" />
+              </div>
+            </div>
+            <div class="input-container">
+              <div class="title">
+                Postal code <span style="margin: 0px; color: red">*</span>
+              </div>
+              <div class="input-element">
+                <input type="text" id="permanentPin" name="permanentPin" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="input-checkbox">
+          <input type="checkbox" id="ifSubscribed" name="ifSubscribed" /><label
+            for="ifSubscribed"
+            >Subscribe to news letter</label
+          >
+        </div>
+        <div class="submit">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+    <br />
+    <script src="index.js"></script>
+  </body>
+</html>
