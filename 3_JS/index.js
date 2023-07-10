@@ -46,7 +46,6 @@ document.getElementById("dp").addEventListener("change", () => {
 
 
 
-
 async function fetchKey() {
   try {
     const response = await fetch(
@@ -285,9 +284,6 @@ function validateAddress(addressType) {
   let AddressLine1 = document.getElementById(
     addressType + "AddressLine1"
   ).value;
-  let AddressLine2 = document.getElementById(
-    addressType + "AddressLine2"
-  ).value;
   let AddressCountry = document.getElementById(addressType + "Country").value;
   let AddressState = document.getElementById(addressType + "State").value;
   let AddressCity = document.getElementById(addressType + "City").value;
@@ -300,7 +296,6 @@ function validateAddress(addressType) {
 
   if (
     !AddressLine1 ||
-    !AddressLine2 ||
     !AddressCountry ||
     !AddressState ||
     !AddressCity ||
