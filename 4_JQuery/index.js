@@ -47,20 +47,13 @@ async function fetchCountry(token) {
     const data = await response.json();
     let arr = data;
 
-    let presentCountry = document.getElementById("presentCountry");
-    let permanentCountry = document.getElementById("permanentCountry");
     for (let i = 0; i < arr.length; i++) {
-      let optionPresent = document.createElement("option");
-      let optionPermanent = document.createElement("option");
-
-      optionPresent.value = arr[i].country_name;
-      optionPresent.innerText = arr[i].country_name;
-
-      optionPermanent.value = arr[i].country_name;
-      optionPermanent.innerText = arr[i].country_name;
-
-      presentCountry.appendChild(optionPresent);
-      permanentCountry.appendChild(optionPermanent);
+      $("#presentCountry").append(
+        $(`<option></option>`).text(arr[i].country_name)
+      );
+      $("#permanentCountry").append(
+        $(`<option></option>`).text(arr[i].country_name)
+      );
     }
   } catch (error) {
     console.error(error);
@@ -84,17 +77,14 @@ $(".form-container [isRequired='true'][type='text']").each(
   }
 );
 
-$("[isRequired='true'][type='radio']").each((index, item) => {
-  $(item).on("change", () => {
-    validateGender();
-  });
+$("[isRequired='true'][type='radio']").on("change", () => {
+  validateGender();
 });
 
-$("[isRequired='true'][type='date']").each((index, item) => {
-  $(item).on("change", () => {
-    validateDate();
-  });
+$("[isRequired='true'][type='date']").on("change", () => {
+  validateDate();
 });
+
 $("#hobby").on("input", () => populateHobby());
 
 $("#dp").on("change", () => {
@@ -112,7 +102,7 @@ $(`[id *= "Country"]`).each((index, item) => {
 });
 
 function validateDP() {
-  const span = $($("#dpTitle span")[0]);
+  const span = $("#dpTitle span");
   const file = document.getElementById("dp");
   if (!file.files[0]) {
     span.text("*Required");
@@ -163,15 +153,9 @@ async function getStates(country, addressType) {
       },
     });
 
-    let data = await res.json();
-    let arr = data;
-    let state = document.getElementById(stateId);
-
+    let arr = await res.json();
     for (let i = 0; i < arr.length; i++) {
-      var option = document.createElement("option");
-      option.value = arr[i].state_name;
-      option.innerText = arr[i].state_name;
-      state.appendChild(option);
+      $(`#${stateId}`).append($(`<option></option>`).text(arr[i].state_name));
     }
   } catch (error) {
     console.log(error);
@@ -180,73 +164,45 @@ async function getStates(country, addressType) {
 async function populateStates(addressType) {
   let countryId = addressType + "Country";
 
-  let country = document.getElementById(countryId).value;
-  document.getElementById(addressType + "State").value = "";
+  let country = $(`#${countryId}`).val();
+  $(`#${addressType}State`).val("");
   if (country != "") {
     await getStates(country, addressType);
   }
   if (addressType == "permanent") {
-    let address = document.getElementById("ifPresentSameAsPermanent");
-    if (address.checked) {
-      let presentAddressState = document.getElementById("presentState").value;
-      document.getElementById("permanentState").value = presentAddressState;
+    if ($("#ifPresentSameAsPermanent").prop("checked")) {
+      $("#permanentState").val($("#presentState").val());
     }
   }
 }
 
 function populateHobby() {
-  let hobby = document.getElementById("hobby").value;
-  let list = document.getElementById("hobbyList");
+  let hobby = $("#hobby").val();
+  let list = $("#hobbyList");
   let hobbyArr = ["Singing", "Dancing", "Playing"];
-  list.innerHTML = "";
+  list.html("");
   for (let i = 0; i < hobbyArr.length; i++) {
     if (!hobby.includes(hobbyArr[i])) {
-      let option = document.createElement("option");
+      let option = $("<option></option>");
       if (hobby.trim() != "") {
-        option.value = hobby + ", " + hobbyArr[i];
+        option.text(hobby + ", " + hobbyArr[i]);
       } else {
-        option.value = hobbyArr[i];
+        option.text(hobbyArr[i]);
       }
-      list.appendChild(option);
+      list.append(option);
     }
   }
 }
 
 async function populatePermanentAsPresent() {
-  let address = document.getElementById("ifPresentSameAsPermanent");
-  let permanentAddressLine1 = document.getElementById("permanentAddressLine1");
-  let permanentAddressLine2 = document.getElementById("permanentAddressLine2");
-  let permanentCountry = document.getElementById("permanentCountry");
-  let permanentState = document.getElementById("permanentState");
-  let permanentCity = document.getElementById("permanentCity");
-  let permanentPin = document.getElementById("permanentPin");
-
-  if (address.checked == true) {
-    let presentAddressLine1 = document.getElementById(
-      "presentAddressLine1"
-    ).value;
-    let presentAddressLine2 = document.getElementById(
-      "presentAddressLine2"
-    ).value;
-    let presentAddressCountry = document.getElementById("presentCountry").value;
-    let presentAddressCity = document.getElementById("presentCity").value;
-    let presentAddressPin = document.getElementById("presentPin").value;
-
-    permanentAddressLine1.value = presentAddressLine1;
-    permanentAddressLine2.value = presentAddressLine2;
-    permanentCountry.value = presentAddressCountry;
-
+  if ($("#ifPresentSameAsPermanent").prop("checked")) {
+    $("#permanentAddressLine1").val($("#presentAddressLine1").val());
+    $("#permanentAddressLine2").val($("#presentAddressLine2").val());
+    $("#permanentCountry").val($("#presentCountry").val());
     populateStates("permanent");
-
-    permanentCity.value = presentAddressCity;
-    permanentPin.value = presentAddressPin;
-  } else {
-    permanentAddressLine1.value = "";
-    permanentAddressLine2.value = "";
-    permanentCountry.value = "";
-    permanentState.value = "";
-    permanentCity.value = "";
-    permanentPin.value = "";
+    $("#permanentState").val($("#presentState").val());
+    $("#permanentCity").val($("#presentCity").val());
+    $("#permanentPin").val($("#presentPin").val());
   }
 }
 
