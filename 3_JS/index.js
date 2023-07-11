@@ -115,6 +115,10 @@ async function fetchCountry(token) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  fetchKey();
+});
+
 function validateDP() {
   span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
   const file = document.getElementById("dp");
@@ -125,6 +129,11 @@ function validateDP() {
     span.innerText = "*";
     return true;
   }
+}
+
+function displayImageById(file, id) {
+  const path = URL.createObjectURL(file.files[0]);
+  document.getElementById(id).src = path;
 }
 
 function displayProfilePicName() {
@@ -139,8 +148,7 @@ function displayProfilePicName() {
       var icon = document.getElementById("iconForAddPic");
       icon.className = "fa-solid fa-check";
 
-      const path = URL.createObjectURL(file.files[0]);
-      document.getElementById("profileImage").src = path;
+      displayImageById(file, "profileImage");
     } else {
       filename.style.color = "red";
       filename.innerText = "Invalid file format(Accepts only jpg, png)";
@@ -381,35 +389,44 @@ function validate(event) {
 function showDetailsAfterSubmit() {
   const userObj = {};
   const detailElements = document.querySelectorAll(`[showDetails*="|"]`);
-  // console.log(detailElements);
   detailElements.forEach((item) => {
     let valueString = item.getAttribute("showDetails");
     const attributes = valueString.split("|");
     if (attributes.length == 2) {
       userObj[attributes[1]] = item.value;
       // console.log(document.getElementById(attributes[1] + "Detail"));
-      document.getElementById(attributes[1] + "Detail").innerText =
-        attributes[0] + " : " + userObj[attributes[1]];
+      document.getElementById(
+        attributes[1] + "Detail"
+      ).innerHTML = `<span class="show-details-element">${
+        attributes[0]
+      }:</span> ${userObj[attributes[1]]}`;
     } else {
       if (attributes[2] == "radio") {
         const inputRadios = item.getElementsByTagName("input");
         userObj[attributes[1]] = inputRadios[0].checked
           ? inputRadios[0].value
           : inputRadios[1].value;
+        document.getElementById(
+          attributes[1] + "Detail"
+        ).innerHTML = `<span class="show-details-element">${
+          attributes[0]
+        }:</span>  ${userObj[attributes[1]]}`;
       } else if (attributes[2] == "checkbox") {
         userObj[attributes[1]] = item.checked ? true : false;
-        document.getElementById("ifSubscribedDetail").innerText =
-          attributes[0] + " : " + userObj[attributes[1]];
+        document.getElementById(
+          attributes[1] + "Detail"
+        ).innerHTML = `<span class="show-details-element">${
+          attributes[0]
+        }:</span> ${userObj[attributes[1]]}`;
       } else {
         console.log(item.files[0]);
         userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
-        // console.log(document.getElementById(attributes[1] + "Detail"));
-        document.getElementById(attributes[1] + "Detail").src =
-          userObj[attributes[1]];
+        displayImageById(item, attributes[1] + "Detail");
       }
     }
   });
   console.log(userObj);
-  document.getElementsByClassName("show-details")[0].style.display = "block ";
+  const showDetails = document.getElementsByClassName("show-details")[0];
+  showDetails.style.display = "block ";
+  showDetails.scrollIntoView({ behavior: "smooth", block: "center" });
 }
-fetchKey();

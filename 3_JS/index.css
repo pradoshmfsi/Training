@@ -103,6 +103,12 @@ input[type="radio"] {
   text-align: center;
   font-size: 15px;
 }
+.input-checkbox-address {
+  margin: 2%;
+  margin-left: 4%;
+  text-align: left;
+  font-size: 15px;
+}
 .addr {
   margin-left: 3%;
   font-size: 15px;
@@ -214,11 +220,19 @@ span {
   padding: 5%;
   display: none;
 }
-.personal-details {
-  font-size: 15px;
+.show-details-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(0, 174, 255);
+  margin: 2%;
+  margin-left: 0%;
+}
+.show-details-element {
+  font-weight: 500;
+  color: black;
 }
 .image-details {
-  text-align: center;
+  float: right;
 }
 @media only screen and (max-width: 850px) {
   .form-heading {
@@ -243,6 +257,13 @@ span {
   .container {
     margin-left: 3%;
   }
+  .image-details {
+    float: none;
+    text-align: center;
+  }
+  .show-details {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 600px) {
   .input-row {
@@ -256,5 +277,8 @@ span {
   }
   .container {
     margin-left: 3%;
+  }
+  .show-details {
+    width: 90%;
   }
 }
