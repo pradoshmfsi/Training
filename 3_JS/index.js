@@ -2,58 +2,13 @@ let token = "";
 const textRegex = /[A-Za-z ]+/;
 const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
+let flagForFirstError = "";
+
 let form = document.getElementsByTagName("form")[0];
 let inputElements = form.querySelectorAll("[isRequired='true'][type='text']");
 
 form.addEventListener("submit", (event) => {
   validate(event);
-});
-
-for (let count = 0; count < inputElements.length; count++) {
-  let inputElement = inputElements[count];
-  let inputElementId = inputElement.id;
-  if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
-    inputElement.addEventListener("change", () => {
-      validateTextById(inputElementId, textRegex);
-    });
-  } else {
-    inputElement.addEventListener("change", () => {
-      validateTextById(inputElementId, emailRegex);
-    });
-  }
-}
-
-form.querySelectorAll("[isRequired='true'][type='radio']").forEach((item) => {
-  item.addEventListener("change", () => {
-    validateGender();
-  });
-});
-
-form.querySelectorAll("[isRequired='true'][type='date']").forEach((item) => {
-  item.addEventListener("change", () => {
-    validateDate();
-  });
-});
-
-document.getElementById("hobby").addEventListener("input", () => {
-  populateHobby();
-});
-
-document.getElementById("dp").addEventListener("change", () => {
-  displayProfilePicName();
-});
-
-document
-  .getElementById("ifPresentSameAsPermanent")
-  .addEventListener("click", () => {
-    populatePermanentAsPresent();
-  });
-
-const selectCountryElements = document.querySelectorAll(`[id*="Country"]`);
-selectCountryElements.forEach((item) => {
-  item.addEventListener("change", () => {
-    populateStates(item.getAttribute("addressType"));
-  });
 });
 
 async function fetchKey() {
@@ -119,11 +74,61 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchKey();
 });
 
+for (let count = 0; count < inputElements.length; count++) {
+  let inputElement = inputElements[count];
+  let inputElementId = inputElement.id;
+  if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
+    inputElement.addEventListener("change", () => {
+      validateTextById(inputElementId, textRegex);
+    });
+  } else {
+    inputElement.addEventListener("change", () => {
+      validateTextById(inputElementId, emailRegex);
+    });
+  }
+}
+
+form.querySelectorAll("[isRequired='true'][type='radio']").forEach((item) => {
+  item.addEventListener("change", () => {
+    validateGender();
+  });
+});
+
+form.querySelectorAll("[isRequired='true'][type='date']").forEach((item) => {
+  item.addEventListener("change", () => {
+    validateDate();
+  });
+});
+
+document.getElementById("hobby").addEventListener("input", () => {
+  populateHobby();
+});
+
+document.getElementById("dp").addEventListener("change", () => {
+  displayProfilePicName();
+});
+
+document
+  .getElementById("ifPresentSameAsPermanent")
+  .addEventListener("click", () => {
+    populatePermanentAsPresent();
+  });
+
+const selectCountryElements = document.querySelectorAll(`[id*="Country"]`);
+selectCountryElements.forEach((item) => {
+  item.addEventListener("change", () => {
+    populateStates(item.getAttribute("addressType"));
+  });
+});
+
 function validateDP() {
   span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
   const file = document.getElementById("dp");
   if (!file.files[0]) {
     span.innerText = "*Required";
+    if (!flagForFirstError) {
+      flagForFirstError = "dpTitle";
+    }
     return false;
   } else {
     span.innerText = "*";
@@ -276,6 +281,9 @@ function validateDate() {
   let date = document.getElementById("date").value;
   if (date == "") {
     span.innerText = "*Required";
+    if (!flagForFirstError) {
+      flagForFirstError = "dobTitle";
+    }
     return false;
   } else {
     span.innerText = "*";
@@ -289,6 +297,9 @@ function validateGender() {
   let female = document.getElementById("female");
   if (!male.checked && !female.checked) {
     span.innerText = "*Required";
+    if (!flagForFirstError) {
+      flagForFirstError = "genderTitle";
+    }
     return false;
   } else {
     span.innerText = "*";
@@ -319,6 +330,9 @@ function validateAddress(addressType) {
     !AddressPin
   ) {
     msg.innerText = "*Fill all the required fields";
+    if (!flagForFirstError) {
+      flagForFirstError = msg.id;
+    }
     return false;
   } else {
     msg.innerText = "";
@@ -327,54 +341,16 @@ function validateAddress(addressType) {
 }
 function validate(event) {
   event.preventDefault();
-  let flagForFirstError = "";
+  flagForFirstError = "";
 
-  if (!validateTextById("firstName", textRegex)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "firstName";
-    }
-  }
-
-  if (!validateTextById("lastName", textRegex)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "lastName";
-    }
-  }
-
-  if (!validateTextById("email", emailRegex)) {
-    if (!flagForFirstError) {
-      flagForFirstError = "email";
-    }
-  }
-
-  if (!validateGender()) {
-    if (!flagForFirstError) {
-      flagForFirstError = "genderTitle";
-    }
-  }
-
-  if (!validateDate()) {
-    if (!flagForFirstError) {
-      flagForFirstError = "date";
-    }
-  }
-
-  if (!validateDP()) {
-    if (!flagForFirstError) {
-      flagForFirstError = "dp";
-    }
-  }
-
-  if (!validateAddress("present")) {
-    if (!flagForFirstError) {
-      flagForFirstError = "errMsgPresentAddress";
-    }
-  }
-  if (!validateAddress("permanent")) {
-    if (!flagForFirstError) {
-      flagForFirstError = "errMsgPermanentAddress";
-    }
-  }
+  validateTextById("firstName", textRegex);
+  validateTextById("lastName", textRegex);
+  validateTextById("email", emailRegex);
+  validateGender();
+  validateDate();
+  validateDP();
+  validateAddress("present");
+  validateAddress("permanent");
 
   if (flagForFirstError) {
     document
@@ -394,7 +370,6 @@ function showDetailsAfterSubmit() {
     const attributes = valueString.split("|");
     if (attributes.length == 2) {
       userObj[attributes[1]] = item.value;
-      // console.log(document.getElementById(attributes[1] + "Detail"));
       document.getElementById(
         attributes[1] + "Detail"
       ).innerHTML = `<span class="show-details-element">${
