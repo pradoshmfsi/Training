@@ -4,12 +4,9 @@ const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
 let flagForFirstError = "";
 
-let form = document.getElementsByTagName("form")[0];
-let inputElements = form.querySelectorAll("[isRequired='true'][type='text']");
-
-form.addEventListener("submit", (event) => {
-  validate(event);
-});
+let form = $(".form-container")[0];
+let inputElements = $(".form-container [isRequired='true'][type='text']");
+$("#submitForm").click(validate);
 
 async function fetchKey() {
   try {
@@ -70,93 +67,86 @@ async function fetchCountry(token) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchKey();
-});
+$(document).ready(fetchKey);
 
-for (let count = 0; count < inputElements.length; count++) {
-  let inputElement = inputElements[count];
-  let inputElementId = inputElement.id;
-  if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
-    inputElement.addEventListener("change", () => {
-      validateTextById(inputElementId, textRegex);
-    });
-  } else {
-    inputElement.addEventListener("change", () => {
-      validateTextById(inputElementId, emailRegex);
-    });
+$(".form-container [isRequired='true'][type='text']").each(
+  (index, inputElement) => {
+    let inputElementId = inputElement.id;
+    if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
+      $(inputElement).on("change", () => {
+        validateTextById(inputElementId, textRegex);
+      });
+    } else {
+      $(inputElement).on("change", () => {
+        validateTextById(inputElementId, emailRegex);
+      });
+    }
   }
-}
+);
 
-form.querySelectorAll("[isRequired='true'][type='radio']").forEach((item) => {
-  item.addEventListener("change", () => {
+$("[isRequired='true'][type='radio']").each((index, item) => {
+  $(item).on("change", () => {
     validateGender();
   });
 });
 
-form.querySelectorAll("[isRequired='true'][type='date']").forEach((item) => {
-  item.addEventListener("change", () => {
+$("[isRequired='true'][type='date']").each((index, item) => {
+  $(item).on("change", () => {
     validateDate();
   });
 });
+$("#hobby").on("input", () => populateHobby());
 
-document.getElementById("hobby").addEventListener("input", () => {
-  populateHobby();
-});
-
-document.getElementById("dp").addEventListener("change", () => {
+$("#dp").on("change", () => {
   displayProfilePicName();
 });
 
-document
-  .getElementById("ifPresentSameAsPermanent")
-  .addEventListener("click", () => {
-    populatePermanentAsPresent();
-  });
+$("#ifPresentSameAsPermanent").on("click", () => {
+  populatePermanentAsPresent();
+});
 
-const selectCountryElements = document.querySelectorAll(`[id*="Country"]`);
-selectCountryElements.forEach((item) => {
-  item.addEventListener("change", () => {
-    populateStates(item.getAttribute("addressType"));
+$(`[id *= "Country"]`).each((index, item) => {
+  $(item).on("change", () => {
+    populateStates($(item).attr("addressType"));
   });
 });
 
 function validateDP() {
-  span = document.getElementById("dpTitle").getElementsByTagName("span")[0];
+  const span = $($("#dpTitle span")[0]);
   const file = document.getElementById("dp");
   if (!file.files[0]) {
-    span.innerText = "*Required";
+    span.text("*Required");
     if (!flagForFirstError) {
       flagForFirstError = "dpTitle";
     }
     return false;
   } else {
-    span.innerText = "*";
+    span.text("*");
     return true;
   }
 }
 
 function displayImageById(file, id) {
   const path = URL.createObjectURL(file.files[0]);
-  document.getElementById(id).src = path;
+  $(`#${id}`).attr("src", path);
 }
 
 function displayProfilePicName() {
-  const file = document.getElementById("dp");
+  const file = $("#dp")[0];
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
-  let filename = document.getElementById("filename");
+  let filename = $("#filename");
   if (validateDP()) {
     if (allowedFormats.includes(file.files[0].type)) {
-      filename.innerText = file.files[0].name;
-      filename.style.color = "black";
+      filename.text(file.files[0].name);
+      filename.css("color", "black");
 
-      var icon = document.getElementById("iconForAddPic");
-      icon.className = "fa-solid fa-check";
+      var icon = $("#iconForAddPic");
+      icon.addClass("fa-solid fa-check");
 
       displayImageById(file, "profileImage");
     } else {
-      filename.style.color = "red";
-      filename.innerText = "Invalid file format(Accepts only jpg, png)";
+      filename.text("Invalid file format, only accepts(jpg/png)");
+      filename.css("color", "red");
     }
   }
 }
@@ -339,10 +329,9 @@ function validateAddress(addressType) {
     return true;
   }
 }
-function validate(event) {
-  event.preventDefault();
+function validate() {
   flagForFirstError = "";
-
+  var result = [];
   validateTextById("firstName", textRegex);
   validateTextById("lastName", textRegex);
   validateTextById("email", emailRegex);
@@ -369,6 +358,9 @@ function showDetailsAfterSubmit() {
     let valueString = item.getAttribute("showDetails");
     const attributes = valueString.split("|");
     if (attributes.length == 2) {
+      if (!item.value) {
+        item.value = "NA";
+      }
       userObj[attributes[1]] = item.value;
       document.getElementById(
         attributes[1] + "Detail"

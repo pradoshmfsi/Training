@@ -13,9 +13,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
-    <form>
+    <div class="form-container">
       <div class="form-heading">
         <div class="form-heading-element">
           <div class="form-heading-text">Register</div>
@@ -164,7 +165,7 @@
                   id="presentAddressLine1"
                   name="presentAddressLine1"
                   placeholder="Plot"
-                  showDetails="Present Address Line 1|presentAddressLine1"
+                  showDetails="Address Line 1|presentAddressLine1"
                 />
               </div>
             </div>
@@ -177,7 +178,7 @@
                   id="presentAddressLine2"
                   name="presentAddressLine2"
                   placeholder="Street Area"
-                  showDetails="Present Address Line 2|presentAddressLine2"
+                  showDetails="Address Line 2|presentAddressLine2"
                 />
               </div>
             </div>
@@ -189,7 +190,7 @@
                 <select
                   id="presentCountry"
                   addressType="present"
-                  showDetails="Present Country|presentCountry"
+                  showDetails="Country|presentCountry"
                 >
                   <option value="-1"></option>
                 </select>
@@ -198,10 +199,7 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select
-                  id="presentState"
-                  showDetails="Present State|presentState"
-                >
+                <select id="presentState" showDetails="State|presentState">
                   <option value="-1"></option>
                 </select>
               </div>
@@ -215,7 +213,7 @@
                   type="text"
                   id="presentCity"
                   name="presentCity"
-                  showDetails="Present City|presentCity"
+                  showDetails="City|presentCity"
                 />
               </div>
             </div>
@@ -226,7 +224,7 @@
                   type="text"
                   id="presentPin"
                   name="presentPin"
-                  showDetails="Present Pin|presentPin"
+                  showDetails="Pin|presentPin"
                 />
               </div>
             </div>
@@ -254,7 +252,7 @@
                   id="permanentAddressLine1"
                   name="permanentAddressLine1"
                   placeholder="Plot"
-                  showDetails="Permanent Address Line 1|permanentAddressLine1"
+                  showDetails="Address Line 1|permanentAddressLine1"
                 />
               </div>
             </div>
@@ -267,7 +265,7 @@
                   id="permanentAddressLine2"
                   name="permanentAddressLine2"
                   placeholder="Street Area"
-                  showDetails="Permanent Address Line 2|permanentAddressLine2"
+                  showDetails="Address Line 2|permanentAddressLine2"
                 />
               </div>
             </div>
@@ -279,7 +277,7 @@
                 <select
                   id="permanentCountry"
                   addressType="permanent"
-                  showDetails="Permanent Country|permanentCountry"
+                  showDetails="Country|permanentCountry"
                 >
                   <option value="-1"></option>
                 </select>
@@ -288,10 +286,7 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select
-                  id="permanentState"
-                  showDetails="Permanent State|permanentState"
-                >
+                <select id="permanentState" showDetails="State|permanentState">
                   <option value="-1"></option>
                 </select>
               </div>
@@ -305,7 +300,7 @@
                   type="text"
                   id="permanentCity"
                   name="permanentCity"
-                  showDetails="Permanent City|permanentCity"
+                  showDetails="City|permanentCity"
                 />
               </div>
             </div>
@@ -316,7 +311,7 @@
                   type="text"
                   id="permanentPin"
                   name="permanentPin"
-                  showDetails="Permanent Pin|permanentPin"
+                  showDetails="Pin|permanentPin"
                 />
               </div>
             </div>
@@ -331,10 +326,10 @@
           /><label for="ifSubscribed">Subscribe to news letter</label>
         </div>
         <div class="submit">
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" id="submitForm" />
         </div>
       </div>
-    </form>
+    </div>
     <br />
     <div class="show-details">
       <div class="image-details">

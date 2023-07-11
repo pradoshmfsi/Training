@@ -5,6 +5,17 @@ body {
   font-weight: 300;
   font-size: 16px;
 }
+.form-container {
+  width: 50%;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 6px;
+}
 .form-heading {
   display: flex;
   margin: 2%;
@@ -29,17 +40,7 @@ img {
   width: 64%;
   /* margin-bottom: 10%; */
 }
-form {
-  width: 50%;
-  margin: auto;
-  background-color: rgb(255, 255, 255);
-  padding: 1%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  border-radius: 6px;
-}
+
 .container {
   margin-top: 2%;
   margin-left: 3%;
