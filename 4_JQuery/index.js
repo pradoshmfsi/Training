@@ -279,7 +279,6 @@ function validate() {
   }
   if (isCorrect) {
     showDetailsAfterSubmit();
-    return true;
   }
 }
 
