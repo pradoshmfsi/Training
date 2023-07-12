@@ -1,7 +1,6 @@
 let token = "";
 let inputElements = $(".form-container [isRequired='true'][type='text']");
 $("#submitForm").click(validate);
-
 async function fetchKey() {
   try {
     const response = await fetch(
@@ -63,7 +62,7 @@ $(document).ready(fetchKey);
 
 $(".form-container [isRequired*='|']").each((index, inputElement) => {
   let attributes = $(inputElement).attr("isRequired").split("|");
-  $(inputElement).on("change", () => {
+  $(inputElement).on("input", () => {
     validateTextById(
       attributes[0],
       attributes[1],
@@ -158,7 +157,6 @@ async function populateStates(addressType) {
   ) {
     $("#permanentState").val($("#presentState").val());
   }
-  console.log("States Populated...");
 }
 
 function populateHobby() {
@@ -181,8 +179,8 @@ function populateHobby() {
 
 function populatePermanentAsPresent() {
   if ($("#ifPresentSameAsPermanent").prop("checked")) {
-    $("[validateAddress*='|']").each((index, item) => {
-      let attributes = $(item).attr("validateAddress").split("|");
+    $("[populateAddress*='|']").each((index, item) => {
+      let attributes = $(item).attr("populateAddress").split("|");
       $(`#${attributes[1]}`).val($(`#${attributes[0]}`).val());
       if (attributes[attributes.length - 1] == "permanent") {
         populateStates(attributes[2]);
@@ -191,7 +189,7 @@ function populatePermanentAsPresent() {
   }
 }
 
-function validateTextById(id, showId, spanQuery, patternName) {
+function validateTextById(id, showId, spanQuery, patternName = ".") {
   let data = $(id).val();
   let span = $(spanQuery);
   patternName = new RegExp(patternName, "g");
@@ -218,27 +216,6 @@ function validateGender() {
   }
 }
 
-function validateAddress(addressType) {
-  let msg = "";
-  if (addressType == "present") {
-    msg = $("#errMsgPresentAddress");
-  } else {
-    msg = $("#errMsgPermanentAddress");
-  }
-  if (
-    $(`#${addressType}AddressLine1`).val() == "" ||
-    $(`#${addressType}Country`).val() == "" ||
-    $(`#${addressType}State`).val() == "" ||
-    $(`#${addressType}AddressCity`).val() == "" ||
-    $(`#${addressType}AddressPin`).val() == ""
-  ) {
-    msg.text("*Fill all the required fields");
-    return "#" + msg.attr("id");
-  } else {
-    msg.text("");
-    return "";
-  }
-}
 function validate() {
   let isCorrect = true;
   var result = [
@@ -263,9 +240,13 @@ function validate() {
     validateGender(),
     validateTextById("#date", "#dobTitle", "#dobTitle span", "."),
     validateDP(),
-    validateAddress("present"),
-    validateAddress("permanent"),
   ];
+  //VALIDATE PRESENT AND PERMANENT ADDRESS USING USER DEFINED ATTRIBUTES
+  $(`fieldset [isRequired*='|']`).each((index, item) => {
+    let attributes = $(item).attr("isRequired").split("|");
+    result.push(validateTextById(attributes[0], attributes[1], attributes[2]));
+  });
+
   for (res of result) {
     if (res != "") {
       isCorrect = false;
