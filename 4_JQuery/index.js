@@ -1,7 +1,4 @@
 let token = "";
-const textRegex = /[A-Za-z ]+/;
-const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-
 let inputElements = $(".form-container [isRequired='true'][type='text']");
 $("#submitForm").click(validate);
 
@@ -22,28 +19,33 @@ async function fetchKey() {
 
     const data = await response.json();
     token = "Bearer " + data.auth_token;
-    fetchCountry(token);
+    fetchCountry();
   } catch (error) {
     console.log(error);
   }
 }
 
-async function fetchCountry(token) {
+async function fetchFromApi(country = "countries/") {
+  let url = "https://www.universal-tutorial.com/api/" + country;
   try {
-    const response = await fetch(
-      "https://www.universal-tutorial.com/api/countries/",
-      {
-        method: "GET",
-        headers: {
-          Authorization: token,
-          Accept: "application/json",
-        },
-      }
-    );
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+        Accept: "application/json",
+      },
+    });
 
     const data = await response.json();
-    let arr = data;
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
+async function fetchCountry() {
+  try {
+    let arr = await fetchFromApi();
     for (let i = 0; i < arr.length; i++) {
       $("#presentCountry").append(
         $(`<option></option>`).text(arr[i].country_name)
@@ -59,27 +61,20 @@ async function fetchCountry(token) {
 
 $(document).ready(fetchKey);
 
-$(".form-container [isRequired='true'][type='text']").each(
-  (index, inputElement) => {
-    let inputElementId = inputElement.id;
-    if (inputElement.type == "text" && inputElementId.slice(-4) == "Name") {
-      $(inputElement).on("change", () => {
-        validateTextById(inputElementId, textRegex);
-      });
-    } else {
-      $(inputElement).on("change", () => {
-        validateTextById(inputElementId, emailRegex);
-      });
-    }
-  }
-);
+$(".form-container [isRequired*='|']").each((index, inputElement) => {
+  let attributes = $(inputElement).attr("isRequired").split("|");
+  $(inputElement).on("change", () => {
+    validateTextById(
+      attributes[0],
+      attributes[1],
+      attributes[2],
+      attributes[3]
+    );
+  });
+});
 
 $("[isRequired='true'][type='radio']").on("change", () => {
   validateGender();
-});
-
-$("[isRequired='true'][type='date']").on("change", () => {
-  validateDate();
 });
 
 $("#hobby").on("input", () => populateHobby());
@@ -103,7 +98,7 @@ function validateDP() {
   const file = document.getElementById("dp");
   if (!file.files[0]) {
     span.text("*Required");
-    return "dpTitle";
+    return "#dpTitle";
   } else {
     span.text("*");
     return "";
@@ -136,38 +131,34 @@ function displayProfilePicName() {
 }
 
 async function getStates(country, addressType) {
-  let stateId = addressType + "State";
   try {
-    let url = "https://www.universal-tutorial.com/api/states/" + country;
-    let res = await fetch(url, {
-      method: "GET",
-      headers: {
-        Authorization: token,
-        Accept: "application/json",
-      },
-    });
-
-    let arr = await res.json();
+    let arr = await fetchFromApi("states/" + country);
     for (let i = 0; i < arr.length; i++) {
-      $(`#${stateId}`).append($(`<option></option>`).text(arr[i].state_name));
+      $(`#${addressType}State`).append(
+        $(`<option></option>`).text(arr[i].state_name)
+      );
     }
   } catch (error) {
     console.log(error);
   }
 }
+
 async function populateStates(addressType) {
   let countryId = addressType + "Country";
 
   let country = $(`#${countryId}`).val();
+
   $(`#${addressType}State`).val("");
   if (country != "") {
     await getStates(country, addressType);
   }
-  if (addressType == "permanent") {
-    if ($("#ifPresentSameAsPermanent").prop("checked")) {
-      $("#permanentState").val($("#presentState").val());
-    }
+  if (
+    addressType == "permanent" &&
+    $("#ifPresentSameAsPermanent").prop("checked")
+  ) {
+    $("#permanentState").val($("#presentState").val());
   }
+  console.log("States Populated...");
 }
 
 function populateHobby() {
@@ -188,41 +179,30 @@ function populateHobby() {
   }
 }
 
-async function populatePermanentAsPresent() {
+function populatePermanentAsPresent() {
   if ($("#ifPresentSameAsPermanent").prop("checked")) {
-    $("#permanentAddressLine1").val($("#presentAddressLine1").val());
-    $("#permanentAddressLine2").val($("#presentAddressLine2").val());
-    $("#permanentCountry").val($("#presentCountry").val());
-    populateStates("permanent");
-    $("#permanentState").val($("#presentState").val());
-    $("#permanentCity").val($("#presentCity").val());
-    $("#permanentPin").val($("#presentPin").val());
+    $("[validateAddress*='|']").each((index, item) => {
+      let attributes = $(item).attr("validateAddress").split("|");
+      $(`#${attributes[1]}`).val($(`#${attributes[0]}`).val());
+      if (attributes[attributes.length - 1] == "permanent") {
+        populateStates(attributes[2]);
+      }
+    });
   }
 }
 
-function validateTextById(id, patternName = /.*/) {
-  let data = $(`#${id}`).val();
-  let span = $(`#${id}Title span`);
+function validateTextById(id, showId, spanQuery, patternName) {
+  let data = $(id).val();
+  let span = $(spanQuery);
+  patternName = new RegExp(patternName, "g");
   if (data === "" || data.trim() === "") {
     span.text("*Required");
-    return id + "Title";
+    return showId;
   } else if (!patternName.test(data)) {
     span.text("*Not valid");
-    return id + "Title";
+    return showId;
   } else {
     span.text("*");
-    return "";
-  }
-}
-
-function validateDate() {
-  span = $("#dobTitle span");
-  let date = $("#date").val();
-  if (date == "") {
-    span.text("*Required");
-    return "dobTitle";
-  } else {
-    span.text("");
     return "";
   }
 }
@@ -231,7 +211,7 @@ function validateGender() {
   span = $("#genderTitle span");
   if (!$("#male").prop("checked") && !$("#female").prop("checked")) {
     span.text("*Required");
-    return "genderTitle";
+    return "#genderTitle";
   } else {
     span.text("*");
     return "";
@@ -253,7 +233,7 @@ function validateAddress(addressType) {
     $(`#${addressType}AddressPin`).val() == ""
   ) {
     msg.text("*Fill all the required fields");
-    return msg.attr("id");
+    return "#" + msg.attr("id");
   } else {
     msg.text("");
     return "";
@@ -262,11 +242,26 @@ function validateAddress(addressType) {
 function validate() {
   let isCorrect = true;
   var result = [
-    validateTextById("firstName", textRegex),
-    validateTextById("lastName", textRegex),
-    validateTextById("email", emailRegex),
+    validateTextById(
+      "#firstName",
+      "#firstNameTitle",
+      "#firstNameTitle span",
+      "[A-Za-z ]+"
+    ),
+    validateTextById(
+      "#lastName",
+      "#lastNameTitle",
+      "#lastNameTitle span",
+      "[A-Za-z ]+"
+    ),
+    validateTextById(
+      "#email",
+      "#emailTitle",
+      "#emailTitle span",
+      "[a-z0-9]+@[a-z]+.[a-z]{2,3}"
+    ),
     validateGender(),
-    validateDate(),
+    validateTextById("#date", "#dobTitle", "#dobTitle span", "."),
     validateDP(),
     validateAddress("present"),
     validateAddress("permanent"),
@@ -274,7 +269,7 @@ function validate() {
   for (res of result) {
     if (res != "") {
       isCorrect = false;
-      $(`#${res}`)[0].scrollIntoView({
+      $(res)[0].scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
@@ -319,7 +314,6 @@ function showDetailsAfterSubmit() {
     }
   });
   console.log(userObj);
-  const showDetails = $(".show-details");
-  showDetails.css("display", "block");
-  showDetails[0].scrollIntoView({ behavior: "smooth", block: "center" });
+  $(".show-details").css("display", "block");
+  $(".show-details")[0].scrollIntoView({ behavior: "smooth", block: "center" });
 }

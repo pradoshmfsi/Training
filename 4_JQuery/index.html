@@ -41,7 +41,7 @@
                 type="text"
                 id="firstName"
                 name="firstName"
-                isRequired="true"
+                isRequired="#firstName|#firstNameTitle|#firstNameTitle span|[A-Za-z ]+"
                 showDetails="First Name|firstName|text"
                 autofocus
               />
@@ -55,7 +55,7 @@
                 type="text"
                 id="lastName"
                 name="lastName"
-                isRequired="true"
+                isRequired="#lastName|#lastNameTitle|#lastNameTitle span|[A-Za-z ]+"
                 showDetails="Last Name|lastName|text"
               />
             </div>
@@ -69,7 +69,7 @@
                 type="text"
                 id="email"
                 name="email"
-                isRequired="true"
+                isRequired="#email|#emailTitle|#emailTitle span|[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
                 showDetails="Email|email|text"
               />
             </div>
@@ -106,7 +106,7 @@
                 id="date"
                 name="date"
                 max="2015-01-01"
-                isRequired="true"
+                isRequired="#date|#dobTitle|#dobTitle span|."
                 showDetails="Date Of Birth|date|text"
               />
             </div>
@@ -166,6 +166,7 @@
                   name="presentAddressLine1"
                   placeholder="Plot"
                   showDetails="Address Line 1|presentAddressLine1|text"
+                  validateAddress="presentAddressLine1|permanentAddressLine1"
                 />
               </div>
             </div>
@@ -179,6 +180,7 @@
                   name="presentAddressLine2"
                   placeholder="Street Area"
                   showDetails="Address Line 2|presentAddressLine2|text"
+                  validateAddress="presentAddressLine2|permanentAddressLine2"
                 />
               </div>
             </div>
@@ -191,6 +193,7 @@
                   id="presentCountry"
                   addressType="present"
                   showDetails="Country|presentCountry|text"
+                  validateAddress="presentCountry|permanentCountry|permanent"
                 >
                   <option value="-1"></option>
                 </select>
@@ -199,7 +202,11 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select id="presentState" showDetails="State|presentState|text">
+                <select
+                  id="presentState"
+                  showDetails="State|presentState|text"
+                  validateAddress="presentState|permanentState|state"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
@@ -214,6 +221,7 @@
                   id="presentCity"
                   name="presentCity"
                   showDetails="City|presentCity|text"
+                  validateAddress="presentCity|permanentCity"
                 />
               </div>
             </div>
@@ -225,6 +233,7 @@
                   id="presentPin"
                   name="presentPin"
                   showDetails="Pin|presentPin|text"
+                  validateAddress="presentPin|permanentPin"
                 />
               </div>
             </div>
