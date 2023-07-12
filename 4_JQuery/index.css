@@ -15,6 +15,7 @@ body {
   margin-top: 1%;
   margin-bottom: 1%;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 .form-heading {
   display: flex;
@@ -207,19 +208,13 @@ span {
   text-align: center;
 }
 
-/* #hobbyTitle::after {
-  content: " Required";
-  color: red;
-  font-size: 15px;
-  margin-left: 5%;
-} */
-
 .show-details {
   background-color: white;
   width: 50%;
   margin: auto;
   padding: 5%;
   display: none;
+  box-sizing: border-box;
 }
 .show-details-title {
   font-size: 20px;
@@ -246,14 +241,13 @@ span {
   .input-row {
     display: block;
   }
-  /* div .input-container {
-    width: 95%;
-  } */
-  .input-container {
+
+  .input-container,
+  select {
     width: 95%;
   }
-  form {
-    width: 60%;
+  .form-container {
+    width: 70%;
   }
   .container {
     margin-left: 3%;
@@ -270,10 +264,11 @@ span {
   .input-row {
     display: block;
   }
-  .input-container {
+  .input-container,
+  select {
     width: 95%;
   }
-  form {
+  .form-container {
     width: 90%;
   }
   .container {

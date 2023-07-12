@@ -2,9 +2,6 @@ let token = "";
 const textRegex = /[A-Za-z ]+/;
 const emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
-let flagForFirstError = "";
-
-let form = $(".form-container")[0];
 let inputElements = $(".form-container [isRequired='true'][type='text']");
 $("#submitForm").click(validate);
 
@@ -106,13 +103,10 @@ function validateDP() {
   const file = document.getElementById("dp");
   if (!file.files[0]) {
     span.text("*Required");
-    if (!flagForFirstError) {
-      flagForFirstError = "dpTitle";
-    }
-    return false;
+    return "dpTitle";
   } else {
     span.text("*");
-    return true;
+    return "";
   }
 }
 
@@ -125,7 +119,7 @@ function displayProfilePicName() {
   const file = $("#dp")[0];
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
   let filename = $("#filename");
-  if (validateDP()) {
+  if (!validateDP()) {
     if (allowedFormats.includes(file.files[0].type)) {
       filename.text(file.files[0].name);
       filename.css("color", "black");
@@ -206,102 +200,89 @@ async function populatePermanentAsPresent() {
   }
 }
 
-function validateTextById(id, patternName) {
-  let data = document.getElementById(id).value;
-  let text = id + "Title";
-  let span = document.getElementById(text).getElementsByTagName("span")[0];
+function validateTextById(id, patternName = /.*/) {
+  let data = $(`#${id}`).val();
+  let span = $(`#${id}Title span`);
   if (data === "" || data.trim() === "") {
-    span.innerText = "*Required";
-    return false;
+    span.text("*Required");
+    return id + "Title";
   } else if (!patternName.test(data)) {
-    span.innerText = "*Not valid";
-    return false;
+    span.text("*Not valid");
+    return id + "Title";
   } else {
-    span.innerText = "*";
-    return true;
+    span.text("*");
+    return "";
   }
 }
 
 function validateDate() {
-  span = document.getElementById("dobTitle").getElementsByTagName("span")[0];
-  let date = document.getElementById("date").value;
+  span = $("#dobTitle span");
+  let date = $("#date").val();
   if (date == "") {
-    span.innerText = "*Required";
-    if (!flagForFirstError) {
-      flagForFirstError = "dobTitle";
-    }
-    return false;
+    span.text("*Required");
+    return "dobTitle";
   } else {
-    span.innerText = "*";
-    return true;
+    span.text("");
+    return "";
   }
 }
 
 function validateGender() {
-  span = document.getElementById("genderTitle").getElementsByTagName("span")[0];
-  let male = document.getElementById("male");
-  let female = document.getElementById("female");
-  if (!male.checked && !female.checked) {
-    span.innerText = "*Required";
-    if (!flagForFirstError) {
-      flagForFirstError = "genderTitle";
-    }
-    return false;
+  span = $("#genderTitle span");
+  if (!$("#male").prop("checked") && !$("#female").prop("checked")) {
+    span.text("*Required");
+    return "genderTitle";
   } else {
-    span.innerText = "*";
-    return true;
+    span.text("*");
+    return "";
   }
 }
 
 function validateAddress(addressType) {
   let msg = "";
-  let AddressLine1 = document.getElementById(
-    addressType + "AddressLine1"
-  ).value;
-  let AddressCountry = document.getElementById(addressType + "Country").value;
-  let AddressState = document.getElementById(addressType + "State").value;
-  let AddressCity = document.getElementById(addressType + "City").value;
-  let AddressPin = document.getElementById(addressType + "Pin").value;
   if (addressType == "present") {
-    msg = document.getElementById("errMsgPresentAddress");
+    msg = $("#errMsgPresentAddress");
   } else {
-    msg = document.getElementById("errMsgPermanentAddress");
+    msg = $("#errMsgPermanentAddress");
   }
-
   if (
-    !AddressLine1 ||
-    !AddressCountry ||
-    !AddressState ||
-    !AddressCity ||
-    !AddressPin
+    $(`#${addressType}AddressLine1`).val() == "" ||
+    $(`#${addressType}Country`).val() == "" ||
+    $(`#${addressType}State`).val() == "" ||
+    $(`#${addressType}AddressCity`).val() == "" ||
+    $(`#${addressType}AddressPin`).val() == ""
   ) {
-    msg.innerText = "*Fill all the required fields";
-    if (!flagForFirstError) {
-      flagForFirstError = msg.id;
-    }
-    return false;
+    msg.text("*Fill all the required fields");
+    return msg.attr("id");
   } else {
-    msg.innerText = "";
-    return true;
+    msg.text("");
+    return "";
   }
 }
 function validate() {
-  flagForFirstError = "";
-  var result = [];
-  validateTextById("firstName", textRegex);
-  validateTextById("lastName", textRegex);
-  validateTextById("email", emailRegex);
-  validateGender();
-  validateDate();
-  validateDP();
-  validateAddress("present");
-  validateAddress("permanent");
-
-  if (flagForFirstError) {
-    document
-      .getElementById(flagForFirstError)
-      .scrollIntoView({ behavior: "smooth", block: "center" });
-  } else {
+  let isCorrect = true;
+  var result = [
+    validateTextById("firstName", textRegex),
+    validateTextById("lastName", textRegex),
+    validateTextById("email", emailRegex),
+    validateGender(),
+    validateDate(),
+    validateDP(),
+    validateAddress("present"),
+    validateAddress("permanent"),
+  ];
+  for (res of result) {
+    if (res != "") {
+      isCorrect = false;
+      $(`#${res}`)[0].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      $(".show-details").css("display", "none");
+      break;
+    }
+  }
+  if (isCorrect) {
     showDetailsAfterSubmit();
     return true;
   }
@@ -309,47 +290,36 @@ function validate() {
 
 function showDetailsAfterSubmit() {
   const userObj = {};
-  const detailElements = document.querySelectorAll(`[showDetails*="|"]`);
-  detailElements.forEach((item) => {
-    let valueString = item.getAttribute("showDetails");
-    const attributes = valueString.split("|");
-    if (attributes.length == 2) {
-      if (!item.value) {
-        item.value = "NA";
-      }
-      userObj[attributes[1]] = item.value;
-      document.getElementById(
-        attributes[1] + "Detail"
-      ).innerHTML = `<span class="show-details-element">${
-        attributes[0]
-      }:</span> ${userObj[attributes[1]]}`;
-    } else {
-      if (attributes[2] == "radio") {
-        const inputRadios = item.getElementsByTagName("input");
+
+  $(`[showDetails*="|"]`).each((index, item) => {
+    const attributes = $(item).attr("showDetails").split("|");
+    if (attributes[2] != "file") {
+      if (attributes[2] == "text") {
+        if ($(item).val() == "") {
+          $(item).val("NA");
+        }
+        userObj[attributes[1]] = $(item).val();
+      } else if (attributes[2] == "radio") {
+        const inputRadios = $(item).children("input");
         userObj[attributes[1]] = inputRadios[0].checked
           ? inputRadios[0].value
           : inputRadios[1].value;
-        document.getElementById(
-          attributes[1] + "Detail"
-        ).innerHTML = `<span class="show-details-element">${
-          attributes[0]
-        }:</span>  ${userObj[attributes[1]]}`;
-      } else if (attributes[2] == "checkbox") {
-        userObj[attributes[1]] = item.checked ? true : false;
-        document.getElementById(
-          attributes[1] + "Detail"
-        ).innerHTML = `<span class="show-details-element">${
-          attributes[0]
-        }:</span> ${userObj[attributes[1]]}`;
       } else {
-        console.log(item.files[0]);
-        userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
-        displayImageById(item, attributes[1] + "Detail");
+        userObj[attributes[1]] = item.checked ? true : false;
       }
+
+      $(`#${attributes[1]}Detail`).html(
+        `<span class="show-details-element">${attributes[0]}:</span> ${
+          userObj[attributes[1]]
+        }`
+      );
+    } else {
+      userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
+      displayImageById(item, attributes[1] + "Detail");
     }
   });
   console.log(userObj);
-  const showDetails = document.getElementsByClassName("show-details")[0];
-  showDetails.style.display = "block ";
-  showDetails.scrollIntoView({ behavior: "smooth", block: "center" });
+  const showDetails = $(".show-details");
+  showDetails.css("display", "block");
+  showDetails[0].scrollIntoView({ behavior: "smooth", block: "center" });
 }

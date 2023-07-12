@@ -42,7 +42,7 @@
                 id="firstName"
                 name="firstName"
                 isRequired="true"
-                showDetails="First Name|firstName"
+                showDetails="First Name|firstName|text"
                 autofocus
               />
             </div>
@@ -56,7 +56,7 @@
                 id="lastName"
                 name="lastName"
                 isRequired="true"
-                showDetails="Last Name|lastName"
+                showDetails="Last Name|lastName|text"
               />
             </div>
           </div>
@@ -70,7 +70,7 @@
                 id="email"
                 name="email"
                 isRequired="true"
-                showDetails="Email|email"
+                showDetails="Email|email|text"
               />
             </div>
           </div>
@@ -107,7 +107,7 @@
                 name="date"
                 max="2015-01-01"
                 isRequired="true"
-                showDetails="Date Of Birth|date"
+                showDetails="Date Of Birth|date|text"
               />
             </div>
           </div>
@@ -121,7 +121,7 @@
                 id="hobby"
                 name="hobby"
                 autocomplete="off"
-                showDetails="Hobbies|hobby"
+                showDetails="Hobbies|hobby|text"
                 multiple
               />
               <datalist id="hobbyList">
@@ -165,7 +165,7 @@
                   id="presentAddressLine1"
                   name="presentAddressLine1"
                   placeholder="Plot"
-                  showDetails="Address Line 1|presentAddressLine1"
+                  showDetails="Address Line 1|presentAddressLine1|text"
                 />
               </div>
             </div>
@@ -178,7 +178,7 @@
                   id="presentAddressLine2"
                   name="presentAddressLine2"
                   placeholder="Street Area"
-                  showDetails="Address Line 2|presentAddressLine2"
+                  showDetails="Address Line 2|presentAddressLine2|text"
                 />
               </div>
             </div>
@@ -190,7 +190,7 @@
                 <select
                   id="presentCountry"
                   addressType="present"
-                  showDetails="Country|presentCountry"
+                  showDetails="Country|presentCountry|text"
                 >
                   <option value="-1"></option>
                 </select>
@@ -199,7 +199,7 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select id="presentState" showDetails="State|presentState">
+                <select id="presentState" showDetails="State|presentState|text">
                   <option value="-1"></option>
                 </select>
               </div>
@@ -213,7 +213,7 @@
                   type="text"
                   id="presentCity"
                   name="presentCity"
-                  showDetails="City|presentCity"
+                  showDetails="City|presentCity|text"
                 />
               </div>
             </div>
@@ -224,7 +224,7 @@
                   type="text"
                   id="presentPin"
                   name="presentPin"
-                  showDetails="Pin|presentPin"
+                  showDetails="Pin|presentPin|text"
                 />
               </div>
             </div>
@@ -252,7 +252,7 @@
                   id="permanentAddressLine1"
                   name="permanentAddressLine1"
                   placeholder="Plot"
-                  showDetails="Address Line 1|permanentAddressLine1"
+                  showDetails="Address Line 1|permanentAddressLine1|text"
                 />
               </div>
             </div>
@@ -265,7 +265,7 @@
                   id="permanentAddressLine2"
                   name="permanentAddressLine2"
                   placeholder="Street Area"
-                  showDetails="Address Line 2|permanentAddressLine2"
+                  showDetails="Address Line 2|permanentAddressLine2|text"
                 />
               </div>
             </div>
@@ -277,7 +277,7 @@
                 <select
                   id="permanentCountry"
                   addressType="permanent"
-                  showDetails="Country|permanentCountry"
+                  showDetails="Country|permanentCountry|text"
                 >
                   <option value="-1"></option>
                 </select>
@@ -286,7 +286,10 @@
             <div class="input-container">
               <div class="title">State <span>*</span></div>
               <div class="input-element">
-                <select id="permanentState" showDetails="State|permanentState">
+                <select
+                  id="permanentState"
+                  showDetails="State|permanentState|text"
+                >
                   <option value="-1"></option>
                 </select>
               </div>
@@ -300,7 +303,7 @@
                   type="text"
                   id="permanentCity"
                   name="permanentCity"
-                  showDetails="City|permanentCity"
+                  showDetails="City|permanentCity|text"
                 />
               </div>
             </div>
@@ -311,7 +314,7 @@
                   type="text"
                   id="permanentPin"
                   name="permanentPin"
-                  showDetails="Pin|permanentPin"
+                  showDetails="Pin|permanentPin|text"
                 />
               </div>
             </div>
