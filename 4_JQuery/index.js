@@ -1,5 +1,4 @@
 let token = "";
-let inputElements = $(".form-container [isRequired='true'][type='text']");
 $("#submitForm").click(validate);
 async function fetchKey() {
   try {
@@ -93,10 +92,14 @@ $(`[id *= "Country"]`).each((index, item) => {
 });
 
 function validateDP() {
+  const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
   const span = $("#dpTitle span");
-  const file = document.getElementById("dp");
+  const file = $("#dp")[0];
   if (!file.files[0]) {
     span.text("*Required");
+    return "#dpTitle";
+  } else if (!allowedFormats.includes(file.files[0].type)) {
+    span.text("*Invalid file format");
     return "#dpTitle";
   } else {
     span.text("*");
@@ -111,21 +114,19 @@ function displayImageById(file, id) {
 
 function displayProfilePicName() {
   const file = $("#dp")[0];
-  const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
   let filename = $("#filename");
   if (!validateDP()) {
-    if (allowedFormats.includes(file.files[0].type)) {
-      filename.text(file.files[0].name);
-      filename.css("color", "black");
-
-      var icon = $("#iconForAddPic");
-      icon.addClass("fa-solid fa-check");
-
-      displayImageById(file, "profileImage");
-    } else {
-      filename.text("Invalid file format, only accepts(jpg/png)");
-      filename.css("color", "red");
-    }
+    filename.text(file.files[0].name);
+    filename.css("color", "black");
+    var icon = $("#iconForAddPic");
+    icon.addClass("fa-solid fa-check");
+    displayImageById(file, "profileImage");
+  } else {
+    filename.text("");
+    $("#profileImage").attr(
+      "src",
+      "https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"
+    );
   }
 }
 
@@ -179,11 +180,11 @@ function populateHobby() {
 
 function populatePermanentAsPresent() {
   if ($("#ifPresentSameAsPermanent").prop("checked")) {
-    $("[populateAddress*='|']").each((index, item) => {
+    $("[populateAddress*='|']").each(async (index, item) => {
       let attributes = $(item).attr("populateAddress").split("|");
       $(`#${attributes[1]}`).val($(`#${attributes[0]}`).val());
       if (attributes[attributes.length - 1] == "permanent") {
-        populateStates(attributes[2]);
+        await populateStates(attributes[2]);
       }
     });
   }
@@ -218,25 +219,20 @@ function validateGender() {
 
 function validate() {
   let isCorrect = true;
-  var result = [
-    validateTextById(
-      "#firstName",
-      "#firstNameTitle",
-      "#firstNameTitle span",
-      "[A-Za-z ]+"
-    ),
-    validateTextById(
-      "#lastName",
-      "#lastNameTitle",
-      "#lastNameTitle span",
-      "[A-Za-z ]+"
-    ),
-    validateTextById(
-      "#email",
-      "#emailTitle",
-      "#emailTitle span",
-      "[a-z0-9]+@[a-z]+.[a-z]{2,3}"
-    ),
+  var result = [];
+  $(`[isRequired*='[']`).each((index, item) => {
+    let attributes = $(item).attr("isRequired").split("|");
+    result.push(
+      validateTextById(
+        attributes[0],
+        attributes[1],
+        attributes[2],
+        attributes[3]
+      )
+    );
+  });
+  result = [
+    ...result,
     validateGender(),
     validateTextById("#date", "#dobTitle", "#dobTitle span", "."),
     validateDP(),
