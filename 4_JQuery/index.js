@@ -61,7 +61,7 @@ $(document).ready(fetchKey);
 
 $(".form-container [isRequired*='|']").each((index, inputElement) => {
   let attributes = $(inputElement).attr("isRequired").split("|");
-  $(inputElement).on("input", () => {
+  $(inputElement).on("change", () => {
     validateTextById(
       attributes[0],
       attributes[1],
@@ -117,7 +117,6 @@ function displayProfilePicName() {
   let filename = $("#filename");
   if (!validateDP()) {
     filename.text(file.files[0].name);
-    filename.css("color", "black");
     var icon = $("#iconForAddPic");
     icon.addClass("fa-solid fa-check");
     displayImageById(file, "profileImage");
@@ -145,7 +144,6 @@ async function getStates(country, addressType) {
 
 async function populateStates(addressType) {
   let countryId = addressType + "Country";
-
   let country = $(`#${countryId}`).val();
 
   $(`#${addressType}State`).val("");
@@ -186,6 +184,14 @@ function populatePermanentAsPresent() {
       if (attributes[attributes.length - 1] == "permanent") {
         await populateStates(attributes[2]);
       }
+    });
+    $("#permanentContainer [isRequired*='|']").each((index, item) => {
+      let attributesForValidation = $(item).attr("isRequired").split("|");
+      validateTextById(
+        attributesForValidation[0],
+        attributesForValidation[1],
+        attributesForValidation[2]
+      );
     });
   }
 }
