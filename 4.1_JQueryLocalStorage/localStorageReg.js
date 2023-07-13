@@ -290,8 +290,5 @@ function showDetailsAfterSubmit() {
     }
   });
   localStorage.setItem("user", JSON.stringify(userObj));
-
-  // $(".show-details").css("display", "block");
-  // $(".show-details")[0].scrollIntoView({ behavior: "smooth", block: "center" });
-  // window.location.href = "details.html";
+  window.location.href = "details.html";
 }

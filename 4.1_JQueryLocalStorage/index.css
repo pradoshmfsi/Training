@@ -229,6 +229,13 @@ span {
 .image-details {
   float: right;
 }
+#clearData {
+  padding: 2%;
+  color: white;
+  background-color: rgb(212, 2, 2);
+  font-family: Poppins;
+  border-radius: 10%;
+}
 @media only screen and (max-width: 850px) {
   .form-heading {
     display: block;
