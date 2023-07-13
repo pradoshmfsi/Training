@@ -1,5 +1,34 @@
 let token = "";
-$("#submitForm").click(validate);
+$(document).ready(() => {
+  fetchKey();
+  $("#submitForm").click(validate);
+
+  $(".form-container [isRequired*='|']").each((index, inputElement) => {
+    $(inputElement).on("change", () => {
+      validateTextById($(inputElement).attr("isRequired"));
+    });
+  });
+
+  $("[isRequired='true'][type='radio']").on("change", () => {
+    validateGender();
+  });
+
+  $("#hobby").on("input", () => populateHobby());
+
+  $("#dp").on("change", () => {
+    displayProfilePicName();
+  });
+
+  $("#ifPresentSameAsPermanent").on("click", () => {
+    populatePermanentAsPresent();
+  });
+
+  $(`[id *= "Country"]`).each((index, item) => {
+    $(item).on("change", () => {
+      populateStates($(item).attr("addressType"));
+    });
+  });
+});
 async function fetchKey() {
   try {
     const response = await fetch(
@@ -56,34 +85,6 @@ async function fetchCountry() {
     console.error(error);
   }
 }
-
-$(document).ready(fetchKey);
-
-$(".form-container [isRequired*='|']").each((index, inputElement) => {
-  $(inputElement).on("change", () => {
-    validateTextById($(inputElement).attr("isRequired"));
-  });
-});
-
-$("[isRequired='true'][type='radio']").on("change", () => {
-  validateGender();
-});
-
-$("#hobby").on("input", () => populateHobby());
-
-$("#dp").on("change", () => {
-  displayProfilePicName();
-});
-
-$("#ifPresentSameAsPermanent").on("click", () => {
-  populatePermanentAsPresent();
-});
-
-$(`[id *= "Country"]`).each((index, item) => {
-  $(item).on("change", () => {
-    populateStates($(item).attr("addressType"));
-  });
-});
 
 function validateDP() {
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
