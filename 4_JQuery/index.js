@@ -102,8 +102,7 @@ function validateDP() {
 }
 
 function displayImageById(file, id) {
-  const path = URL.createObjectURL(file.files[0]);
-  $(`#${id}`).attr("src", path);
+  $(`#${id}`).attr("src", URL.createObjectURL(file.files[0]));
 }
 
 function displayProfilePicName() {
@@ -284,7 +283,6 @@ function showDetailsAfterSubmit() {
       displayImageById(item, attributes[1] + "Detail");
     }
   });
-  console.log(userObj);
   $(".show-details").css("display", "block");
   $(".show-details")[0].scrollIntoView({ behavior: "smooth", block: "center" });
 }
