@@ -60,14 +60,8 @@ async function fetchCountry() {
 $(document).ready(fetchKey);
 
 $(".form-container [isRequired*='|']").each((index, inputElement) => {
-  let attributes = $(inputElement).attr("isRequired").split("|");
   $(inputElement).on("change", () => {
-    validateTextById(
-      attributes[0],
-      attributes[1],
-      attributes[2],
-      attributes[3]
-    );
+    validateTextById($(inputElement).attr("isRequired"));
   });
 });
 
@@ -155,6 +149,7 @@ async function populateStates(addressType) {
     $("#ifPresentSameAsPermanent").prop("checked")
   ) {
     $("#permanentState").val($("#presentState").val());
+    validateTextById($("#permanentState").attr("isRequired"));
   }
 }
 
@@ -185,30 +180,33 @@ function populatePermanentAsPresent() {
         await populateStates(attributes[2]);
       }
     });
-    $("#permanentContainer [isRequired*='|']").each((index, item) => {
-      let attributesForValidation = $(item).attr("isRequired").split("|");
-      validateTextById(
-        attributesForValidation[0],
-        attributesForValidation[1],
-        attributesForValidation[2]
-      );
-    });
+    $("#permanentContainer [isRequired*='|']:not(#permanentState)").each(
+      (index, item) => {
+        validateTextById($(item).attr("isRequired"));
+      }
+    );
   }
 }
 
-function validateTextById(id, showId, spanQuery, patternName = ".") {
+function validateTextById(attributeString) {
+  let [id, showId, spanQuery, patternName] = attributeString.split("|");
   let data = $(id).val();
   let span = $(spanQuery);
   patternName = new RegExp(patternName, "g");
-  if (data === "" || data.trim() === "") {
-    span.text("*Required");
-    return showId;
-  } else if (!patternName.test(data)) {
-    span.text("*Not valid");
-    return showId;
-  } else {
-    span.text("*");
-    return "";
+  try {
+    if (data === "" || data.trim() === "") {
+      span.text("*Required");
+      return showId;
+    } else if (!patternName.test(data)) {
+      span.text("*Not valid");
+      return showId;
+    } else {
+      span.text("*");
+      return "";
+    }
+  } catch (error) {
+    console.log(id);
+    console.log(error);
   }
 }
 
@@ -227,26 +225,17 @@ function validate() {
   let isCorrect = true;
   var result = [];
   $(`[isRequired*='[']`).each((index, item) => {
-    let attributes = $(item).attr("isRequired").split("|");
-    result.push(
-      validateTextById(
-        attributes[0],
-        attributes[1],
-        attributes[2],
-        attributes[3]
-      )
-    );
+    result.push(validateTextById($(item).attr("isRequired")));
   });
   result = [
     ...result,
     validateGender(),
-    validateTextById("#date", "#dobTitle", "#dobTitle span", "."),
+    validateTextById("#date|#dobTitle|#dobTitle span|."),
     validateDP(),
   ];
   //VALIDATE PRESENT AND PERMANENT ADDRESS USING USER DEFINED ATTRIBUTES
   $(`fieldset [isRequired*='|']`).each((index, item) => {
-    let attributes = $(item).attr("isRequired").split("|");
-    result.push(validateTextById(attributes[0], attributes[1], attributes[2]));
+    result.push(validateTextById($(item).attr("isRequired")));
   });
 
   for (res of result) {
