@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-heading">
+        <div class="form-heading-element">
+          <div class="form-heading-text">Register</div>
+          <div class="form-heading-graphic"></div>
+        </div>
+        <div class="form-heading-image">
+          <img
+            id="profileImage"
+            src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="container">
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="firstNameTitle">
+              First Name <span>*</span>
+            </div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                isRequired="#firstName|#firstNameTitle|#firstNameTitle span|[A-Za-z ]+"
+                showDetails="First Name|firstName|text"
+                autofocus
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="lastNameTitle">Last Name <span>*</span></div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                isRequired="#lastName|#lastNameTitle|#lastNameTitle span|[A-Za-z ]+"
+                showDetails="Last Name|lastName|text"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="emailTitle">Email <span>*</span></div>
+            <div class="input-element">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                isRequired="#email|#emailTitle|#emailTitle span|[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+                showDetails="Email|email|text"
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="genderTitle">Gender <span>*</span></div>
+            <div class="input-element" showDetails="Gender|gender|radio">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                isRequired="true"
+              />
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                isRequired="true"
+              />
+              <label for="female">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-container">
+            <div class="title" id="dobTitle">Date of birth <span>*</span></div>
+            <div class="input-element">
+              <input
+                type="date"
+                id="date"
+                name="date"
+                max="2015-01-01"
+                isRequired="#date|#dobTitle|#dobTitle span|."
+                showDetails="Date Of Birth|date|text"
+              />
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="title" id="hobbyTitle">Hobbies</div>
+            <div class="input-element">
+              <input
+                type="text"
+                list="hobbyList"
+                id="hobby"
+                name="hobby"
+                autocomplete="off"
+                showDetails="Hobbies|hobby|text"
+                multiple
+              />
+              <datalist id="hobbyList">
+                <option value="Singing"></option>
+                <option value="Dancing"></option>
+                <option value="Football"></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+        <div class="input-container-dp">
+          <div class="profile-pic">
+            <div class="title" id="dpTitle">Profile picture <span>*</span></div>
+
+            <div class="input-element">
+              <label id="dp-label" for="dp">
+                <div id="card" class="card">
+                  <i class="fa-sharp fa-solid fa-plus" id="iconForAddPic"></i>
+                </div>
+              </label>
+              <div id="filename"></div>
+              <input
+                type="file"
+                name="dp"
+                id="dp"
+                isRequired="true"
+                showDetails="Profile Picture|dp|file"
+              />
+            </div>
+          </div>
+        </div>
+        <fieldset>
+          <legend>Present Address</legend>
+          <div id="errMsgPresentAddress"></div>
+          <div class="input-row">
+            <div class="input-container">
+              <div class="title" id="presentAddressLine1Title">
+                Address Line 1 <span>*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentAddressLine1"
+                  name="presentAddressLine1"
+                  placeholder="Plot"
+                  showDetails="Address Line 1|presentAddressLine1|text"
+                  populateAddress="presentAddressLine1|permanentAddressLine1"
+                  isRequired="#presentAddressLine1|#errMsgPresentAddress|#presentAddressLine1Title span|."
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="title">Address Line 2</div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentAddressLine2"
+                  name="presentAddressLine2"
+                  placeholder="Street Area"
+                  showDetails="Address Line 2|presentAddressLine2|text"
+                  populateAddress="presentAddressLine2|permanentAddressLine2"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div id="presentCountryTitle" class="title">
+                Country <span>*</span>
+              </div>
+              <div class="input-element">
+                <select
+                  id="presentCountry"
+                  addressType="present"
+                  showDetails="Country|presentCountry|text"
+                  populateAddress="presentCountry|permanentCountry|permanent"
+                  isRequired="#presentCountry|#errMsgPresentAddress|#presentCountryTitle span|."
+                >
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="input-container">
+              <div id="presentStateTitle" class="title">
+                State <span>*</span>
+              </div>
+              <div class="input-element">
+                <select
+                  id="presentState"
+                  showDetails="State|presentState|text"
+                  populateAddress="presentState|permanentState|state"
+                  isRequired="#presentState|#errMsgPresentAddress|#presentStateTitle span|."
+                >
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div id="presentCityTitle" class="title">City <span>*</span></div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentCity"
+                  name="presentCity"
+                  showDetails="City|presentCity|text"
+                  populateAddress="presentCity|permanentCity"
+                  isRequired="#presentCity|#errMsgPresentAddress|#presentCityTitle span|."
+                />
+              </div>
+            </div>
+            <div class="input-container">
+              <div id="presentPinTitle" class="title">
+                Postal code <span>*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="presentPin"
+                  name="presentPin"
+                  showDetails="Pin|presentPin|text"
+                  populateAddress="presentPin|permanentPin"
+                  isRequired="#presentPin|#errMsgPresentAddress|#presentPinTitle span|."
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="permanentContainer">
+          <legend>Permanent Address</legend>
+          <div id="errMsgPermanentAddress"></div>
+          <div class="input-checkbox-address">
+            <input
+              type="checkbox"
+              id="ifPresentSameAsPermanent"
+              name="ifPresentSameAsPermanent"
+            />
+            <label for="ifPresentSameAsPermanent"
+              >Same as present address</label
+            >
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div id="permanentAddressLine1Title" class="title">
+                Address Line 1 <span>*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentAddressLine1"
+                  name="permanentAddressLine1"
+                  placeholder="Plot"
+                  showDetails="Address Line 1|permanentAddressLine1|text"
+                  isRequired="#permanentAddressLine1|#errMsgPermanentAddress|#permanentAddressLine1Title span|."
+                />
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="title">Address Line 2</div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentAddressLine2"
+                  name="permanentAddressLine2"
+                  placeholder="Street Area"
+                  showDetails="Address Line 2|permanentAddressLine2|text"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div id="permanentCountryTitle" class="title">
+                Country <span>*</span>
+              </div>
+              <div class="input-element">
+                <select
+                  id="permanentCountry"
+                  addressType="permanent"
+                  showDetails="Country|permanentCountry|text"
+                  isRequired="#permanentCountry|#errMsgPermanentAddress|#permanentCountryTitle span|."
+                >
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="input-container">
+              <div id="permanentStateTitle" class="title">
+                State <span>*</span>
+              </div>
+              <div class="input-element">
+                <select
+                  id="permanentState"
+                  showDetails="State|permanentState|text"
+                  isRequired="#permanentState|#errMsgPermanentAddress|#permanentStateTitle span|."
+                >
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-container">
+              <div id="permanentCityTitle" class="title">
+                City <span>*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentCity"
+                  name="permanentCity"
+                  showDetails="City|permanentCity|text"
+                  isRequired="#permanentCity|#errMsgPermanentAddress|#permanentCityTitle span|."
+                />
+              </div>
+            </div>
+            <div class="input-container">
+              <div id="permanentPinTitle" class="title">
+                Postal code <span>*</span>
+              </div>
+              <div class="input-element">
+                <input
+                  type="text"
+                  id="permanentPin"
+                  name="permanentPin"
+                  showDetails="Pin|permanentPin|text"
+                  isRequired="#permanentPin|#errMsgPermanentAddress|#permanentPinTitle span|."
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="input-checkbox">
+          <input
+            type="checkbox"
+            id="ifSubscribed"
+            name="ifSubscribed"
+            showDetails="Subscribed to News Letter|ifSubscribed|checkbox"
+          /><label for="ifSubscribed">Subscribe to news letter</label>
+        </div>
+        <div class="submit">
+          <input type="submit" value="Submit" id="submitForm" />
+        </div>
+      </div>
+    </div>
+    <br />
+    <script src="cookieReg.js"></script>
+  </body>
+</html>
