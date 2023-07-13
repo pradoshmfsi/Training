@@ -1,8 +1,11 @@
 const userObj = JSON.parse(localStorage.getItem("user"));
-$("#clearData").click(() => {
-  localStorage.clear();
-  window.location.href = "/index.html";
+$(document).ready(() => {
+  $("#clearData").click(() => {
+    localStorage.clear();
+    window.location.href = "index.html";
+  });
 });
+
 if (userObj) {
   $("[id*=Detail]").each((index, item) => {
     let str = item.id.substring(0, item.id.length - 6);
@@ -15,5 +18,5 @@ if (userObj) {
     }
   });
 } else {
-  window.location.href = "4.1_JQuerylocalStorage/index.html";
+  window.location.href = "index.html";
 }

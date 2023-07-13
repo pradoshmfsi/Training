@@ -1,5 +1,34 @@
 let token = "";
-$("#submitForm").click(validate);
+$(document).ready(() => {
+  fetchKey();
+  $("#submitForm").click(validate);
+
+  $(".form-container [isRequired*='|']").each((index, inputElement) => {
+    $(inputElement).on("change", () => {
+      validateTextById($(inputElement).attr("isRequired"));
+    });
+  });
+
+  $("[isRequired='true'][type='radio']").on("change", () => {
+    validateGender();
+  });
+
+  $("#hobby").on("input", () => populateHobby());
+
+  $("#dp").on("change", () => {
+    displayProfilePicName();
+  });
+
+  $("#ifPresentSameAsPermanent").on("click", () => {
+    populatePermanentAsPresent();
+  });
+
+  $(`[id *= "Country"]`).each((index, item) => {
+    $(item).on("change", () => {
+      populateStates($(item).attr("addressType"));
+    });
+  });
+});
 async function fetchKey() {
   try {
     const response = await fetch(
@@ -56,34 +85,6 @@ async function fetchCountry() {
     console.error(error);
   }
 }
-
-$(document).ready(fetchKey);
-
-$(".form-container [isRequired*='|']").each((index, inputElement) => {
-  $(inputElement).on("change", () => {
-    validateTextById($(inputElement).attr("isRequired"));
-  });
-});
-
-$("[isRequired='true'][type='radio']").on("change", () => {
-  validateGender();
-});
-
-$("#hobby").on("input", () => populateHobby());
-
-$("#dp").on("change", () => {
-  displayProfilePicName();
-});
-
-$("#ifPresentSameAsPermanent").on("click", () => {
-  populatePermanentAsPresent();
-});
-
-$(`[id *= "Country"]`).each((index, item) => {
-  $(item).on("change", () => {
-    populateStates($(item).attr("addressType"));
-  });
-});
 
 function validateDP() {
   const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
@@ -273,18 +274,11 @@ function showDetailsAfterSubmit() {
       } else {
         userObj[attributes[1]].push(item.checked ? true : false);
       }
-
-      $(`#${attributes[1]}Detail`).html(
-        `<span class="show-details-element">${attributes[0]}:</span> ${
-          userObj[attributes[1]]
-        }`
-      );
     } else {
       console.log(item.files[0].name);
       const reader = new FileReader();
       let image = item.files[0];
       reader.readAsDataURL(image);
-
       reader.addEventListener("load", () => {
         localStorage.setItem("user-registration-image", reader.result);
       });
