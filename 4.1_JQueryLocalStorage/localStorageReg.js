@@ -279,10 +279,19 @@ function showDetailsAfterSubmit() {
         }`
       );
     } else {
-      userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
-      displayImageById(item, attributes[1] + "Detail");
+      console.log(item.files[0].name);
+      const reader = new FileReader();
+      let image = item.files[0];
+      reader.readAsDataURL(image);
+
+      reader.addEventListener("load", () => {
+        localStorage.setItem("user-registration-image", reader.result);
+      });
     }
   });
-  $(".show-details").css("display", "block");
-  $(".show-details")[0].scrollIntoView({ behavior: "smooth", block: "center" });
+  localStorage.setItem("user", JSON.stringify(userObj));
+
+  // $(".show-details").css("display", "block");
+  // $(".show-details")[0].scrollIntoView({ behavior: "smooth", block: "center" });
+  // window.location.href = "details.html";
 }

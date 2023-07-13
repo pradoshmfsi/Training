@@ -279,7 +279,7 @@ function showDetailsAfterSubmit() {
         }`
       );
     } else {
-      userObj[attributes[1]] = URL.createObjectURL(item.files[0]);
+      userObj[attributes[1]] = item.files[0];
       displayImageById(item, attributes[1] + "Detail");
     }
   });
