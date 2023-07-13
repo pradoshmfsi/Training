@@ -258,19 +258,20 @@ function showDetailsAfterSubmit() {
 
   $(`[showDetails*="|"]`).each((index, item) => {
     const attributes = $(item).attr("showDetails").split("|");
+    userObj[attributes[1]] = [attributes[0]];
     if (attributes[2] != "file") {
       if (attributes[2] == "text") {
         if ($(item).val() == "") {
           $(item).val("NA");
         }
-        userObj[attributes[1]] = $(item).val();
+        userObj[attributes[1]].push($(item).val());
       } else if (attributes[2] == "radio") {
         const inputRadios = $(item).children("input");
-        userObj[attributes[1]] = inputRadios[0].checked
-          ? inputRadios[0].value
-          : inputRadios[1].value;
+        userObj[attributes[1]].push(
+          inputRadios[0].checked ? inputRadios[0].value : inputRadios[1].value
+        );
       } else {
-        userObj[attributes[1]] = item.checked ? true : false;
+        userObj[attributes[1]].push(item.checked ? true : false);
       }
 
       $(`#${attributes[1]}Detail`).html(

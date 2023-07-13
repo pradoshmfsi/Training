@@ -10,10 +10,10 @@ if (userObj) {
       item.src = localStorage.getItem("user-registration-image");
     } else {
       $(item).html(
-        `<span class="show-details-element">${str}:</span> ${userObj[str]}`
+        `<span class="show-details-element">${userObj[str][0]}:</span> ${userObj[str][1]}`
       );
     }
   });
 } else {
-  window.location.href = "index.html";
+  window.location.href = "4.1_JQuerylocalStorage/index.html";
 }
