@@ -109,6 +109,7 @@ function displayImageById(file, id) {
 function displayProfilePicName() {
   const file = $("#dp")[0];
   let filename = $("#filename");
+
   if (!validateDP()) {
     filename.text(file.files[0].name);
     var icon = $("#iconForAddPic");
@@ -205,13 +206,12 @@ function validateTextById(attributeString) {
       return "";
     }
   } catch (error) {
-    console.log(id);
     console.log(error);
   }
 }
 
 function validateGender() {
-  span = $("#genderTitle span");
+  let span = $("#genderTitle span");
   if (!$("#male").prop("checked") && !$("#female").prop("checked")) {
     span.text("*Required");
     return "#genderTitle";
@@ -224,15 +224,18 @@ function validateGender() {
 function validate() {
   let isCorrect = true;
   var result = [];
+
   $(`[isRequired*='[']`).each((index, item) => {
     result.push(validateTextById($(item).attr("isRequired")));
   });
+
   result = [
     ...result,
     validateGender(),
     validateTextById("#date|#dobTitle|#dobTitle span|."),
     validateDP(),
   ];
+
   //VALIDATE PRESENT AND PERMANENT ADDRESS USING USER DEFINED ATTRIBUTES
   $(`fieldset [isRequired*='|']`).each((index, item) => {
     result.push(validateTextById($(item).attr("isRequired")));
@@ -260,6 +263,7 @@ function showDetailsAfterSubmit() {
   $(`[showDetails*="|"]`).each((index, item) => {
     const attributes = $(item).attr("showDetails").split("|");
     userObj[attributes[1]] = [attributes[0]];
+
     if (attributes[2] != "file") {
       if (attributes[2] == "text") {
         if ($(item).val() == "") {
@@ -275,7 +279,6 @@ function showDetailsAfterSubmit() {
         userObj[attributes[1]].push(item.checked ? true : false);
       }
     } else {
-      console.log(item.files[0].name);
       const reader = new FileReader();
       let image = item.files[0];
       reader.readAsDataURL(image);

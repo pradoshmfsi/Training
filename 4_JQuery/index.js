@@ -211,7 +211,7 @@ function validateTextById(attributeString) {
 }
 
 function validateGender() {
-  span = $("#genderTitle span");
+  let span = $("#genderTitle span");
   if (!$("#male").prop("checked") && !$("#female").prop("checked")) {
     span.text("*Required");
     return "#genderTitle";
