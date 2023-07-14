@@ -140,17 +140,17 @@ async function getStates(country, addressType) {
 async function populateStates(addressType) {
   let countryId = addressType + "Country";
   let country = $(`#${countryId}`).val();
-
   $(`#${addressType}State`).val("");
+  $(`#${addressType}State`).html(`<option value=""></option>`);
+
   if (country != "") {
     await getStates(country, addressType);
   }
   if (
-    addressType == "permanent" &&
-    $("#ifPresentSameAsPermanent").prop("checked")
+    $("#ifPresentSameAsPermanent").prop("checked") &&
+    $("#presentState").val().trim()
   ) {
-    $("#permanentState").val($("#presentState").val());
-    validateTextById($("#permanentState").attr("isRequired"));
+    $("#permanentState").val($("#presentState").val()).trigger("change");
   }
 }
 
@@ -176,16 +176,14 @@ function populatePermanentAsPresent() {
   if ($("#ifPresentSameAsPermanent").prop("checked")) {
     $("[populateAddress*='|']").each(async (index, item) => {
       let attributes = $(item).attr("populateAddress").split("|");
-      $(`#${attributes[1]}`).val($(`#${attributes[0]}`).val());
-      if (attributes[attributes.length - 1] == "permanent") {
-        await populateStates(attributes[2]);
+      let presentValue = $(`#${attributes[0]}`).val();
+      if (presentValue.trim()) {
+        $(`#${attributes[1]}`).val(presentValue).trigger("change");
+        if (attributes[attributes.length - 1] == "permanent") {
+          await populateStates(attributes[2]);
+        }
       }
     });
-    $("#permanentContainer [isRequired*='|']:not(#permanentState)").each(
-      (index, item) => {
-        validateTextById($(item).attr("isRequired"));
-      }
-    );
   }
 }
 
