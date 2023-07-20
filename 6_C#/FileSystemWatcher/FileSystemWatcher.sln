@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemWatcher", "FileSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ practice", "LINQ practice\LINQ practice.csproj", "{B544C444-D848-4810-9712-5B3965B0BADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendEmail", "SendEmail\SendEmail.csproj", "{5C8B71C4-040C-490C-BAB5-F290FFCEC3CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO_DEMO", "ADO_DEMO\ADO_DEMO.csproj", "{6E84FE68-80DF-4826-9EB7-9D98641C840B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B544C444-D848-4810-9712-5B3965B0BADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B544C444-D848-4810-9712-5B3965B0BADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B544C444-D848-4810-9712-5B3965B0BADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8B71C4-040C-490C-BAB5-F290FFCEC3CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8B71C4-040C-490C-BAB5-F290FFCEC3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8B71C4-040C-490C-BAB5-F290FFCEC3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8B71C4-040C-490C-BAB5-F290FFCEC3CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E84FE68-80DF-4826-9EB7-9D98641C840B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E84FE68-80DF-4826-9EB7-9D98641C840B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E84FE68-80DF-4826-9EB7-9D98641C840B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E84FE68-80DF-4826-9EB7-9D98641C840B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

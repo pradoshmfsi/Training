@@ -1,0 +1,8 @@
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\bin\Debug\SendEmail.exe.config
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\bin\Debug\SendEmail.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\bin\Debug\SendEmail.pdb
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\obj\Debug\SendEmail.csproj.AssemblyReference.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\obj\Debug\SendEmail.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\obj\Debug\SendEmail.csproj.CoreCompileInputs.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\obj\Debug\SendEmail.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\SendEmail\obj\Debug\SendEmail.pdb
