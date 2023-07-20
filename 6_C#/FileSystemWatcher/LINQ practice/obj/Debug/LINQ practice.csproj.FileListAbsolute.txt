@@ -1,0 +1,8 @@
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\bin\Debug\LINQ practice.exe.config
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\bin\Debug\LINQ practice.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\bin\Debug\LINQ practice.pdb
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\obj\Debug\LINQ practice.csproj.AssemblyReference.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\obj\Debug\LINQ practice.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\obj\Debug\LINQ practice.csproj.CoreCompileInputs.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\obj\Debug\LINQ practice.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\LINQ practice\obj\Debug\LINQ practice.pdb

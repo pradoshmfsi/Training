@@ -68,4 +68,7 @@ select roleName from user_info i,role_assigned a,user_role r where i.userId=a.us
 -- get the user info along with country and state of a particular user
 select u.*,c.countryName,s.stateName from user_info u,countries c,states s where u.countryId=c.countryId and u.stateId=s.stateId;
 
+select * from user_info where addressLine2 is null;
+
+select count(*),firstName from user_info group by firstName;
 

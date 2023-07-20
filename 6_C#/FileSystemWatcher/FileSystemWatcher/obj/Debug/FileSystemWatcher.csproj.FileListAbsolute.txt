@@ -1,0 +1,8 @@
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\bin\Debug\FileSystemWatcher.exe.config
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\bin\Debug\FileSystemWatcher.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\bin\Debug\FileSystemWatcher.pdb
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\obj\Debug\FileSystemWatcher.csproj.AssemblyReference.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\obj\Debug\FileSystemWatcher.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\obj\Debug\FileSystemWatcher.csproj.CoreCompileInputs.cache
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\obj\Debug\FileSystemWatcher.exe
+D:\Projects\Training\6_C#\FileSystemWatcher\FileSystemWatcher\obj\Debug\FileSystemWatcher.pdb
