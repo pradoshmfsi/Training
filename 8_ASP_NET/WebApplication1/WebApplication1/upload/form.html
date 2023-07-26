@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Personal Information:</legend>
+            <table>
+                <tr>
+                    <td>
+                        First Name:
+                    </td>
+                    <td>
+                        <input type="text" id="fname" name="fname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Last Name:
+                    </td>
+                    <td>
+                        <input type="text" id="lname" name="lname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" id="mail" name="mail"/></td>
+                </tr>
+                <tr>
+                    <td>Mobile No:</td>
+                    <td><input type="tel" id="mob" name="mob"/></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><input type="radio" id="male" name="gender" value="male"/>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female"/>
+                        <label for="female">Female</label></td>
+                </tr>
+                <tr>
+                    <td>DOB:</td>
+                    <td><input type="date" id="dob" name="dob"/></td>
+                </tr>
+                <tr>
+                    <td>Upload your Profile Picture:</td>
+                    <td><input type="file" id="image" name="image"/></td>
+                </tr>
+            
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Additional Information:</legend>
+            <table>
+                <tr>
+                    <td>Hobbies:</td>
+                    <td>
+                        <input type="text" id="hobby" name="hobby"/></td>
+                </tr>
+                <tr>
+                    <td>Languages known:</td>
+                    <td><input type="text" id="lang"/></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+    
+                            <b>Permanent Address:</b><br>
+                            <table>
+                                <tr>
+                                    <td>Address line1: </td>
+                                    <td><input type="text" id="line1paddr" name="line1paddr"></td>
+                                </tr><tr>
+                                    <td>Address line2: </td>
+                                    <td><input type="text" id="line2paddr" name="line2paddr"></td>
+                                </tr><tr>
+                                    <td>City:</td>
+                                    <td><input id="city" type="text" name="city"/></td>
+                                </tr><tr>
+                                    <td>State:</td>
+                                    <td><input id="state" type="text" name="state"/></td>
+                                </tr><tr>
+                                    <td>Country: </td>
+                                    <td><input id="country" type="text" name="country"/></td>
+                                </tr><tr>
+                                    <td>Postal Code:</td>
+                                    <td><input id="pcode" name="pcode" type="text" pattern="[0-9]*"></td>
+                                </tr>
+                            </table>
+            
+                    </td>
+                    <td>
+                            <b>Present Address:</b><br>
+                            <table>
+                                <tr>
+                                    <td>Address line1: </td>
+                                    <td><input type="text" id="line1addr" name="line1addr"></td>
+                                </tr><tr>
+                                    <td>Address line2: </td>
+                                    <td><input type="text" id="line2addr" name="line2addr"></td>
+                                </tr><tr>
+                                    <td>City:</td>
+                                    <td> <input id="pcity" type="text" name="pcity"/></td>
+                                </tr><tr>
+                                    <td>State:</td>
+                                    <td><input id="pstate" type="text" name="pstate"/></td>
+                                </tr><tr>
+                                    <td>Country: </td>
+                                    <td><input id="pcountry" type="text" name="pcountry"/></td>
+                                </tr><tr>
+                                    <td>Postal Code:</td>
+                                    <td><input id="prcode" name="prcode" type="text" pattern="[0-9]*"></td>
+                                </tr>
+                            </table>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="checkbox" id="check">
+        <label for="check">Suscribe to our newsletter</label><br>
+        <input type="submit" value="Submit">
+        <input type="reset">
+    </form>
+</body>
+</html>

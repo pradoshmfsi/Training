@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="profileapplicationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="country_table">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="int" Nullable="false" />
+          <Property Name="countryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="state_table">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="int" Nullable="false" />
+          <Property Name="countryId" Type="int" Nullable="false" />
+          <Property Name="stateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__state_tab__count__4CA06362">
+          <End Role="country_table" Type="Self.country_table" Multiplicity="1" />
+          <End Role="state_table" Type="Self.state_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country_table">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="state_table">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="stateId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="profileapplicationModelStoreContainer">
+          <EntitySet Name="country_table" EntityType="Self.country_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="state_table" EntityType="Self.state_table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__state_tab__count__4CA06362" Association="Self.FK__state_tab__count__4CA06362">
+            <End Role="country_table" EntitySet="country_table" />
+            <End Role="state_table" EntitySet="state_table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="profileapplicationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="profileapplicationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="country_table" EntityType="profileapplicationModel.country_table" />
+          <EntitySet Name="state_table" EntityType="profileapplicationModel.state_table" />
+          <AssociationSet Name="FK__state_tab__count__4CA063621" Association="profileapplicationModel.FK__state_tab__count__4CA063621">
+            <End Role="country_table" EntitySet="country_table" />
+            <End Role="state_table" EntitySet="state_table" />
+          </AssociationSet>
+          <FunctionImport Name="getData" ReturnType="Collection(profileapplicationModel.getData_Result)" />
+          <FunctionImport Name="getStates" ReturnType="Collection(profileapplicationModel.getStates_Result)">
+            <Parameter Name="stateId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="country_table">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="Int32" Nullable="false" />
+          <Property Name="countryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="state_table">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="Int32" Nullable="false" />
+          <Property Name="stateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="countryId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__state_tab__count__4CA063621">
+          <End Type="profileapplicationModel.country_table" Role="country_table" Multiplicity="1" />
+          <End Type="profileapplicationModel.state_table" Role="state_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country_table">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="state_table">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="getData_Result">
+          <Property Type="Int32" Name="countryId" Nullable="false" />
+          <Property Type="String" Name="countryName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getStates_Result">
+          <Property Type="Int32" Name="stateId" Nullable="false" />
+          <Property Type="Int32" Name="countryId" Nullable="false" />
+          <Property Type="String" Name="stateName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="profileapplicationModelStoreContainer" CdmEntityContainer="profileapplicationEntities">
+        <EntitySetMapping Name="country_table">
+            <EntityTypeMapping TypeName="profileapplicationModel.country_table">
+              <MappingFragment StoreEntitySet="country_table">
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="state_table">
+            <EntityTypeMapping TypeName="profileapplicationModel.state_table">
+              <MappingFragment StoreEntitySet="state_table">
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getData" FunctionName="profileapplicationModel.Store.getData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="profileapplicationModel.getData_Result">
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getStates" FunctionName="profileapplicationModel.Store.getStates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="profileapplicationModel.getStates_Result">
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

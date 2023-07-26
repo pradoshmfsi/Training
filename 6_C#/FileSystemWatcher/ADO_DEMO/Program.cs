@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 
 namespace ADO_DEMO
 {
@@ -68,11 +70,36 @@ namespace ADO_DEMO
             string countryName = Console.ReadLine();
             using (MySqlCommand cmd = new MySqlCommand($"update countries set countryName='{countryName}' where countryId={countryId}", con))
                 {
+                
+           //     var sde = new MySqlDataAdapter("Select * from countries", con);
+           //     sde.UpdateCommand = new MySqlCommand(
+           //"UPDATE countries SET countryName = @countryName WHERE countryId = @countryId", con);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    Console.WriteLine(rowsAffected+" Updated");
+           //     sde.UpdateCommand.Parameters.Add(
+           //        "@countryName", MySqlDbType.String, 15, "countryName");
 
-                }
+           //     MySqlParameter parameter = sde.UpdateCommand.Parameters.Add(
+           //       "@countryId", MySqlDbType.Int64);
+           //     parameter.SourceColumn = "countryId";
+           //     parameter.SourceVersion = DataRowVersion.Original;
+                
+           //     var dt = new DataTable();
+           //     sde.Fill(dt);
+
+
+           //     dt.Rows[0]["countryName"] = "NewIndia";
+           //     dt.Rows[1]["countryName"] = "NewBanglaDesh";
+
+                //Console.WriteLine("Reached update function");
+
+                //Console.WriteLine(sde.Update(dt));
+
+
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                Console.WriteLine(rowsAffected + " Updated");
+
+            }
         }
 
         public static void DeleteCountry(MySqlConnection con)
@@ -89,12 +116,14 @@ namespace ADO_DEMO
         {
             using (var con = new MySqlConnection(connectionString))
             {
-                con.Open();  
-                while (true)
+                con.Open();
+                
+                int choice = 1;
+                while (choice!=6)
                 {
                     Console.WriteLine("1.Insert into countries\n2.Display all the countries\n3.Update a country\n4.Delete a country\n5.Get the country and state of an user\nEnter your choice");
 
-                    int choice = Int32.Parse(Console.ReadLine());
+                    choice = Int32.Parse(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:

@@ -1,0 +1,16 @@
+Created: D:\Projects\Training\6_C#\test_folder\New folder
+
+Renamed:
+Old: D:\Projects\Training\6_C#\test_folder\New folder
+New: D:\Projects\Training\6_C#\test_folder\File_day3
+
+Changed: D:\Projects\Training\6_C#\test_folder\File_day3
+
+Deleted: D:\Projects\Training\6_C#\test_folder\File_day3
+
+Created: D:\Projects\Training\6_C#\test_folder\New Text Document.txt
+
+Renamed:
+Old: D:\Projects\Training\6_C#\test_folder\New Text Document.txt
+New: D:\Projects\Training\6_C#\test_folder\File_Day3.txt
+
