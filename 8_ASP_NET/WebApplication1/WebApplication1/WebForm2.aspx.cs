@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
@@ -12,10 +14,35 @@ namespace WebApplication1
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        public void BindDataWithGrid()
+        {
+            
+            using (var dbcontext = new profileapplicationEntities())
+            {
+                var country = dbcontext.country_table;
+                DataGrid1.DataSource = country.ToList();
+
+                DataGrid1.DataBind();
+            }
+            SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["profileapplicationConnectionString2"].ConnectionString;
+            SqlDataSource1.ProviderName = ConfigurationManager.ConnectionStrings["profileapplicationConnectionString2"].ProviderName;
+            SqlDataSource1.SelectCommand = "SELECT * FROM [country_table]";
+            DataList1.DataSource = SqlDataSource1;
+
+            DataList1.DataBind();
+
+        }
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            BindDataWithGrid();
+        }
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             userInput.Text = UserName.Text;
         }
+       
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (RadioButton1.Checked)

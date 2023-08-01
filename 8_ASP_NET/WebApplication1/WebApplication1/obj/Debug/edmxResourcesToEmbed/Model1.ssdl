@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="profileapplicationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="companies">
+    <Key>
+      <PropertyRef Name="compId" />
+    </Key>
+    <Property Name="compId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="compName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="compRevenue" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="country_table">
+    <Key>
+      <PropertyRef Name="countryId" />
+    </Key>
+    <Property Name="countryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="notes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="objId" Type="int" Nullable="false" />
+    <Property Name="objMode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="objMessage" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state_table">
+    <Key>
+      <PropertyRef Name="stateId" />
+    </Key>
+    <Property Name="stateId" Type="int" Nullable="false" />
+    <Property Name="countryId" Type="int" Nullable="false" />
+    <Property Name="stateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userEmail" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__state_tab__count__4CA06362">
+    <End Role="country_table" Type="Self.country_table" Multiplicity="1" />
+    <End Role="state_table" Type="Self.state_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country_table">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="state_table">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stateId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getStatesFromCountryId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="countryID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="profileapplicationModelStoreContainer">
+    <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="country_table" EntityType="Self.country_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notes" EntityType="Self.notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="state_table" EntityType="Self.state_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__state_tab__count__4CA06362" Association="Self.FK__state_tab__count__4CA06362">
+      <End Role="country_table" EntitySet="country_table" />
+      <End Role="state_table" EntitySet="state_table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

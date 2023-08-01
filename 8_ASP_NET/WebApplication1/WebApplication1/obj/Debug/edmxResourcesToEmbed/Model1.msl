@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="profileapplicationModelStoreContainer" CdmEntityContainer="profileapplicationEntities">
+    <EntitySetMapping Name="country_table">
+      <EntityTypeMapping TypeName="profileapplicationModel.country_table">
+        <MappingFragment StoreEntitySet="country_table">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="state_table">
+      <EntityTypeMapping TypeName="profileapplicationModel.state_table">
+        <MappingFragment StoreEntitySet="state_table">
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getData" FunctionName="profileapplicationModel.Store.getData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="profileapplicationModel.getData_Result">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getStates" FunctionName="profileapplicationModel.Store.getStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="profileapplicationModel.getStates_Result">
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getStatesFromCountryId" FunctionName="profileapplicationModel.Store.getStatesFromCountryId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="profileapplicationModel.getStatesFromCountryId_Result">
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="profileapplicationModel.company">
+        <MappingFragment StoreEntitySet="companies">
+          <ScalarProperty Name="compRevenue" ColumnName="compRevenue" />
+          <ScalarProperty Name="compName" ColumnName="compName" />
+          <ScalarProperty Name="compId" ColumnName="compId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notes">
+      <EntityTypeMapping TypeName="profileapplicationModel.note">
+        <MappingFragment StoreEntitySet="notes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="objMessage" ColumnName="objMessage" />
+          <ScalarProperty Name="objMode" ColumnName="objMode" />
+          <ScalarProperty Name="objId" ColumnName="objId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="profileapplicationModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

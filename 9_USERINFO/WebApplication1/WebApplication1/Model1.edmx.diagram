@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e81b13da1b147b2b0f4e540680c7436" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="userInfoModel.country" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="userInfoModel.role" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="userInfoModel.state" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="userInfoModel.userHobby" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="userInfoModel.userRole" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="userInfoModel.user" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="userInfoModel.FK__states__countryI__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__users__permanent__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__users__presentCo__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__userRoles__roleI__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__users__permanent__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__users__presentSt__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__userHobbi__userI__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="userInfoModel.FK__userRoles__userI__5629CD9C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

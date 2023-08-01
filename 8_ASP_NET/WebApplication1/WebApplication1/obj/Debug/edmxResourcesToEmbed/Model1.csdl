@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="profileapplicationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="country_table">
+    <Key>
+      <PropertyRef Name="countryId" />
+    </Key>
+    <Property Name="countryId" Type="Int32" Nullable="false" />
+    <Property Name="countryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="state_table" Relationship="Self.FK__state_tab__count__4CA06362" FromRole="country_table" ToRole="state_table" />
+  </EntityType>
+  <EntityType Name="state_table">
+    <Key>
+      <PropertyRef Name="stateId" />
+    </Key>
+    <Property Name="stateId" Type="Int32" Nullable="false" />
+    <Property Name="countryId" Type="Int32" Nullable="false" />
+    <Property Name="stateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="country_table" Relationship="Self.FK__state_tab__count__4CA06362" FromRole="state_table" ToRole="country_table" />
+  </EntityType>
+  <Association Name="FK__state_tab__count__4CA06362">
+    <End Role="country_table" Type="Self.country_table" Multiplicity="1" />
+    <End Role="state_table" Type="Self.state_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country_table">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="state_table">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="profileapplicationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="country_table" EntityType="Self.country_table" />
+    <EntitySet Name="state_table" EntityType="Self.state_table" />
+    <AssociationSet Name="FK__state_tab__count__4CA06362" Association="Self.FK__state_tab__count__4CA06362">
+      <End Role="country_table" EntitySet="country_table" />
+      <End Role="state_table" EntitySet="state_table" />
+    </AssociationSet>
+    <FunctionImport Name="getData" ReturnType="Collection(profileapplicationModel.getData_Result)" />
+    <FunctionImport Name="getStates" ReturnType="Collection(profileapplicationModel.getStates_Result)">
+      <Parameter Name="stateId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getStatesFromCountryId" ReturnType="Collection(profileapplicationModel.getStatesFromCountryId_Result)">
+      <Parameter Name="countryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="companies" EntityType="profileapplicationModel.company" />
+    <EntitySet Name="notes" EntityType="profileapplicationModel.note" />
+    <EntitySet Name="users" EntityType="profileapplicationModel.user" />
+  </EntityContainer>
+  <ComplexType Name="getData_Result">
+    <Property Type="Int32" Name="countryId" Nullable="false" />
+    <Property Type="String" Name="countryName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getStates_Result">
+    <Property Type="Int32" Name="stateId" Nullable="false" />
+    <Property Type="Int32" Name="countryId" Nullable="false" />
+    <Property Type="String" Name="stateName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getStatesFromCountryId_Result">
+    <Property Type="Int32" Name="stateId" Nullable="false" />
+    <Property Type="Int32" Name="countryId" Nullable="false" />
+    <Property Type="String" Name="stateName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="compId" />
+    </Key>
+    <Property Name="compId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="compName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="compRevenue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="note">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="objId" Type="Int32" Nullable="false" />
+    <Property Name="objMode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="objMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

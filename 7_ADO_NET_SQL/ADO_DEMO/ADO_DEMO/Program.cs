@@ -22,7 +22,7 @@ namespace ADO_DEMO
                 
                 dbcontext.SaveChanges();
                 Console.WriteLine("Updated successfully");
-            }
+            } 
 
         }
         public static void DeleteCountry()

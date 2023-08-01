@@ -67,7 +67,7 @@
         </div>
 
         <asp:Label ID="Label1" runat="server"></asp:Label>
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="countryId" DataSourceID="SqlDataSource1">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="countryId">
             <ItemTemplate>
                 countryId:
                 <asp:Label ID="countryIdLabel" runat="server" Text='<%# Eval("countryId") %>' />
@@ -78,16 +78,20 @@
                 <br />
             </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:profileapplicationConnectionString2 %>" ProviderName="<%$ ConnectionStrings:profileapplicationConnectionString2.ProviderName %>" SelectCommand="SELECT * FROM [country_table]"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="countryId" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="countryId" HeaderText="countryId" ReadOnly="True" SortExpression="countryId" />
-                <asp:BoundField DataField="countryName" HeaderText="countryName" SortExpression="countryName" />
-            </Columns>
-        </asp:GridView>
-        <br />
-        <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 
+
+        <br />
+        <br />
+        <h2>Trying a custom edit and delete gridview
+            <asp:GridView ID="GridView2" runat="server">
+            </asp:GridView>
+            <asp:EntityDataSource ID="EntityDataSource1" runat="server">
+            </asp:EntityDataSource>
+        </h2>
+        
+        <asp:DataGrid ID="DataGrid1" runat="server">
+        </asp:DataGrid>
     </div>
 
 </asp:Content>
