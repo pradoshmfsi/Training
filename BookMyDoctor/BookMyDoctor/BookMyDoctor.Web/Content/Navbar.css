@@ -1,0 +1,40 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    background-color: rgb(239, 239, 239);
+    font-family: Poppins;
+    margin: 0px;
+}
+.form-heading {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px 0px 10px 0px;
+}
+.navbar {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+.nav-item{
+    padding:1%;
+    font-weight:400;
+    font-size:20px;
+}
+    .nav-item:hover {
+        background-color: rgb(239, 239, 239);
+        cursor:pointer;
+    }
+
+#loading img {
+    position: fixed;
+    z-index: 2;
+    top: 40vh;
+    left: 48%;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+a {
+    color: black;
+    text-decoration: none;
+}

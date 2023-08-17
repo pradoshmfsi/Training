@@ -31,5 +31,7 @@ namespace WebApplication1
         public virtual DbSet<userHobby> userHobbies { get; set; }
         public virtual DbSet<userRole> userRoles { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<userNote> userNotes { get; set; }
+        public virtual DbSet<userDocument> userDocuments { get; set; }
     }
 }

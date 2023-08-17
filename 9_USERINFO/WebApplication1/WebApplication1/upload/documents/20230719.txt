@@ -1,0 +1,6 @@
+Created: D:\Projects\Training\6_C#\test_folder\New Text Document.txt
+
+Renamed:
+Old: D:\Projects\Training\6_C#\test_folder\New Text Document.txt
+New: D:\Projects\Training\6_C#\test_folder\File.txt.txt
+

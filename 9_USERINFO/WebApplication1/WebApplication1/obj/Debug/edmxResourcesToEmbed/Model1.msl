@@ -47,6 +47,7 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="userInfoModel.user">
         <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="fname" ColumnName="fname" />
           <ScalarProperty Name="lname" ColumnName="lname" />
@@ -66,6 +67,25 @@
           <ScalarProperty Name="permanentStateId" ColumnName="permanentStateId" />
           <ScalarProperty Name="permanentCity" ColumnName="permanentCity" />
           <ScalarProperty Name="permanentPin" ColumnName="permanentPin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userNotes">
+      <EntityTypeMapping TypeName="userInfoModel.userNote">
+        <MappingFragment StoreEntitySet="userNotes">
+          <ScalarProperty Name="ifPrivate" ColumnName="ifPrivate" />
+          <ScalarProperty Name="noteMessage" ColumnName="noteMessage" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="noteId" ColumnName="noteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userDocuments">
+      <EntityTypeMapping TypeName="userInfoModel.userDocument">
+        <MappingFragment StoreEntitySet="userDocuments">
+          <ScalarProperty Name="documentName" ColumnName="documentName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

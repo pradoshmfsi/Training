@@ -77,6 +77,9 @@
     <NavigationProperty Name="state1" Relationship="Self.FK__users__presentSt__5165187F" FromRole="users" ToRole="states" />
     <NavigationProperty Name="userHobbies" Relationship="Self.FK__userHobbi__userI__440B1D61" FromRole="users" ToRole="userHobbies" />
     <NavigationProperty Name="userRoles" Relationship="Self.FK__userRoles__userI__5629CD9C" FromRole="users" ToRole="userRoles" />
+    <NavigationProperty Name="userNotes" Relationship="userInfoModel.FK__userNotes__userI__6D0D32F4" FromRole="user" ToRole="userNote" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="userDocuments" Relationship="userInfoModel.FK__userDocum__userI__7C4F7684" FromRole="user" ToRole="userDocument" />
   </EntityType>
   <Association Name="FK__states__countryI__4316F928">
     <End Role="countries" Type="Self.country" Multiplicity="1" />
@@ -213,5 +216,58 @@
       <End Role="users" EntitySet="users" />
       <End Role="userRoles" EntitySet="userRoles" />
     </AssociationSet>
+    <EntitySet Name="userNotes" EntityType="userInfoModel.userNote" />
+    <AssociationSet Name="FK__userNotes__userI__6D0D32F4" Association="userInfoModel.FK__userNotes__userI__6D0D32F4">
+      <End Role="user" EntitySet="users" />
+      <End Role="userNote" EntitySet="userNotes" />
+    </AssociationSet>
+    <EntitySet Name="userDocuments" EntityType="userInfoModel.userDocument" />
+    <AssociationSet Name="FK__userDocum__userI__7C4F7684" Association="userInfoModel.FK__userDocum__userI__7C4F7684">
+      <End Role="user" EntitySet="users" />
+      <End Role="userDocument" EntitySet="userDocuments" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="userNote">
+    <Key>
+      <PropertyRef Name="noteId" />
+    </Key>
+    <Property Name="noteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="noteMessage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="user" Relationship="userInfoModel.FK__userNotes__userI__6D0D32F4" FromRole="userNote" ToRole="user" />
+    <Property Name="ifPrivate" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__userNotes__userI__6D0D32F4">
+    <End Type="userInfoModel.user" Role="user" Multiplicity="1" />
+    <End Type="userInfoModel.userNote" Role="userNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="userNote">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="userDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="documentName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="user" Relationship="userInfoModel.FK__userDocum__userI__7C4F7684" FromRole="userDocument" ToRole="user" />
+  </EntityType>
+  <Association Name="FK__userDocum__userI__7C4F7684">
+    <End Type="userInfoModel.user" Role="user" Multiplicity="1" />
+    <End Type="userInfoModel.userDocument" Role="userDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="userDocument">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

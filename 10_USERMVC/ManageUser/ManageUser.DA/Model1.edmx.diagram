@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20b5b60a83f64a0bac003b1015c08c2b" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="userInfoModel.country" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="userInfoModel.role" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="userInfoModel.state" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="userInfoModel.userHobby" Width="1.5" PointX="7.5" PointY="4" />
+        <EntityTypeShape EntityType="userInfoModel.userRole" Width="1.5" PointX="10.5" PointY="6.5" />
+        <EntityTypeShape EntityType="userInfoModel.user" Width="1.5" PointX="5.25" PointY="4.375" />
+        <AssociationConnector Association="userInfoModel.FK__states__countryI__4316F928" />
+        <AssociationConnector Association="userInfoModel.FK__users__permanent__5441852A" />
+        <AssociationConnector Association="userInfoModel.FK__users__presentCo__534D60F1" />
+        <AssociationConnector Association="userInfoModel.FK__userRoles__roleI__5535A963" />
+        <AssociationConnector Association="userInfoModel.FK__users__permanent__52593CB8" />
+        <AssociationConnector Association="userInfoModel.FK__users__presentSt__5165187F" />
+        <AssociationConnector Association="userInfoModel.FK__userHobbi__userI__440B1D61" />
+        <AssociationConnector Association="userInfoModel.FK__userRoles__userI__5629CD9C" />
+        <EntityTypeShape EntityType="userInfoModel.userNote" Width="1.5" PointX="7.5" PointY="7.5" />
+        <AssociationConnector Association="userInfoModel.FK__userNotes__userI__6D0D32F4" />
+        <EntityTypeShape EntityType="userInfoModel.userDocument" Width="1.5" PointX="2.375" PointY="3.5" />
+        <AssociationConnector Association="userInfoModel.FK__userDocum__userI__1F98B2C1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

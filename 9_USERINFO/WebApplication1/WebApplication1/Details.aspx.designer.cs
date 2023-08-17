@@ -15,13 +15,22 @@ namespace WebApplication1
     {
 
         /// <summary>
-        /// form1 control.
+        /// formUserDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formUserDetails;
+
+        /// <summary>
+        /// logoutUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebApplication1.LogoutUserControl logoutUserControl;
 
         /// <summary>
         /// addForm control.
@@ -33,12 +42,12 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.Button addForm;
 
         /// <summary>
-        /// GridView1 control.
+        /// UserDetailsGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView UserDetailsGrid;
     }
 }

@@ -22,6 +22,14 @@
     <Property Name="countryId" Type="int" Nullable="false" />
     <Property Name="stateName" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="userDocuments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="documentName" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
   <EntityType Name="userHobbies">
     <Key>
       <PropertyRef Name="id" />
@@ -29,6 +37,15 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="userId" Type="int" Nullable="false" />
     <Property Name="hobby" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userNotes">
+    <Key>
+      <PropertyRef Name="noteId" />
+    </Key>
+    <Property Name="noteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="noteMessage" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ifPrivate" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="userRoles">
     <Key>
@@ -46,6 +63,7 @@
     <Property Name="fname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="lname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dob" Type="date" Nullable="false" />
     <Property Name="profilePic" Type="varchar" MaxLength="100" Nullable="false" />
@@ -74,6 +92,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__userDocum__userI__7C4F7684">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="userDocuments" Type="Self.userDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="userDocuments">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__userHobbi__userI__440B1D61">
     <End Role="users" Type="Self.users" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -84,6 +114,20 @@
         <PropertyRef Name="userId" />
       </Principal>
       <Dependent Role="userHobbies">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__userNotes__userI__6D0D32F4">
+    <End Role="users" Type="Self.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="userNotes" Type="Self.userNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="userNotes">
         <PropertyRef Name="userId" />
       </Dependent>
     </ReferentialConstraint>
@@ -166,16 +210,26 @@
     <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userDocuments" EntityType="Self.userDocuments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userHobbies" EntityType="Self.userHobbies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userNotes" EntityType="Self.userNotes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userRoles" EntityType="Self.userRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__states__countryI__4316F928" Association="Self.FK__states__countryI__4316F928">
       <End Role="countries" EntitySet="countries" />
       <End Role="states" EntitySet="states" />
     </AssociationSet>
+    <AssociationSet Name="FK__userDocum__userI__7C4F7684" Association="Self.FK__userDocum__userI__7C4F7684">
+      <End Role="users" EntitySet="users" />
+      <End Role="userDocuments" EntitySet="userDocuments" />
+    </AssociationSet>
     <AssociationSet Name="FK__userHobbi__userI__440B1D61" Association="Self.FK__userHobbi__userI__440B1D61">
       <End Role="users" EntitySet="users" />
       <End Role="userHobbies" EntitySet="userHobbies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__userNotes__userI__6D0D32F4" Association="Self.FK__userNotes__userI__6D0D32F4">
+      <End Role="users" EntitySet="users" />
+      <End Role="userNotes" EntitySet="userNotes" />
     </AssociationSet>
     <AssociationSet Name="FK__userRoles__roleI__5535A963" Association="Self.FK__userRoles__roleI__5535A963">
       <End Role="roles" EntitySet="roles" />

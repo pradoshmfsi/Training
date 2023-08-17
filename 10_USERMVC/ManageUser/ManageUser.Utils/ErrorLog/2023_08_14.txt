@@ -1,0 +1,1694 @@
+------------------------------------------------------------------------------------
+Time - 08:48:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:50:06 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:50:13 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:52:08 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:52:50 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:53:47 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 08:53:50 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:17:08 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:21:23 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:21:27 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:21:29 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:21:31 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:21:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:01 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:02 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:06 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:18 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:18 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:19 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:19 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:20 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:20 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:20 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:35 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:39 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:44 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:23:51 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:19 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:31 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:49 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:53 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:53 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:54 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:24:54 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:16 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:32 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:34 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:43 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:25:54 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:00 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:16 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:51 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:52 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:26:52 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:33 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:34 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:34 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:35 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:35 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:35 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:35 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:36 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:48 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:49 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:50 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:50 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:51 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:51 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:27:52 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:28:41 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:28:41 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:28:42 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:07 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:08 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:09 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:09 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:09 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:10 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:11 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:11 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:11 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:11 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:12 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:12 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:12 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:34:12 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:04 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:05 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:06 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:07 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:32 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:33 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:51 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:52 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:52 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:53 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:35:54 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:47:44 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:48:31 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:00 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:02 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:02 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:49:03 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+
+------------------------------------------------------------------------------------
+Time - 09:52:11 PM
+Error - 
+System.InvalidOperationException: No connection string named 'BookMyDoctorEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at BookMyDoctor.DA.DataAcess.GetUserByEmail(String email) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAcess.cs:line 18
+

@@ -1,0 +1,21 @@
+﻿.container{
+    padding:2%;
+}
+.appointment-list-container{
+    width:80%;
+}
+.row{
+    display:flex;
+}
+.table-header{
+    width:15%;
+    padding:1% 2% 1% 2%;
+    text-align:center;
+    background-color:rgb(33, 33, 33);
+    color:white;
+}
+.table-element {
+    width: 15%;
+    padding: 1% 2% 1% 2%;
+    text-align: center;
+}

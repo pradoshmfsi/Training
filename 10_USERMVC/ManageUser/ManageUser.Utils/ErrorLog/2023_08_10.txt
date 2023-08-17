@@ -1,0 +1,113 @@
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at ManageUser.Details.Page_Load(Object sender, EventArgs e) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser\Details.aspx.cs:line 19
+
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at ManageUser.Details.Page_Load(Object sender, EventArgs e) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser\Details.aspx.cs:line 19
+
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at ManageUser.Details.Page_Load(Object sender, EventArgs e) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser\Details.aspx.cs:line 19
+
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 220
+
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 220
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 10:50:2023
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 220
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 11:02:02
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 220
+   at ManageUser.Business.UserDetailBusiness.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\UserDetailBusiness.cs:line 82
+   at ManageUser.UserForm.AddNoteToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser\UserForm.aspx.cs:line 319
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 11:24:52
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 220
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:49:24
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 211
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:51:03 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 211
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:54:13 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 211
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:55:29 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 211
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:55:43 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddNotesToDB(UserNote newNote) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 211
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:57:37 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddDocumentsToDB(UserDocument newDocument) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 237
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 02:57:41 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddDocumentsToDB(UserDocument newDocument) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 237
+
+------------------------------------------------------------------------------------
+User - 9
+Time - 08:25:59 PM
+Error - 
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at ManageUser.DA.UserDetailDA.AddUserToDB(UserReceived user) in D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\UserDetailDA.cs:line 326
+

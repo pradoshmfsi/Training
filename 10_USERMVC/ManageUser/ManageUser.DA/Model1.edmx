@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="userInfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="states">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryId" Type="int" Nullable="false" />
+          <Property Name="stateName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userDocuments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="documentName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="createdOn" Type="date" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="documentNameActual" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userHobbies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="hobby" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userNotes">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Name="noteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="noteMessage" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ifPrivate" Type="int" Nullable="false" />
+          <Property Name="createdOn" Type="date" Nullable="false" />
+          <Property Name="createdBy" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userRoles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="roleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dob" Type="date" Nullable="false" />
+          <Property Name="profilePic" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="profilePicActual" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="presentAddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="presentAddressLine2" Type="varchar" MaxLength="50" />
+          <Property Name="presentCountryId" Type="int" Nullable="false" />
+          <Property Name="presentStateId" Type="int" Nullable="false" />
+          <Property Name="presentCity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="presentPin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="permanentAddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="permanentAddressLine2" Type="varchar" MaxLength="50" />
+          <Property Name="permanentCountryId" Type="int" Nullable="false" />
+          <Property Name="permanentStateId" Type="int" Nullable="false" />
+          <Property Name="permanentCity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="permanentPin" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__states__countryI__4316F928">
+          <End Role="countries" Type="Self.countries" Multiplicity="1" />
+          <End Role="states" Type="Self.states" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="states">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userDocum__userI__2180FB33">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="userDocuments" Type="Self.userDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userDocuments">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userHobbi__userI__440B1D61">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userHobbies" Type="Self.userHobbies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userHobbies">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userNotes__userI__6D0D32F4">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userNotes" Type="Self.userNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userNotes">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userRoles__roleI__5535A963">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="userRoles" Type="Self.userRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="roleId" />
+            </Principal>
+            <Dependent Role="userRoles">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userRoles__userI__5629CD9C">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userRoles" Type="Self.userRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userRoles">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__permanent__52593CB8">
+          <End Role="states" Type="Self.states" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="permanentStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__permanent__5441852A">
+          <End Role="countries" Type="Self.countries" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="permanentCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__presentCo__534D60F1">
+          <End Role="countries" Type="Self.countries" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="presentCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__presentSt__5165187F">
+          <End Role="states" Type="Self.states" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="presentStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="userInfoModelStoreContainer">
+          <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userDocuments" EntityType="Self.userDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userHobbies" EntityType="Self.userHobbies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userNotes" EntityType="Self.userNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userRoles" EntityType="Self.userRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__states__countryI__4316F928" Association="Self.FK__states__countryI__4316F928">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="states" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userDocum__userI__2180FB33" Association="Self.FK__userDocum__userI__2180FB33">
+            <End Role="users" EntitySet="users" />
+            <End Role="userDocuments" EntitySet="userDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userHobbi__userI__440B1D61" Association="Self.FK__userHobbi__userI__440B1D61">
+            <End Role="users" EntitySet="users" />
+            <End Role="userHobbies" EntitySet="userHobbies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userNotes__userI__6D0D32F4" Association="Self.FK__userNotes__userI__6D0D32F4">
+            <End Role="users" EntitySet="users" />
+            <End Role="userNotes" EntitySet="userNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userRoles__roleI__5535A963" Association="Self.FK__userRoles__roleI__5535A963">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="userRoles" EntitySet="userRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userRoles__userI__5629CD9C" Association="Self.FK__userRoles__userI__5629CD9C">
+            <End Role="users" EntitySet="users" />
+            <End Role="userRoles" EntitySet="userRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__permanent__52593CB8" Association="Self.FK__users__permanent__52593CB8">
+            <End Role="states" EntitySet="states" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__permanent__5441852A" Association="Self.FK__users__permanent__5441852A">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__presentCo__534D60F1" Association="Self.FK__users__presentCo__534D60F1">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__presentSt__5165187F" Association="Self.FK__users__presentSt__5165187F">
+            <End Role="states" EntitySet="states" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="userInfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="userInfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="countries" EntityType="userInfoModel.country" />
+          <EntitySet Name="roles" EntityType="userInfoModel.role" />
+          <EntitySet Name="states" EntityType="userInfoModel.state" />
+          <EntitySet Name="userHobbies" EntityType="userInfoModel.userHobby" />
+          <EntitySet Name="userRoles" EntityType="userInfoModel.userRole" />
+          <EntitySet Name="users" EntityType="userInfoModel.user" />
+          <AssociationSet Name="FK__states__countryI__4316F928" Association="userInfoModel.FK__states__countryI__4316F928">
+            <End Role="country" EntitySet="countries" />
+            <End Role="state" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__permanent__5441852A" Association="userInfoModel.FK__users__permanent__5441852A">
+            <End Role="country" EntitySet="countries" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__presentCo__534D60F1" Association="userInfoModel.FK__users__presentCo__534D60F1">
+            <End Role="country" EntitySet="countries" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userRoles__roleI__5535A963" Association="userInfoModel.FK__userRoles__roleI__5535A963">
+            <End Role="role" EntitySet="roles" />
+            <End Role="userRole" EntitySet="userRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__permanent__52593CB8" Association="userInfoModel.FK__users__permanent__52593CB8">
+            <End Role="state" EntitySet="states" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__presentSt__5165187F" Association="userInfoModel.FK__users__presentSt__5165187F">
+            <End Role="state" EntitySet="states" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userHobbi__userI__440B1D61" Association="userInfoModel.FK__userHobbi__userI__440B1D61">
+            <End Role="user" EntitySet="users" />
+            <End Role="userHobby" EntitySet="userHobbies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userRoles__userI__5629CD9C" Association="userInfoModel.FK__userRoles__userI__5629CD9C">
+            <End Role="user" EntitySet="users" />
+            <End Role="userRole" EntitySet="userRoles" />
+          </AssociationSet>
+          <EntitySet Name="userNotes" EntityType="userInfoModel.userNote" />
+          <AssociationSet Name="FK__userNotes__userI__6D0D32F4" Association="userInfoModel.FK__userNotes__userI__6D0D32F4">
+            <End Role="user" EntitySet="users" />
+            <End Role="userNote" EntitySet="userNotes" />
+          </AssociationSet>
+          <EntitySet Name="userDocuments" EntityType="userInfoModel.userDocument" />
+          <AssociationSet Name="FK__userDocum__userI__1F98B2C1" Association="userInfoModel.FK__userDocum__userI__1F98B2C1">
+            <End Role="user" EntitySet="users" />
+            <End Role="userDocument" EntitySet="userDocuments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countryId" />
+          </Key>
+          <Property Name="countryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="states" Relationship="userInfoModel.FK__states__countryI__4316F928" FromRole="country" ToRole="state" />
+          <NavigationProperty Name="users" Relationship="userInfoModel.FK__users__permanent__5441852A" FromRole="country" ToRole="user" />
+          <NavigationProperty Name="users1" Relationship="userInfoModel.FK__users__presentCo__534D60F1" FromRole="country" ToRole="user" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="userRoles" Relationship="userInfoModel.FK__userRoles__roleI__5535A963" FromRole="role" ToRole="userRole" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="stateId" />
+          </Key>
+          <Property Name="stateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryId" Type="Int32" Nullable="false" />
+          <Property Name="stateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="userInfoModel.FK__states__countryI__4316F928" FromRole="state" ToRole="country" />
+          <NavigationProperty Name="users" Relationship="userInfoModel.FK__users__permanent__52593CB8" FromRole="state" ToRole="user" />
+          <NavigationProperty Name="users1" Relationship="userInfoModel.FK__users__presentSt__5165187F" FromRole="state" ToRole="user" />
+        </EntityType>
+        <EntityType Name="userHobby">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="hobby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="userInfoModel.FK__userHobbi__userI__440B1D61" FromRole="userHobby" ToRole="user" />
+        </EntityType>
+        <EntityType Name="userRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="userInfoModel.FK__userRoles__roleI__5535A963" FromRole="userRole" ToRole="role" />
+          <NavigationProperty Name="user" Relationship="userInfoModel.FK__userRoles__userI__5629CD9C" FromRole="userRole" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="profilePic" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="presentAddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="presentAddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="presentCountryId" Type="Int32" Nullable="false" />
+          <Property Name="presentStateId" Type="Int32" Nullable="false" />
+          <Property Name="presentCity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="presentPin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permanentAddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permanentAddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permanentCountryId" Type="Int32" Nullable="false" />
+          <Property Name="permanentStateId" Type="Int32" Nullable="false" />
+          <Property Name="permanentCity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permanentPin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="userInfoModel.FK__users__permanent__5441852A" FromRole="user" ToRole="country" />
+          <NavigationProperty Name="country1" Relationship="userInfoModel.FK__users__presentCo__534D60F1" FromRole="user" ToRole="country" />
+          <NavigationProperty Name="state" Relationship="userInfoModel.FK__users__permanent__52593CB8" FromRole="user" ToRole="state" />
+          <NavigationProperty Name="state1" Relationship="userInfoModel.FK__users__presentSt__5165187F" FromRole="user" ToRole="state" />
+          <NavigationProperty Name="userHobbies" Relationship="userInfoModel.FK__userHobbi__userI__440B1D61" FromRole="user" ToRole="userHobby" />
+          <NavigationProperty Name="userRoles" Relationship="userInfoModel.FK__userRoles__userI__5629CD9C" FromRole="user" ToRole="userRole" />
+          <Property Name="profilePicActual" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="userNotes" Relationship="userInfoModel.FK__userNotes__userI__6D0D32F4" FromRole="user" ToRole="userNote" />
+          <NavigationProperty Name="userDocuments" Relationship="userInfoModel.FK__userDocum__userI__1F98B2C1" FromRole="user" ToRole="userDocument" />
+        </EntityType>
+        <Association Name="FK__states__countryI__4316F928">
+          <End Type="userInfoModel.country" Role="country" Multiplicity="1" />
+          <End Type="userInfoModel.state" Role="state" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="state">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__permanent__5441852A">
+          <End Type="userInfoModel.country" Role="country" Multiplicity="1" />
+          <End Type="userInfoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="permanentCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__presentCo__534D60F1">
+          <End Type="userInfoModel.country" Role="country" Multiplicity="1" />
+          <End Type="userInfoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countryId" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="presentCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userRoles__roleI__5535A963">
+          <End Type="userInfoModel.role" Role="role" Multiplicity="1" />
+          <End Type="userInfoModel.userRole" Role="userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="roleId" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__permanent__52593CB8">
+          <End Type="userInfoModel.state" Role="state" Multiplicity="1" />
+          <End Type="userInfoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="permanentStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__presentSt__5165187F">
+          <End Type="userInfoModel.state" Role="state" Multiplicity="1" />
+          <End Type="userInfoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="stateId" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="presentStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userHobbi__userI__440B1D61">
+          <End Type="userInfoModel.user" Role="user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="userInfoModel.userHobby" Role="userHobby" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userHobby">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userRoles__userI__5629CD9C">
+          <End Type="userInfoModel.user" Role="user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="userInfoModel.userRole" Role="userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="userNote">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Name="noteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="noteMessage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ifPrivate" Type="Int32" Nullable="false" />
+          <Property Name="createdOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="createdBy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="userInfoModel.FK__userNotes__userI__6D0D32F4" FromRole="userNote" ToRole="user" />
+        </EntityType>
+        <Association Name="FK__userNotes__userI__6D0D32F4">
+          <End Type="userInfoModel.user" Role="user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="userInfoModel.userNote" Role="userNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userNote">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="userDocument">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="documentName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="createdOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="createdBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="userInfoModel.FK__userDocum__userI__1F98B2C1" FromRole="userDocument" ToRole="user" />
+          <Property Name="documentNameActual" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__userDocum__userI__1F98B2C1">
+          <End Type="userInfoModel.user" Role="user" Multiplicity="1" />
+          <End Type="userInfoModel.userDocument" Role="userDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="userDocument">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="userInfoModelStoreContainer" CdmEntityContainer="userInfoEntities">
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="userInfoModel.country">
+              <MappingFragment StoreEntitySet="countries">
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="userInfoModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states">
+            <EntityTypeMapping TypeName="userInfoModel.state">
+              <MappingFragment StoreEntitySet="states">
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="stateId" ColumnName="stateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userHobbies">
+            <EntityTypeMapping TypeName="userInfoModel.userHobby">
+              <MappingFragment StoreEntitySet="userHobbies">
+                <ScalarProperty Name="hobby" ColumnName="hobby" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userRoles">
+            <EntityTypeMapping TypeName="userInfoModel.userRole">
+              <MappingFragment StoreEntitySet="userRoles">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="userInfoModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="profilePicActual" ColumnName="profilePicActual" />
+                <ScalarProperty Name="permanentPin" ColumnName="permanentPin" />
+                <ScalarProperty Name="permanentCity" ColumnName="permanentCity" />
+                <ScalarProperty Name="permanentStateId" ColumnName="permanentStateId" />
+                <ScalarProperty Name="permanentCountryId" ColumnName="permanentCountryId" />
+                <ScalarProperty Name="permanentAddressLine2" ColumnName="permanentAddressLine2" />
+                <ScalarProperty Name="permanentAddressLine1" ColumnName="permanentAddressLine1" />
+                <ScalarProperty Name="presentPin" ColumnName="presentPin" />
+                <ScalarProperty Name="presentCity" ColumnName="presentCity" />
+                <ScalarProperty Name="presentStateId" ColumnName="presentStateId" />
+                <ScalarProperty Name="presentCountryId" ColumnName="presentCountryId" />
+                <ScalarProperty Name="presentAddressLine2" ColumnName="presentAddressLine2" />
+                <ScalarProperty Name="presentAddressLine1" ColumnName="presentAddressLine1" />
+                <ScalarProperty Name="profilePic" ColumnName="profilePic" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userNotes">
+            <EntityTypeMapping TypeName="userInfoModel.userNote">
+              <MappingFragment StoreEntitySet="userNotes">
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="ifPrivate" ColumnName="ifPrivate" />
+                <ScalarProperty Name="noteMessage" ColumnName="noteMessage" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="noteId" ColumnName="noteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userDocuments">
+            <EntityTypeMapping TypeName="userInfoModel.userDocument">
+              <MappingFragment StoreEntitySet="userDocuments">
+                <ScalarProperty Name="documentNameActual" ColumnName="documentNameActual" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="documentName" ColumnName="documentName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

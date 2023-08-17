@@ -1,0 +1,14 @@
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.Business.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.Business.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\obj\Debug\ManageUser.Business.csproj.AssemblyReference.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\obj\Debug\ManageUser.Business.csproj.CoreCompileInputs.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\obj\Debug\ManageUser.Business.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\obj\Debug\ManageUser.Business.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.DA.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\EntityFramework.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.DA.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.DA.dll.config
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\EntityFramework.xml
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\obj\Debug\ManageUser.Business.csproj.CopyComplete
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.Utils.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Business\bin\Debug\ManageUser.Utils.pdb

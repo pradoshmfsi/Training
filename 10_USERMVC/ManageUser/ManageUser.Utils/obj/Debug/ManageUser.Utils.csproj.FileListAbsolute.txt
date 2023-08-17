@@ -1,0 +1,6 @@
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\bin\Debug\ManageUser.Utils.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\bin\Debug\ManageUser.Utils.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\obj\Debug\ManageUser.Utils.csproj.AssemblyReference.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\obj\Debug\ManageUser.Utils.csproj.CoreCompileInputs.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\obj\Debug\ManageUser.Utils.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.Utils\obj\Debug\ManageUser.Utils.pdb

@@ -19,6 +19,8 @@ namespace WebApplication1
         {
             this.userHobbies = new HashSet<userHobby>();
             this.userRoles = new HashSet<userRole>();
+            this.userNotes = new HashSet<userNote>();
+            this.userDocuments = new HashSet<userDocument>();
         }
     
         public int userId { get; set; }
@@ -40,6 +42,7 @@ namespace WebApplication1
         public int permanentStateId { get; set; }
         public string permanentCity { get; set; }
         public string permanentPin { get; set; }
+        public string password { get; set; }
     
         public virtual country country { get; set; }
         public virtual country country1 { get; set; }
@@ -49,5 +52,9 @@ namespace WebApplication1
         public virtual ICollection<userHobby> userHobbies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<userRole> userRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<userNote> userNotes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<userDocument> userDocuments { get; set; }
     }
 }

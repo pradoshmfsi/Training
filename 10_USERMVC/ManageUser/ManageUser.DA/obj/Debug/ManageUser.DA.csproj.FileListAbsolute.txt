@@ -1,0 +1,14 @@
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\ManageUser.DA.dll.config
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\ManageUser.DA.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\ManageUser.DA.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\EntityFramework.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\EntityFramework.xml
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\obj\Debug\ManageUser.DA.csproj.AssemblyReference.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\obj\Debug\ManageUser.DA.csproj.CoreCompileInputs.cache
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\obj\Debug\ManageUser.DA.csproj.CopyComplete
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\obj\Debug\ManageUser.DA.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\obj\Debug\ManageUser.DA.pdb
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\ManageUser.Utils.dll
+D:\Projects\Training\10_USERMVC\ManageUser\ManageUser.DA\bin\Debug\ManageUser.Utils.pdb

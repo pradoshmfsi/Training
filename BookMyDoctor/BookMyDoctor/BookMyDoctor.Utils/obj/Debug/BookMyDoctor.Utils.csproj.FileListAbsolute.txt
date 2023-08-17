@@ -1,0 +1,6 @@
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\bin\Debug\BookMyDoctor.Utils.dll
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\bin\Debug\BookMyDoctor.Utils.pdb
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\obj\Debug\BookMyDoctor.Utils.csproj.AssemblyReference.cache
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\obj\Debug\BookMyDoctor.Utils.csproj.CoreCompileInputs.cache
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\obj\Debug\BookMyDoctor.Utils.dll
+D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Utils\obj\Debug\BookMyDoctor.Utils.pdb

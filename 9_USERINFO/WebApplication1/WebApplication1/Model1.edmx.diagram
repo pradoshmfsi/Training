@@ -19,6 +19,10 @@
         <AssociationConnector Association="userInfoModel.FK__users__presentSt__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="userInfoModel.FK__userHobbi__userI__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="userInfoModel.FK__userRoles__userI__5629CD9C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="userInfoModel.userNote" Width="1.5" PointX="7.5" PointY="6.875" />
+        <AssociationConnector Association="userInfoModel.FK__userNotes__userI__6D0D32F4" />
+        <EntityTypeShape EntityType="userInfoModel.userDocument" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="userInfoModel.FK__userDocum__userI__7C4F7684" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

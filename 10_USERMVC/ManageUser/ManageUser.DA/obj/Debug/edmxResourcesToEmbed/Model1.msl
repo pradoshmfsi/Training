@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="userInfoModelStoreContainer" CdmEntityContainer="userInfoEntities">
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="userInfoModel.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="userInfoModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="userInfoModel.state">
+        <MappingFragment StoreEntitySet="states">
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userHobbies">
+      <EntityTypeMapping TypeName="userInfoModel.userHobby">
+        <MappingFragment StoreEntitySet="userHobbies">
+          <ScalarProperty Name="hobby" ColumnName="hobby" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userRoles">
+      <EntityTypeMapping TypeName="userInfoModel.userRole">
+        <MappingFragment StoreEntitySet="userRoles">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="userInfoModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="profilePicActual" ColumnName="profilePicActual" />
+          <ScalarProperty Name="permanentPin" ColumnName="permanentPin" />
+          <ScalarProperty Name="permanentCity" ColumnName="permanentCity" />
+          <ScalarProperty Name="permanentStateId" ColumnName="permanentStateId" />
+          <ScalarProperty Name="permanentCountryId" ColumnName="permanentCountryId" />
+          <ScalarProperty Name="permanentAddressLine2" ColumnName="permanentAddressLine2" />
+          <ScalarProperty Name="permanentAddressLine1" ColumnName="permanentAddressLine1" />
+          <ScalarProperty Name="presentPin" ColumnName="presentPin" />
+          <ScalarProperty Name="presentCity" ColumnName="presentCity" />
+          <ScalarProperty Name="presentStateId" ColumnName="presentStateId" />
+          <ScalarProperty Name="presentCountryId" ColumnName="presentCountryId" />
+          <ScalarProperty Name="presentAddressLine2" ColumnName="presentAddressLine2" />
+          <ScalarProperty Name="presentAddressLine1" ColumnName="presentAddressLine1" />
+          <ScalarProperty Name="profilePic" ColumnName="profilePic" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userNotes">
+      <EntityTypeMapping TypeName="userInfoModel.userNote">
+        <MappingFragment StoreEntitySet="userNotes">
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="ifPrivate" ColumnName="ifPrivate" />
+          <ScalarProperty Name="noteMessage" ColumnName="noteMessage" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="noteId" ColumnName="noteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userDocuments">
+      <EntityTypeMapping TypeName="userInfoModel.userDocument">
+        <MappingFragment StoreEntitySet="userDocuments">
+          <ScalarProperty Name="documentNameActual" ColumnName="documentNameActual" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="documentName" ColumnName="documentName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
