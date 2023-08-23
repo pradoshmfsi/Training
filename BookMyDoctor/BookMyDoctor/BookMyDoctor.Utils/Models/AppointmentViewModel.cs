@@ -17,6 +17,7 @@ namespace BookMyDoctor.Utils.Models
         public string PatientName { get; set; }
         public string PatientEmail { get; set; }
         public string PatientPhone { get; set; }
-        public string AppointmentStatus { get; set; }
+        public int AppointmentStatus { get; set; }
+        public string AppointmentStatusUI { get; set; }
     }
 }

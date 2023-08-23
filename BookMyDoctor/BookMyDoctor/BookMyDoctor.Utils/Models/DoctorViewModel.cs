@@ -12,7 +12,10 @@ namespace BookMyDoctor.Utils.Models
         public string DoctorName { get; set; }
         public int UserId { get; set; }
         public int AppointmentSlotTime { get; set; }
-        public string DayStartTime { get; set; }
-        public string DayEndTime { get; set; }
+        public string DayStartTimeUI { get; set; }
+        public TimeSpan DayStartTime { get; set; }
+        public string DayEndTimeUI { get; set; }
+
+        public TimeSpan DayEndTime { get; set; }
     }
 }

@@ -1,22 +1,36 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
 body {
     background-color: rgb(239, 239, 239);
     font-family: Poppins;
     margin: 0px;
 }
+.container {
+    padding: 2%;
+}
+.menu{
+    display:none;
+}
 .form-heading {
     font-size: 30px;
     font-weight: 600;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 10px 10px;
 }
+
 .navbar {
     display: flex;
+    min-height:50px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
+
+.selected-nav{
+    border-bottom:2px solid rgb(33,33,33);
+}
+
 .nav-item{
-    padding:1%;
+    padding:15px 40px 15px 40px;
     font-weight:400;
     font-size:20px;
 }
@@ -25,16 +39,80 @@ body {
         cursor:pointer;
     }
 
-#loading img {
-    position: fixed;
-    z-index: 2;
-    top: 40vh;
-    left: 48%;
-    width: 50px;
-    height: 50px;
-    display: none;
+#divLogoutContainer {
+    font-size:18px;
+    position: absolute;
+    top:8px;
+    right: 30px;
+    border: none;
+    background-color: rgb(239, 239, 239);
+    border-radius:100px;
+    padding:5px;
+    padding-left:10px;
+
 }
+    #divLogoutContainer button:hover {
+        background-color: rgb(0,0,0);
+        cursor: pointer;
+    }
+
+    #divLogoutContainer button {
+        border: none;
+        padding: 10px;
+        width:35px;
+        height:35px;
+        border-radius: 100px;
+        background-color: rgb(33,33,33);
+        color:white;
+    }
+
+    #loading img {
+        position: fixed;
+        z-index: 100;
+        top: 40vh;
+        left: 48%;
+        width: 50px;
+        height: 50px;
+        display: none;
+    }
 a {
     color: black;
     text-decoration: none;
+}
+.menu {
+    font-size: 20px;
+    padding: 10px;
+    width: 25px;
+}
+.menu:hover{
+    cursor:pointer;
+    background-color:rgb(217, 217, 217);
+}
+@media only screen and (max-width: 700px) {
+    .navbar{
+        min-height:60px;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navbar.responsive a{
+        
+        display:block;
+    }
+        .navbar.responsive {
+            display: block;
+        }
+    .menu {
+        height:30px;
+        display: block;
+    }
+    .selected-nav {
+        border-bottom: none;
+        background-color:rgb(33,33,33);
+        color:white;
+        font-weight:500;
+    }
+    .selected-nav:hover{
+        background-color:rgb(0,0,0);
+    }
 }

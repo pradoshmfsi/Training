@@ -18,15 +18,15 @@ namespace BookMyDoctor.Web
                 Response.Redirect("Patient.aspx");
             }
         }
+
         [System.Web.Services.WebMethod]
         public static StandardPostResponseModel GetAvailableSlots(int doctorId,string appointmentDate)
         {
-            var response = new StandardPostResponseModel { IsSuccess=false,Data=new List<string>()};
-            var availableSlots = BusinessLogic.GetAvailableSlots(doctorId, appointmentDate);
-            if(availableSlots != null)
+            var response = new StandardPostResponseModel { IsSuccess=true,Data= BusinessLogic.GetAvailableSlots(doctorId, appointmentDate)};
+            if(response.Data == null)
             {
                 response.IsSuccess = true;
-                response.Data = availableSlots;
+                response.Data = "Some error occured";
             }
             return response;
         }

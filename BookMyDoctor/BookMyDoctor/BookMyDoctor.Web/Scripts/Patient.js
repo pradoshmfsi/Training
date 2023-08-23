@@ -1,31 +1,25 @@
-﻿$(document).ready(() => {
+﻿import { ajaxWebMethodCall, menuResponsive } from "./Utils.js";
+
+$(document).ready(() => {
+    menuResponsive();
+
+    $("#navHome").addClass("selected-nav");
     fetchDoctors();
+    $(".doctor-list-container").on("click", ".txt-link", function () {
+        window.location.href = "Appointment.aspx?doctorId="+$(this).attr("doctorid");
+    })
 })
 
-function fetchDoctors() {
-    $.ajax({
-        type: "POST",
-        url: 'Patient.aspx/GetDoctorsList',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        beforeSend: function () {
-            $("#loading img").show();
-        },
-        success: function (r) {
-            console.log(r.d);
-            populateDoctors(r.d);
-        },
-        complete: function () {
-            $("#loading img").hide();
-        }
-    });
-}
-
-function populateDoctors(doctorList) {
-    console.log(doctorList);
-    doctorList.forEach((doctor) => {
-        $(".doctor-list-container").append(generateDoctorContainer(doctor))
-    }) 
+async function fetchDoctors() {
+    let doctors = await ajaxWebMethodCall({ url:'Patient.aspx/GetDoctorsList',data:""});
+    if (doctors.IsSuccess) {
+        doctors.Data.forEach((doctor) => {
+            $(".doctor-list-container").append(generateDoctorContainer(doctor))
+        }) 
+    }
+    else {
+        alert(doctors.Data);
+    }
 }
 
 function generateDoctorContainer(doctor) {
@@ -38,12 +32,12 @@ function generateDoctorContainer(doctor) {
                     ${doctor.AppointmentSlotTime}mins</div>
                 <div class="doctor-day-start">
                     <div class="detail-title">Starts</div>
-                    ${doctor.DayStartTime}</div>
+                    ${doctor.DayStartTimeUI}</div>
                 <div class="doctor-day-start">
                     <div class="detail-title">Ends</div>
-                    ${doctor.DayEndTime}</div>
+                    ${doctor.DayEndTimeUI}</div>
             </div>
         </div>
-        <a href="Appointment.aspx?doctorId=${doctor.DoctorId}"><div class="txt-link">Appoint Now</div></a>
+        <div class="txt-link" doctorId="${doctor.DoctorId}">Appoint Now</div>
     </div>`
 }

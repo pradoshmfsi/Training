@@ -10,10 +10,10 @@ namespace BookMyDoctor.Utils.Models
     {
         public string SlotStatus { get; set; }
 
+        public string SlotStartTimeUI { get; set; }
+
         public string SlotStartTime { get; set; }
 
-        public string SlotTime { get; set; }
-
-        public string SlotEndTime { get; set; }
+        public string SlotEndTimeUI { get; set; }
     }
 }

@@ -1,19 +1,19 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BookMyDoctor.Web.Login" %>
 
 <!DOCTYPE html>
+<%@ Register Src="~/NavbarUserControl.ascx" TagPrefix="uc" TagName="Navbar" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="Content/Login.css" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Navbar.css")%>" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Login.css")%>" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
     <form id="formLogin" runat="server">
+        <uc:Navbar ID="navbarUserControl" runat="server" />
         <div>
-            <div id="loading">
-                <img src="Assets/ZZ5H.gif" />
-            </div>
             <div class="form-container">
                 <div class="form-heading">LOGIN</div>
                 <div class="login-container">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <script src="Scripts/Login.js"></script>
+        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Login.js")%>" type="module"></script>
     </form>
 </body>
 </html>

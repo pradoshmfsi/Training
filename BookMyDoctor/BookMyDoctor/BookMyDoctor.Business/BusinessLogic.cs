@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BookMyDoctor.DA;
 using BookMyDoctor.Utils;
-
+using System.IO;
+using System.Runtime.Remoting.Contexts;
+using System.Xml.Linq;
 namespace BookMyDoctor.Business
 {
     public class BusinessLogic
@@ -34,31 +36,31 @@ namespace BookMyDoctor.Business
         {
 
             var bookedSlots = GetBookedSlots(doctorId, DateTime.Parse(appointmentDate));
-            DoctorTimeModel doctorTimeModel = DataAccess.GetDoctorTime(doctorId);
+            var doctor = DataAccess.GetDoctorFromID(doctorId);
 
-            var startTime = doctorTimeModel.DayStartTime;
-            var endTime = doctorTimeModel.DayEndTime;
-            List<SlotViewModel> availableSlots = new List<SlotViewModel>();
+            var startTime = doctor.DayStartTime;
+            var endTime = doctor.DayEndTime;
+            List<SlotViewModel> slots = new List<SlotViewModel>();
 
             while (startTime < endTime)
             {
-                var tempTime = startTime.Add(new TimeSpan(0, doctorTimeModel.AppointmentSlotTime, 0));
+                var tempTime = startTime.Add(new TimeSpan(0, doctor.AppointmentSlotTime, 0));
                 var slot = new SlotViewModel
                 {
                     SlotStatus = "booked",
-                    SlotTime = startTime.ToString(),
-                    SlotStartTime = Utilities.GetTimeString(startTime),
-                    SlotEndTime = Utilities.GetTimeString(tempTime)
+                    SlotStartTime = startTime.ToString(),
+                    SlotStartTimeUI = Utilities.GetTimeString(startTime),
+                    SlotEndTimeUI = Utilities.GetTimeString(tempTime)
                 };        
                 
                 if (!bookedSlots.Contains(startTime))
                     slot.SlotStatus = "open";
 
-                availableSlots.Add(slot);
+                slots.Add(slot);
                 startTime = tempTime;
 
             }
-            return availableSlots;
+            return slots;
         }
 
         public static StandardPostResponseModel AddAppointment(AppointmentViewModel appointmentObj)
@@ -69,7 +71,57 @@ namespace BookMyDoctor.Business
             {
                 return response;
             }
-            return DataAccess.AddAppointment(appointmentObj);
+
+            response.Data = DataAccess.AddAppointment(appointmentObj);
+
+            if (response.Data == 0)
+            {                
+                response.Data = "Some error occured!";   
+            }
+            else
+            {
+                response.IsSuccess = true;
+                response.Data = "ReportDownload.ashx?type=Appointment&appointmentId=" + response.Data;
+            }
+            return response;
         }
+
+        public static int GetDoctorId(int userId)
+        {
+            return DataAccess.GetDoctor(userId).DoctorId;
+        }
+
+        public static DoctorViewModel GetDoctor(int userId)
+        {
+            return DataAccess.GetDoctor(userId);
+        }
+
+        public static AppointmentViewModel GetAppointment(int AppointmentId)
+        {
+            return DataAccess.GetAppointment(AppointmentId);
+        }
+
+
+        public static List<AppointmentViewModel> GetAppointmentsList(DateTime appointmentDate)
+        {
+            return DataAccess.GetAppointments(GetDoctorId(Utilities.GetSessionId()), appointmentDate);
+        }
+
+        public static bool CloseOrCancelAppointment(int appointmentStatus,int appointmentId)
+        {
+            return DataAccess.CloseOrCancelAppointment(appointmentStatus,appointmentId);
+        }
+
+        public static dynamic GetReportList(string type,DateTime reportMonth)
+        {
+            return DataAccess.GetReportList(type,GetDoctorId(Utilities.GetSessionId()),reportMonth);
+        }
+
+        public static bool InitializeData()
+        {
+            return DataAccess.InitializeData();
+        }
+
+
     }
 }

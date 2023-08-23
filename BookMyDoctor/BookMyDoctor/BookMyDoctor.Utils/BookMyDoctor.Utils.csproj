@@ -46,6 +46,8 @@
     <Compile Include="Models\AppointmentViewModel.cs" />
     <Compile Include="Models\DoctorTimeModel.cs" />
     <Compile Include="Models\DoctorViewModel.cs" />
+    <Compile Include="Models\ReportDetailedViewModel.cs" />
+    <Compile Include="Models\ReportSummaryViewModel.cs" />
     <Compile Include="Models\SlotViewModel.cs" />
     <Compile Include="Models\StandardPostResponseModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />

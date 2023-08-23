@@ -4,36 +4,44 @@
     <EntitySetMapping Name="Appointments">
       <EntityTypeMapping TypeName="BookMyDoctorModel.Appointment">
         <MappingFragment StoreEntitySet="Appointments">
-          <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
-          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
-          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
-          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
-          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
-          <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
-          <ScalarProperty Name="PatientPhone" ColumnName="PatientPhone" />
           <ScalarProperty Name="AppointmentStatus" ColumnName="AppointmentStatus" />
+          <ScalarProperty Name="PatientPhone" ColumnName="PatientPhone" />
+          <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Doctors">
       <EntityTypeMapping TypeName="BookMyDoctorModel.Doctor">
         <MappingFragment StoreEntitySet="Doctors">
-          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
-          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="AppointmentSlotTime" ColumnName="AppointmentSlotTime" />
-          <ScalarProperty Name="DayStartTime" ColumnName="DayStartTime" />
           <ScalarProperty Name="DayEndTime" ColumnName="DayEndTime" />
+          <ScalarProperty Name="DayStartTime" ColumnName="DayStartTime" />
+          <ScalarProperty Name="AppointmentSlotTime" ColumnName="AppointmentSlotTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="BookMyDoctorModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="BookMyDoctorModel.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

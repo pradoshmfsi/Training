@@ -1,0 +1,233 @@
+﻿.container {
+    display: flex;
+}
+
+.doctor-info .datepicker-inline {
+    width: 250px;
+    margin: auto;
+    height: 200px;
+}
+.doctor-info .datepicker td, .datepicker th {
+    width: 300px;
+}
+
+.doctor-info .datepicker table tr td span.active.active
+{
+    background-image: none;
+    background-color: rgb(33,33,33);
+}
+    .doctor-info .datepicker table tr td span.active.active:hover {
+        background-image: none;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .doctor-info {
+        background-color: white;
+        padding: 2%;
+        height: 230px;
+    }
+
+.report-container {
+    width: 70%;
+    margin-left: 2%;
+    background-color: white;
+    padding-bottom:50px;
+}
+.report-error{
+    text-align:center;
+}
+.report-list-container{
+    width: 60%;
+    margin: 0px auto 0px auto;
+}
+.download-report {
+    background-color: rgb(33,33,33);
+    color: white;
+    width: 110px;
+    margin: 30px auto 30px auto;
+    padding: 10px;
+    border-radius: 6px;
+}
+.download-report:hover{
+    cursor:pointer;
+    background-color:black;
+}
+.row {
+    display: flex;
+}
+
+.report-nav {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    font-family: inherit;
+    background-color: rgb(247, 247, 247);
+}
+
+    .report-nav div {
+        padding-top: 1.1vw;
+        width: 50%;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+        .report-nav div i {
+            color: black;
+        }
+
+.selected-report-nav {
+    background-color: white;
+}
+
+.header {
+    background-color: rgb(33, 33, 33);
+    color: white;
+    border-radius: 6px 6px 0px 0px;
+    font-weight: 500;
+    box-shadow: 0px 2px 5px rgb(107, 107, 107,0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.filter-month {
+    margin: auto;
+}
+
+.txt {
+    box-sizing: border-box;
+    width: 98%;
+    padding: 2%;
+    border: 1.5px solid rgb(109, 109, 109);
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.table-element {
+    width: 20%;
+    padding: 1% 0px 1% 0px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+    .table-element:nth-child(1) {
+        width: 30%;
+    }
+
+#divDetailedContainer {
+    display: none;
+}
+
+    #divDetailedContainer .table-element:nth-child(2) {
+        width: 50%;
+    }
+
+.row:not(.header) {
+    background-color: white;
+    border-bottom: 2px solid rgb(216, 216, 216);
+}
+
+.row:last-child {
+    border-radius: 0px 0px 6px 6px;
+}
+
+.column-name {
+    background-color: rgb(35, 35, 35);
+    font-weight: bold;
+    color: white;
+    padding: 1% 2% 1% 2%;
+    width: 40%;
+    display: none;
+}
+
+.column-value {
+    padding: 1% 2% 1% 2%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        display: block;
+    }
+
+    .report-list-container {
+        width: 100%;
+    }
+    .report-container {
+        width: 100%;
+        margin-left:0px;
+        margin-top:5%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+
+    .report-container {
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 5%;
+    }
+
+    .report-list-container {
+        width: 100%;
+    }
+
+    .container {
+        display: block;
+    }
+
+    .column-name {
+        display: block;
+        border-radius: 6px 0px 0px 6px;
+    }
+
+    .column-value {
+        width: 70%;
+        background-color: white;
+        border-radius: 0px 6px 6px 0px;
+    }
+
+    .row:not(.header) {
+        display: block;
+        width: 80%;
+        margin: auto;
+        background-color: rgb(239,239,239);
+        border: none;
+        margin-bottom: 5%;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .table-element {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        padding: 0px;
+        margin: 1%;
+        background-color: rgb(239,239,239);
+    }
+
+    .table-element {
+        width: 100%;
+    }
+
+        .table-element:nth-child(1) {
+            width: 100%;
+        }
+
+    #divDetailedContainer .table-element:nth-child(2) {
+        width: 100%;
+    }
+    .spanned{
+        display:none;
+    }
+    .spanned+div{
+        margin-top:-4%;
+    }
+}

@@ -16,9 +16,21 @@ namespace BookMyDoctor.Web
 
         }
         [System.Web.Services.WebMethod]
-        public static List<DoctorViewModel> GetDoctorsList()
+        public static StandardPostResponseModel GetDoctorsList()
         {
-            return BusinessLogic.GetDoctorsList();
+            var response = new StandardPostResponseModel
+            {
+                IsSuccess = true,
+                Data = BusinessLogic.GetDoctorsList()
+            };
+            if (response.Data == null)
+            {
+                response.IsSuccess = false;
+                response.Data = "Some error occured";
+            }
+            return response;
         }
+
+        
     }
 }

@@ -10,8 +10,8 @@
     <Property Name="DoctorId" Type="int" Nullable="false" />
     <Property Name="PatientName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PatientEmail" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="PatientPhone" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="AppointmentStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientPhone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AppointmentStatus" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Doctors">
     <Key>
@@ -24,6 +24,13 @@
     <Property Name="DayStartTime" Type="time" Precision="7" Nullable="false" />
     <Property Name="DayEndTime" Type="time" Precision="7" Nullable="false" />
   </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserId" />
@@ -33,10 +40,8 @@
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Appointme__Docto__4222D4EF">
-    <End Role="Doctors" Type="Self.Doctors" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="FK_APPOINT_DOCTOR">
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
     <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doctors">
@@ -47,10 +52,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Doctors__UserId__412EB0B6">
-    <End Role="Users" Type="Self.Users" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="FK_APPOINT_STATUS">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="AppointmentStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_DOCTOR">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
@@ -64,12 +79,17 @@
   <EntityContainer Name="BookMyDoctorModelStoreContainer">
     <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Appointme__Docto__4222D4EF" Association="Self.FK__Appointme__Docto__4222D4EF">
+    <AssociationSet Name="FK_APPOINT_DOCTOR" Association="Self.FK_APPOINT_DOCTOR">
       <End Role="Doctors" EntitySet="Doctors" />
       <End Role="Appointments" EntitySet="Appointments" />
     </AssociationSet>
-    <AssociationSet Name="FK__Doctors__UserId__412EB0B6" Association="Self.FK__Doctors__UserId__412EB0B6">
+    <AssociationSet Name="FK_APPOINT_STATUS" Association="Self.FK_APPOINT_STATUS">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_DOCTOR" Association="Self.FK_USER_DOCTOR">
       <End Role="Users" EntitySet="Users" />
       <End Role="Doctors" EntitySet="Doctors" />
     </AssociationSet>

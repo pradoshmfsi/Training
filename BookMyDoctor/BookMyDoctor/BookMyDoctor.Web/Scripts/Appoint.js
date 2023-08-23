@@ -1,6 +1,15 @@
-﻿$(document).ready(() => {
-    
+﻿import { getTodaysDate, ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js"
+
+$(document).ready(() => {
+
+    menuResponsive();
+
+    $("#navHome").addClass("selected-nav");
+
     $("#dateAppointDate")[0].min = getTodaysDate();
+    $("#dateAppointDate").val(getTodaysDate());
+    populateSlots();
+
     $("#dateAppointDate").on("change", () => {
         populateSlots();
     })
@@ -12,47 +21,11 @@
     })
 })
 
-function getTodaysDate() {
-    let today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1;
-    let dd = today.getDate();
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
-    return yyyy + "-" + mm + "-" + dd;
-}
-
 function selectSlot(id) {
     $(".slot-container").each((index, item) => {
         $(item).removeAttr("selectedSlot");
     })
     $("#" + id).attr("selectedSlot", "true");
-}
-
-function validateTextById(attributeString) {
-    let attrArray = attributeString.split("|");
-    attrObj = {};
-    attrArray.forEach((attr) => {
-        attrObj[attr.split(":")[0]] = attr.split(":")[1];
-    })
-    let data = $(attrObj["Id"]).val();
-    let span = $(attrObj["TitleId"]);
-    patternName = new RegExp(attrObj["Regex"], "g");
-    try {
-        if (data === "" || data.trim() === "") {
-            span.text("*Required");
-            return attrObj["TitleId"];
-        } else if (!patternName.test(data)) {
-            span.text("*Not valid");
-            return attrObj["TitleId"];
-        } else {
-            span.text("*");
-            return "";
-        }
-    } catch (error) {
-        console.log(id);
-        console.log(error);
-    }
 }
 
 function validateSlots() {
@@ -68,13 +41,19 @@ function validateSlots() {
     }
 }
 
-async function validate(event) {
+function validate(event) {
     event.preventDefault();
-    result = [];
+    let result = [];
     $(".txt").each((index, item) => {
         result.push(validateTextById($(item).attr("isrequired")))
     })
     result.push(validateSlots());
+    if (result.slice(-1) != "") {
+        $("#divSlotTitle")[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    }
     if (result.every((item) => item == "")) {
         submitAppointment();
     }
@@ -85,77 +64,46 @@ async function populateSlots() {
         $(".slot-list-container").empty();
         const params = new URLSearchParams(window.location.search);
         const doctorId = params.get("doctorId");
-        let slotList = await fetchSlots(Number(doctorId), $("#dateAppointDate").val());
-        console.log(slotList.Data);
-        slotList.Data.forEach((option, index) => {
-            $(".slot-list-container").append(generateSlotContainer(option, index));
+
+        let slotList = await ajaxWebMethodCall({
+            url: "Appointment.aspx/GetAvailableSlots",
+            data: JSON.stringify({ doctorId: Number(doctorId), appointmentDate: $("#dateAppointDate").val() })
         });
+
+        if (slotList.IsSuccess) {
+            slotList.Data.forEach((option, index) => {
+                $(".slot-list-container").append(generateSlotContainer(option, index));
+            });
+        }
+        else {
+            alert(slotList.Data);
+        }
     }
 }
 
 function generateSlotContainer(option, index) {
-    return `<div id="slot${index}" class="slot-container ${option.SlotStatus}"  startTime="${option.SlotTime}">
-                    <div class="slot-time">${option.SlotStartTime}<br/>TO<br/>${option.SlotEndTime}</div>
+    return `<div id="slot${index}" class="slot-container ${option.SlotStatus}"  startTime="${option.SlotStartTime}">
+                    <div class="slot-time">${option.SlotStartTimeUI}<br/>TO<br/>${option.SlotEndTimeUI}</div>
              </div>`;
 }
 
-async function fetchSlots(doctorId, date) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "Appointment.aspx/GetAvailableSlots",
-            type: "POST",
-            data: JSON.stringify({ doctorId: doctorId, appointmentDate: date }),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            beforeSend: function () {
-                $("#loading img").show();
-            },
-            success: (response) => {
-                resolve(response.d);
-            },
-            error: (response) => {
-                reject(response.d);
-            },
-            complete: function () {
-                $("#loading img").hide();
-            }
-        });
-    })
-}
-
-function submitAppointment() {
+async function submitAppointment() {
     const params = new URLSearchParams(window.location.search);
     let data = {};
     data["doctorId"] = Number(params.get('doctorId'));
-
     $("[type='text'],[type='date']").each((index, item) => {
         data[item.name] = $(item).val();
     })
-
     data["AppointmentTime"] = $("[selectedSlot='true']").attr("startTime");
-    data["AppointmentStatus"] = "Open";
 
-    $.ajax({
-        type: "POST",
-        url: "Appointment.aspx/AddAppointment",
-        data: JSON.stringify({ appointmentObj: data}),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        beforeSend: function () {
-            $("#loading img").show();
-        },
-        success: function (response) {
-            alert(response.d.Data);
-            if (response.d.IsSuccess) {
-                window.location.href = "Patient.aspx";
-            }            
-        },
-        error: function (err) {
-            alert("Some error occured");
-        },
-        complete: function () {
-            $("#loading img").hide();
-        }
-    });
+    let submitResponse = await ajaxWebMethodCall({ url: "Appointment.aspx/AddAppointment", data: JSON.stringify({ appointmentObj: data }) });
 
+    if (submitResponse.IsSuccess) {
+        window.location.href = submitResponse.Data;
+        alert("Appointment Saved Successfully");      
+        window.location.href = "Patient.aspx";
+    }
+    else {
+        alert(submitResponse.Data);
+    }
 }

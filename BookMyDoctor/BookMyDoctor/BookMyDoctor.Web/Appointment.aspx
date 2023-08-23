@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="Content/Login.css" />
-    <link rel="stylesheet" href="Content/Navbar.css" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Login.css")%>" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Navbar.css")%>" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
@@ -61,18 +61,6 @@
                                 isrequired="Id:#dateAppointDate|TitleId:#divAppointDateTitle span|Regex:." />
                         </div>
                     </div>
-                    <%--<div class="input-container">
-                        <div class="title" id="divAppointTimeTitle">Slot <span>*</span></div>
-                        <div class="input-element">
-                            <select
-                                class="txt"
-                                id="txtAppointTime"
-                                name="txtAppointTime"
-                                isrequired="Id:#txtAppointTime|TitleId:#divAppointTimeTitle span|Regex:." >
-                                <option value="">Select slots</option>
-                            </select>
-                        </div>
-                    </div>--%>
                     <br />
                     <div class="submit">
                         <input type="submit" id="btnAppoint"
@@ -82,13 +70,13 @@
                 </div>
             </div>
             <div class="slot-form-container">
-                <div class="title" id="divSlotTitle">Select slots<span>*</span></div>
+                <div class="title" id="divSlotTitle">Select slot<span>*</span></div>
                 <div class="slot-list-container">
                 </div>
             </div>
 
         </div>
-        <script src="Scripts/Appoint.js"></script>
+        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Appoint.js")%>" type="module"></script>
     </form>
 </body>
 </html>

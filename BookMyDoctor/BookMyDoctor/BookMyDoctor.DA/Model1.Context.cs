@@ -27,6 +27,7 @@ namespace BookMyDoctor.DA
     
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

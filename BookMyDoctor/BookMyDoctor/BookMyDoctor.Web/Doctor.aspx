@@ -5,11 +5,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Content/Doctor.css" />
-    <link rel="stylesheet" href="Content/Navbar.css" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Doctor.css")%>" />
+    <link rel="stylesheet" href="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Content/Navbar.css")%>" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <title></title>
 </head>
 <body>
@@ -19,25 +25,30 @@
             <div class="form-heading">
                 Appointment List
             </div>
-            <div class="appointment-list-container">
-                <div class="row">
-                    <div class="table-header">Name</div>
-                    <div class="table-header">Email</div>
-                    <div class="table-header">Phone</div>
-                    <div class="table-header">Date</div>
-                    <div class="table-header">Time</div>
-                    <div class="table-header">Status</div>
-                </div>
-                <div class="row">
-                    <div class="table-element">Pradosh</div>
-                    <div class="table-element">pradosh@gmail.com</div>
-                    <div class="table-element">7008071464</div>
-                    <div class="table-element">19-06-2002</div>
-                    <div class="table-element">1:00 PM</div>
-                    <div class="table-element">OPEN</div>
-                </div>
+            <div class="filter-date">
+                <input
+                    class="txt"
+                    type="date"
+                    id="dateFilterAppointment"
+                    />
             </div>
-        </div>        
+            <div class="appointment-list-container">
+                <div class="row header">
+                    <div class="table-element">Name</div>
+                    <div class="table-element">Email</div>
+                    <div class="table-element">Phone</div>
+                    <div class="table-element">Date</div>
+                    <div class="table-element">Time</div>
+                    <div class="table-element">Status</div>
+                    <div class="table-element"></div>
+                </div>
+                <div class="row-group">
+                    
+                </div>            
+            </div>
+            <div class="report-error">No data found!</div>
+        </div>
+        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Doctor.js")%>" type="module"></script>
     </form>
 </body>
 </html>

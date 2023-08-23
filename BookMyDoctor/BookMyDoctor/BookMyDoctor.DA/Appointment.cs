@@ -21,8 +21,9 @@ namespace BookMyDoctor.DA
         public string PatientName { get; set; }
         public string PatientEmail { get; set; }
         public string PatientPhone { get; set; }
-        public string AppointmentStatus { get; set; }
+        public int AppointmentStatus { get; set; }
     
         public virtual Doctor Doctor { get; set; }
+        public virtual Status Status { get; set; }
     }
 }
