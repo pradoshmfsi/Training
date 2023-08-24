@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.SessionState;
 using BookMyDoctor.Business;
 using BookMyDoctor.Utils.Models;
+using BookMyDoctor.Utils;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
@@ -19,31 +20,36 @@ namespace BookMyDoctor.Web
 
         public void ProcessRequest(HttpContext context)
         {
-
-            context.Response.ContentType = "application/pdf";
-            string type = context.Request.QueryString["type"];
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                Document doc = new Document();
-                PdfWriter writer = PdfWriter.GetInstance(doc, ms);
-
-                doc.Open();
-
-                if (type == "Appointment")
+                context.Response.ContentType = "application/pdf";
+                string type = context.Request.QueryString["type"];
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    GenerateAppointmentPDF(context, doc);
-                }
-                else
-                {
-                    GenerateReportPDF(context, doc, type);
-                }
+                    Document doc = new Document();
+                    PdfWriter writer = PdfWriter.GetInstance(doc, ms);
 
-                doc.Close();
+                    doc.Open();
 
-                byte[] pdfBytes = ms.ToArray();
-                context.Response.BinaryWrite(pdfBytes);
+                    if (type == "Appointment")
+                    {
+                        GenerateAppointmentPDF(context, doc);
+                    }
+                    else
+                    {
+                        GenerateReportPDF(context, doc, type);
+                    }
+
+                    doc.Close();
+
+                    byte[] pdfBytes = ms.ToArray();
+                    context.Response.BinaryWrite(pdfBytes);
+                }
             }
-
+            catch (Exception ex)
+            {
+                Utils.Utilities.LogError(ex);
+            }
 
         }
 

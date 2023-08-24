@@ -19,7 +19,7 @@ namespace BookMyDoctor.Web
             }
         }
 
-        [System.Web.Services.WebMethod]
+        [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel GetAvailableSlots(int doctorId,string appointmentDate)
         {
             var response = new StandardPostResponseModel { IsSuccess=true,Data= BusinessLogic.GetAvailableSlots(doctorId, appointmentDate)};
@@ -31,7 +31,7 @@ namespace BookMyDoctor.Web
             return response;
         }
 
-        [System.Web.Services.WebMethod]
+        [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel AddAppointment(AppointmentViewModel appointmentObj)
         {
             return BusinessLogic.AddAppointment(appointmentObj);

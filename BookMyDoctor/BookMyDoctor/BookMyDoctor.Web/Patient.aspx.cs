@@ -1,4 +1,5 @@
 ﻿using BookMyDoctor.Business;
+using BookMyDoctor.Utils;
 using BookMyDoctor.Utils.Models;
 using System;
 using System.Collections.Generic;
@@ -15,22 +16,24 @@ namespace BookMyDoctor.Web
         {
 
         }
-        [System.Web.Services.WebMethod]
+        [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel GetDoctorsList()
         {
-            var response = new StandardPostResponseModel
+            var response = Utilities.GetErrorResponse() ;
+            try
             {
-                IsSuccess = true,
-                Data = BusinessLogic.GetDoctorsList()
-            };
-            if (response.Data == null)
+                var doctorList = BusinessLogic.GetDoctorsList();
+                if (doctorList != null)
+                {
+                    response.IsSuccess = true;
+                    response.Data = doctorList;
+                }            
+            }
+            catch (Exception ex)
             {
-                response.IsSuccess = false;
-                response.Data = "Some error occured";
+                Utilities.LogError(ex);
             }
             return response;
-        }
-
-        
+        }        
     }
 }

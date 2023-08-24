@@ -20,7 +20,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
 
-    <title></title>
+    <title>Doctor Reports</title>
 </head>
 <body>
     <form id="formReport" runat="server">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 
-                <div class="report-list-container" id="divSummaryContainer" populateurl="GetReportSummaryList">                    
+                <div class="report-list-container" id="divSummaryContainer" type="Summary">                    
                     <div class="download-report" handler="ReportDownload.ashx?type=Summary">Download &nbsp;<i class="fa-solid fa-file-pdf"></i></div>
                     <div class="table">
                         <div class="row header">
@@ -56,7 +56,7 @@
                     </div>
 
                 </div>
-                <div class="report-list-container" id="divDetailedContainer" populateurl="GetReportDetailedList">
+                <div class="report-list-container" id="divDetailedContainer" type="Detailed">
                     <div class="download-report" handler="ReportDownload.ashx?type=Detailed">Download &nbsp;<i class="fa-solid fa-file-pdf"></i></div>
                     <div class="table">
                         <div class="row header">

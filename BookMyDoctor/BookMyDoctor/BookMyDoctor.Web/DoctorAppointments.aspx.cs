@@ -15,32 +15,48 @@ namespace BookMyDoctor.Web
         {
 
         }
-        [System.Web.Services.WebMethod]
+        [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel GetAppointmentsList(DateTime appointmentDate)
         {
-            var response = new StandardPostResponseModel
+            var response = Utilities.GetErrorResponse();
+            try
             {
-                IsSuccess = true,
-                Data = BusinessLogic.GetAppointmentsList(appointmentDate)
-            };
-            if(response.Data == null)
+                if (Utilities.IsAuthorized())
+                {
+                    var appointmentsList = BusinessLogic.GetAppointmentsList(appointmentDate);
+                    if (appointmentsList != null)
+                    {
+                        response.IsSuccess = true;
+                        response.Data = appointmentsList;
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                response.IsSuccess = false;
+                Utilities.LogError(ex);
             }
             return response;
+        
         }
 
-        [System.Web.Services.WebMethod]
+        [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel CloseOrCancelAppointment(int appointmentStatus, int appointmentId)
         {
-            var response = new StandardPostResponseModel
+            var response = Utilities.GetErrorResponse();
+            try
             {
-                IsSuccess = BusinessLogic.CloseOrCancelAppointment(appointmentStatus,appointmentId),
-                Data = ""
-            };
-            if (!response.IsSuccess)
+                if (Utilities.IsAuthorized())
+                {
+                    response.IsSuccess = BusinessLogic.CloseOrCancelAppointment(appointmentStatus, appointmentId);
+                    if (response.IsSuccess)
+                    {
+                        response.Data = "Success";
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                response.Data = "Some error occured!";
+                Utilities.LogError(ex);
             }
             return response;
         }

@@ -15,7 +15,7 @@ $(document).ready(() => {
     $("#hiddenTxtSelectedMonth").val(getTodaysDate());
 
     $(".report-list-container").each((index, item) => {
-        fetchReports(item.id, $(item).attr("populateurl"));
+        fetchReports(item.id, $(item).attr("type"));
     })
 
     $("#divSummaryNav").on("click", () => {
@@ -43,8 +43,8 @@ function selectNav(id, reportClass) {
     $(id).addClass("selected-report-nav");
 }
 
-async function fetchReports(id, url) {
-    let reportResponse = await ajaxWebMethodCall({ url: 'Report.aspx/' + url, data: JSON.stringify({ reportMonth: $("#hiddenTxtSelectedMonth").val() }) });
+async function fetchReports(id, type) {
+    let reportResponse = await ajaxWebMethodCall({ url: 'Report.aspx/GetReportList', data: JSON.stringify({type:type, reportMonth: $("#hiddenTxtSelectedMonth").val() }) });
     if (reportResponse.IsSuccess) {
         $("#" + id + " .row-group").empty();
         if (reportResponse.Data.length == 0) {

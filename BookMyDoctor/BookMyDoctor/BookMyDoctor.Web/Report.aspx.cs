@@ -1,4 +1,5 @@
 ﻿using BookMyDoctor.Business;
+using BookMyDoctor.Utils;
 using BookMyDoctor.Utils.Models;
 using System;
 using System.Collections.Generic;
@@ -15,32 +16,26 @@ namespace BookMyDoctor.Web
         {
 
         }   
-        [System.Web.Services.WebMethod]
-        public static StandardPostResponseModel GetReportSummaryList(DateTime reportMonth)
-        {
-            var response = new StandardPostResponseModel
-            {
-                IsSuccess = true,
-                Data = BusinessLogic.GetReportList("Summary",reportMonth)
-            };
-            if (response.Data == null)
-            {
-                response.IsSuccess = false;
-            }
-            return response;
-        }
 
-        [System.Web.Services.WebMethod]
-        public static StandardPostResponseModel GetReportDetailedList(DateTime reportMonth)
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static StandardPostResponseModel GetReportList(string type,DateTime reportMonth)
         {
-            var response = new StandardPostResponseModel
+            var response = Utilities.GetErrorResponse();
+            try
             {
-                IsSuccess = true,
-                Data = BusinessLogic.GetReportList("Detailed", reportMonth)
-            };
-            if (response.Data == null)
+                if (Utilities.IsAuthorized())
+                {
+                    var reportList = BusinessLogic.GetReportList(type, reportMonth);
+                    if (reportList != null)
+                    {
+                        response.IsSuccess = true;
+                        response.Data = reportList;
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                response.IsSuccess = false;
+                Utilities.LogError(ex);
             }
             return response;
         }

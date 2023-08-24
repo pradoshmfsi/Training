@@ -23,25 +23,34 @@ namespace BookMyDoctor.Web
         {
 
         }
-        [System.Web.Services.WebMethod]
-        public static StandardPostResponseModel AuthorizeUser(string email,string password)
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static StandardPostResponseModel AuthorizeUser(string email, string password)
         {
-            UserViewModel newUser = BusinessLogic.GetUserByEmail(email);
-            StandardPostResponseModel response = new StandardPostResponseModel { IsSuccess = false, Data = "Some error occured" };
-            if(newUser == null)
+            var response = Utilities.GetErrorResponse();
+            try
             {
-                response.Data="Email doesn't exist";
-            }
-            else if(newUser.Password != password)
-            {
-                response.Data="Invalid Password";
-            }
-            else
-            {
-                HttpContext.Current.Session["userId"] = newUser.UserId;
-                response.IsSuccess = true;
-                response.Data = "Logged In Successfully";
 
+                UserViewModel newUser = BusinessLogic.GetUserByEmail(email);
+                if (newUser == null)
+                {
+                    response.Data = "Email doesn't exist";
+                }
+                else if (newUser.Password != password)
+                {
+                    response.Data = "Invalid Password";
+                }
+                else
+                {
+                    HttpContext.Current.Session["userId"] = newUser.UserId;
+                    response.IsSuccess = true;
+                    response.Data = "Logged In Successfully";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utilities.LogError(ex);
             }
             return response;
         }

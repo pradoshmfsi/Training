@@ -36,6 +36,11 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Maps the entity doctor to an object of DoctorViewModel
+        /// </summary>
+        /// <param name="doctor"></param>
+        /// <returns></returns>
         public static DoctorViewModel MapDoctorFromEntity(Doctor doctor)
         {
             return new DoctorViewModel
@@ -51,6 +56,11 @@ namespace BookMyDoctor.DA
             };
         }
 
+        /// <summary>
+        /// Maps the entity appointment to an object of AppointmentViewModel
+        /// </summary>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
         public static AppointmentViewModel MapAppointmentFromEntity(Appointment appointment)
         {
             using(var dbcontext = new BookMyDoctorEntities())
@@ -72,7 +82,12 @@ namespace BookMyDoctor.DA
             }
             
         }
-        
+
+        /// <summary>
+        /// Returns the particular doctor by the userId
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public static DoctorViewModel GetDoctor(int userId)
         {
             try
@@ -82,10 +97,18 @@ namespace BookMyDoctor.DA
                     return MapDoctorFromEntity(dbcontext.Doctors.FirstOrDefault(s => s.UserId == userId));
                 }
             }
-            catch (Exception ex) { Utilities.LogError(ex); return null; }
+            catch (Exception ex) 
+            { 
+                Utilities.LogError(ex); 
+                return null; 
+            }
 
         }
 
+        /// <summary>
+        /// Gets all the doctors present
+        /// </summary>
+        /// <returns></returns>
         public static List<DoctorViewModel> GetDoctorList()
         {
             try
@@ -108,6 +131,11 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Returns the particular doctor by the doctorId
+        /// </summary>
+        /// <param name="doctorId"></param>
+        /// <returns></returns>
         public static DoctorViewModel GetDoctorFromID(int doctorId)
         {
             try
@@ -126,6 +154,11 @@ namespace BookMyDoctor.DA
 
         }
 
+        /// <summary>
+        /// Get a particular appointment from AppointmentId
+        /// </summary>
+        /// <param name="AppointmentId"></param>
+        /// <returns></returns>
         public static AppointmentViewModel GetAppointment(int AppointmentId)
         {
             using(var dbcontext = new BookMyDoctorEntities())
@@ -134,6 +167,12 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Get all appointments of a particular doctor(doctorId) of a certain date(appointmentDate)
+        /// </summary>
+        /// <param name="doctorId"></param>
+        /// <param name="appointmentDate"></param>
+        /// <returns></returns>
         public static List<AppointmentViewModel> GetAppointments(int doctorId, DateTime appointmentDate)
         {
             try
@@ -157,6 +196,11 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Adds the appointment to DB
+        /// </summary>
+        /// <param name="appointment"></param>
+        /// <returns></returns>
         public static int AddAppointment(AppointmentViewModel appointment)
         {
             try
@@ -182,6 +226,12 @@ namespace BookMyDoctor.DA
             return 0;
         }
 
+        /// <summary>
+        /// Updates the appointment having appointmentId with the given status
+        /// </summary>
+        /// <param name="appointmentStatus"></param>
+        /// <param name="appointmentId"></param>
+        /// <returns></returns>
         public static bool CloseOrCancelAppointment(int appointmentStatus, int appointmentId)
         {
             try
@@ -201,6 +251,13 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Get the report of the given type i.e either summary or detailed, by doctorId and of a particular month
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="doctorId"></param>
+        /// <param name="reportMonth"></param>
+        /// <returns></returns>
         public static dynamic GetReportList(string type, int doctorId, DateTime reportMonth)
         {
             try
@@ -229,6 +286,11 @@ namespace BookMyDoctor.DA
             }
         }
 
+        /// <summary>
+        /// Get the list of all the reports of type "Summary"
+        /// </summary>
+        /// <param name="groupedAppointments"></param>
+        /// <returns></returns>
         public static List<ReportSummaryViewModel> GetSummaryReportList(List<IGrouping<DateTime, Appointment>> groupedAppointments)
         {
             var reports = new List<ReportSummaryViewModel>();
@@ -245,6 +307,11 @@ namespace BookMyDoctor.DA
             return reports;
         }
 
+        /// <summary>
+        /// Get the list of all the reports of type "Detailed"
+        /// </summary>
+        /// <param name="groupedAppointments"></param>
+        /// <returns></returns>
         public static List<ReportDetailedViewModel> GetDetailedReportList(List<IGrouping<DateTime, Appointment>> groupedAppointments)
         {
             var reports = new List<ReportDetailedViewModel>();
@@ -268,6 +335,12 @@ namespace BookMyDoctor.DA
             return reports;
         }
 
+        /// <summary>
+        /// Initializes Data for the web.
+        /// Removes transactional data like appointments.
+        /// Reinitializes non-transactional data like doctors,users etc.
+        /// </summary>
+        /// <returns></returns>
         public static bool InitializeData()
         {
             try
