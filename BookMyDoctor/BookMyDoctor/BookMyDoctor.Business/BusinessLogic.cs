@@ -85,31 +85,13 @@ namespace BookMyDoctor.Business
         }
 
         /// <summary>
-        /// Adds the appointment to DB, returning error message as data on error, or the handler URL for downloading receipt on success.
+        /// Adds the appointment to DB and return the Id of the added appointment.
         /// </summary>
         /// <param name="appointmentObj"></param>
         /// <returns></returns>
-        public static StandardPostResponseModel AddAppointment(AppointmentViewModel appointmentObj)
+        public static int AddAppointment(AppointmentViewModel appointmentObj)
         {
-            var response = new StandardPostResponseModel { IsSuccess = false,Data="Slot already booked" };
-            var bookedSlots = GetBookedSlots(appointmentObj.DoctorId, appointmentObj.AppointmentDate);
-            if (bookedSlots.Contains(appointmentObj.AppointmentTime))
-            {
-                return response;
-            }
-
-            response.Data = DataAccess.AddAppointment(appointmentObj);
-
-            if (response.Data == 0)
-            {                
-                response.Data = "Some error occured!";   
-            }
-            else
-            {
-                response.IsSuccess = true;
-                response.Data = "ReportDownload.ashx?type=Appointment&appointmentId=" + response.Data;
-            }
-            return response;
+            return DataAccess.AddAppointment(appointmentObj);
         }
 
         /// <summary>
@@ -158,9 +140,9 @@ namespace BookMyDoctor.Business
         /// <param name="appointmentStatus"></param>
         /// <param name="appointmentId"></param>
         /// <returns></returns>
-        public static bool CloseOrCancelAppointment(int appointmentStatus,int appointmentId)
+        public static void CloseOrCancelAppointment(int appointmentStatus,int appointmentId)
         {
-            return DataAccess.CloseOrCancelAppointment(appointmentStatus,appointmentId);
+            DataAccess.CloseOrCancelAppointment(appointmentStatus,appointmentId);
         }
 
         /// <summary>
@@ -178,9 +160,9 @@ namespace BookMyDoctor.Business
         /// Initializes data, removes transactional data, and reinitializes non-transactional data
         /// </summary>
         /// <returns></returns>
-        public static bool InitializeData()
+        public static void InitializeData()
         {
-            return DataAccess.InitializeData();
+            DataAccess.InitializeData();
         }
 
     }

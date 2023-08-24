@@ -47,11 +47,9 @@ namespace BookMyDoctor.Web
             {
                 if (Utilities.IsAuthorized())
                 {
-                    response.IsSuccess = BusinessLogic.CloseOrCancelAppointment(appointmentStatus, appointmentId);
-                    if (response.IsSuccess)
-                    {
-                        response.Data = "Success";
-                    }
+                    BusinessLogic.CloseOrCancelAppointment(appointmentStatus, appointmentId);
+                    response.IsSuccess = true;
+                    response.Data = "Success";
                 }
             }
             catch (Exception ex)

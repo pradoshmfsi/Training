@@ -1,4 +1,5 @@
 ﻿using BookMyDoctor.Business;
+using BookMyDoctor.Utils;
 using BookMyDoctor.Utils.Models;
 using System;
 using System.Collections.Generic;
@@ -13,20 +14,28 @@ namespace BookMyDoctor.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["doctorId"]==null)
+            if (Request.Params["doctorId"] == null)
             {
                 Response.Redirect("Patient.aspx");
             }
         }
 
         [System.Web.Services.WebMethod(EnableSession = true)]
-        public static StandardPostResponseModel GetAvailableSlots(int doctorId,string appointmentDate)
+        public static StandardPostResponseModel GetAvailableSlots(int doctorId, string appointmentDate)
         {
-            var response = new StandardPostResponseModel { IsSuccess=true,Data= BusinessLogic.GetAvailableSlots(doctorId, appointmentDate)};
-            if(response.Data == null)
+            var response = Utilities.GetErrorResponse();
+            try
             {
-                response.IsSuccess = true;
-                response.Data = "Some error occured";
+                var reportList = BusinessLogic.GetAvailableSlots(doctorId, appointmentDate);
+                if (reportList != null)
+                {
+                    response.IsSuccess = true;
+                    response.Data = reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilities.LogError(ex);
             }
             return response;
         }
@@ -34,7 +43,26 @@ namespace BookMyDoctor.Web
         [System.Web.Services.WebMethod(EnableSession = true)]
         public static StandardPostResponseModel AddAppointment(AppointmentViewModel appointmentObj)
         {
-            return BusinessLogic.AddAppointment(appointmentObj);
+            var response = Utilities.GetErrorResponse();
+            try
+            {
+                var bookedSlots = BusinessLogic.GetBookedSlots(appointmentObj.DoctorId, appointmentObj.AppointmentDate);
+                if (bookedSlots.Contains(appointmentObj.AppointmentTime))
+                {
+                    response.Data = "Slot already booked!";
+                }
+                else
+                {
+                    response.IsSuccess = true;
+                    response.Data = "ReportDownload.ashx?type=Appointment&appointmentId=" + BusinessLogic.AddAppointment(appointmentObj);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilities.LogError(ex);
+            }
+
+            return response;
         }
     }
 }

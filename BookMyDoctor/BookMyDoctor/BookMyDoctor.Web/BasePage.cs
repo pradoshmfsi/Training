@@ -14,8 +14,6 @@ namespace BookMyDoctor.Web
             {
                 Response.Redirect("Login.aspx");
             }
-        }
-
-        
+        }       
     }
 }

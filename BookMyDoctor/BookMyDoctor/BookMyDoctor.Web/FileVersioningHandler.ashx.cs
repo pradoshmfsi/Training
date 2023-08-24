@@ -13,35 +13,43 @@ namespace BookMyDoctor.Web
 
         public void ProcessRequest(HttpContext context)
         {
-            var Response = context.Response;
-            string extension = Path.GetExtension(context.Request.Path);
-            string actualFileName = context.Request.Path.Split('/').Last().Split('-')[0] +extension;          
-            
-            string filePath = context.Server.MapPath(actualFileName);
-            FileInfo file = new FileInfo(filePath);
-            if (file.Exists)
+            try
             {
-                Response.Clear();
-                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
-                if(extension == ".js")
+                var Response = context.Response;
+                string extension = Path.GetExtension(context.Request.Path);
+                string actualFileName = context.Request.Path.Split('/').Last().Split('-')[0] + extension;
+
+                string filePath = context.Server.MapPath(actualFileName);
+                FileInfo file = new FileInfo(filePath);
+                if (file.Exists)
                 {
-                    Response.AddHeader("Content-Type", "application/javascript");
+                    Response.Clear();
+                    Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                    if (extension == ".js")
+                    {
+                        Response.AddHeader("Content-Type", "application/javascript");
+                    }
+                    else
+                    {
+                        Response.AddHeader("Content-Type", "text/css");
+                    }
+                    var refresh = new TimeSpan(365, 0, 0, 0);
+                    Response.Cache.SetExpires(DateTime.Now.Add(refresh));
+                    Response.Cache.SetMaxAge(refresh);
+                    Response.Cache.SetCacheability(HttpCacheability.Public);
+                    Response.Cache.SetValidUntilExpires(true);
+                    Response.Cache.SetLastModified(DateTime.Now);
+                    Response.AddHeader("Content-Length", file.Length.ToString());
+                    Response.Flush();
+                    Response.TransmitFile(file.FullName);
+                    Response.End();
                 }
-                else
-                {
-                    Response.AddHeader("Content-Type", "text/css");
-                }
-                var refresh = new TimeSpan(365, 0, 0, 0);
-                Response.Cache.SetExpires(DateTime.Now.Add(refresh));
-                Response.Cache.SetMaxAge(refresh);
-                Response.Cache.SetCacheability(HttpCacheability.Public);
-                Response.Cache.SetValidUntilExpires(true);
-                Response.Cache.SetLastModified(DateTime.Now);
-                Response.AddHeader("Content-Length", file.Length.ToString());
-                Response.Flush();
-                Response.TransmitFile(file.FullName);
-                Response.End();
             }
+            catch(Exception ex)
+            {
+                Utils.Utilities.LogError(ex);
+            }
+            
         }
 
         public bool IsReusable

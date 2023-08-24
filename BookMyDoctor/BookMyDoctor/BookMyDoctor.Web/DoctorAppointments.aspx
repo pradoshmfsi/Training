@@ -48,7 +48,7 @@
             </div>
             <div class="report-error">No data found!</div>
         </div>
-        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Doctor.js")%>" type="module"></script>
+        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/DoctorAppointments.js")%>" type="module"></script>
     </form>
 </body>
 </html>

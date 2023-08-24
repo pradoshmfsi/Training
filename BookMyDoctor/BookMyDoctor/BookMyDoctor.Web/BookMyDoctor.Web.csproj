@@ -190,7 +190,7 @@
     <Content Include="Error404.aspx" />
     <Content Include="Initialize.aspx" />
     <Content Include="Report.aspx" />
-    <Content Include="Scripts\Appoint.js" />
+    <Content Include="Scripts\BookAppointment.js" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Navbar.css" />
     <Content Include="Content\Patient.css" />
@@ -200,9 +200,10 @@
     <Content Include="Login.aspx" />
     <Content Include="NavbarUserControl.ascx" />
     <Content Include="Patient.aspx" />
-    <Content Include="Scripts\Doctor.js" />
+    <Content Include="Scripts\DoctorAppointments.js" />
     <Content Include="ReportDownload.ashx" />
     <Content Include="FileVersioningHandler.ashx" />
+    <Content Include="Scripts\Initialize.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\Patient.js" />
     <Content Include="Scripts\Report.js" />

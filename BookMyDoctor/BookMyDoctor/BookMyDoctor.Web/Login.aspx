@@ -25,7 +25,7 @@
                                 class="txt"
                                 type="text"
                                 id="txtEmail"
-                                isrequired="Id:#txtEmail|TitleId:#emailTitle span|Regex:[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+                                isrequired="Id:#txtEmail|TitleId:#emailTitle span|Regex:[A-Za-z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}"
                                 name="txtEmail" />
                         </div>
                     </div>

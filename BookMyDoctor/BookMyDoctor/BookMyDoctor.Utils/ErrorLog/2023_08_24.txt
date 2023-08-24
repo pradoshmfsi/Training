@@ -1,0 +1,66 @@
+------------------------------------------------------------------------------------
+Time - 04:14:49 PM
+Error - 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at BookMyDoctor.DA.DataAccess.MapAppointmentFromEntity(Appointment appointment) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 68
+   at BookMyDoctor.DA.DataAccess.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 166
+   at BookMyDoctor.Business.BusinessLogic.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Business\BusinessLogic.cs:line 142
+   at BookMyDoctor.Web.ReportDownload.GenerateAppointmentPDF(HttpContext context, Document doc) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 126
+   at BookMyDoctor.Web.ReportDownload.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 36
+
+------------------------------------------------------------------------------------
+Time - 04:15:10 PM
+Error - 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at BookMyDoctor.DA.DataAccess.MapAppointmentFromEntity(Appointment appointment) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 68
+   at BookMyDoctor.DA.DataAccess.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 166
+   at BookMyDoctor.Business.BusinessLogic.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Business\BusinessLogic.cs:line 142
+   at BookMyDoctor.Web.ReportDownload.GenerateAppointmentPDF(HttpContext context, Document doc) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 126
+   at BookMyDoctor.Web.ReportDownload.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 36
+
+------------------------------------------------------------------------------------
+Time - 04:17:18 PM
+Error - 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at BookMyDoctor.DA.DataAccess.MapAppointmentFromEntity(Appointment appointment) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 68
+   at BookMyDoctor.DA.DataAccess.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.DA\DataAccess.cs:line 166
+   at BookMyDoctor.Business.BusinessLogic.GetAppointment(Int32 AppointmentId) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Business\BusinessLogic.cs:line 142
+   at BookMyDoctor.Web.ReportDownload.GenerateAppointmentPDF(HttpContext context, Document doc) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 126
+   at BookMyDoctor.Web.ReportDownload.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\ReportDownload.ashx.cs:line 36
+
+------------------------------------------------------------------------------------
+Time - 08:39:18 PM
+Error - 
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at BookMyDoctor.Web.FileVersioningHandler.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\FileVersioningHandler.ashx.cs:line 45
+
+------------------------------------------------------------------------------------
+Time - 08:39:21 PM
+Error - 
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at BookMyDoctor.Web.FileVersioningHandler.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\FileVersioningHandler.ashx.cs:line 45
+
+------------------------------------------------------------------------------------
+Time - 08:39:21 PM
+Error - 
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at BookMyDoctor.Web.FileVersioningHandler.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\FileVersioningHandler.ashx.cs:line 45
+
+------------------------------------------------------------------------------------
+Time - 08:39:40 PM
+Error - 
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at BookMyDoctor.Web.FileVersioningHandler.ProcessRequest(HttpContext context) in D:\Projects\Training\BookMyDoctor\BookMyDoctor\BookMyDoctor.Web\FileVersioningHandler.ashx.cs:line 45
+

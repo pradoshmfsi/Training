@@ -45,12 +45,12 @@ namespace BookMyDoctor.Web
                     byte[] pdfBytes = ms.ToArray();
                     context.Response.BinaryWrite(pdfBytes);
                 }
+
             }
             catch (Exception ex)
             {
                 Utils.Utilities.LogError(ex);
             }
-
         }
 
         public void GenerateSummaryTable(Document doc, string reportMonth)
@@ -128,7 +128,7 @@ namespace BookMyDoctor.Web
             doc.Add(new Paragraph("Date : " + DateTime.Now.ToString()));
             doc.Add(new Chunk(new LineSeparator()));
             PdfPTable table = new PdfPTable(2);
-            Phrase ph = new Phrase("Appointment Confirmed!" , new Font(Font.FontFamily.HELVETICA, 14f, Font.BOLD, BaseColor.BLACK));
+            Phrase ph = new Phrase("Appointment Confirmed!", new Font(Font.FontFamily.HELVETICA, 14f, Font.BOLD, BaseColor.BLACK));
             PdfPCell cell = new PdfPCell(ph);
             cell.Colspan = 2;
             cell.HorizontalAlignment = 1;
@@ -140,7 +140,7 @@ namespace BookMyDoctor.Web
             table.AddCell(new PdfPCell(new Phrase("Appointment Id", BoldTextFont)));
             table.AddCell(new PdfPCell(new Phrase(appointment.AppointmentId.ToString())));
             table.AddCell(new PdfPCell(new Phrase("Doctor Name", BoldTextFont)));
-            table.AddCell(new PdfPCell(new Phrase("Dr."+BusinessLogic.GetDoctor(appointment.DoctorId).DoctorName)));
+            table.AddCell(new PdfPCell(new Phrase("Dr." + BusinessLogic.GetDoctor(appointment.DoctorId).DoctorName)));
             table.AddCell(new PdfPCell(new Phrase("Patient Name", BoldTextFont)));
             table.AddCell(new PdfPCell(new Phrase(appointment.PatientName)));
             table.AddCell(new PdfPCell(new Phrase("Date", BoldTextFont)));
@@ -153,22 +153,25 @@ namespace BookMyDoctor.Web
 
         public void GenerateReportPDF(HttpContext context, Document doc, string type)
         {
-            string reportMonth = context.Request.QueryString["reportMonth"];
-            context.Response.AppendHeader("Content-Disposition", "attachment; filename=" + reportMonth.Remove(reportMonth.Length - 3) + "-" + type + "-Report.pdf");
-
-            var doctorName = BusinessLogic.GetDoctor(Utils.Utilities.GetSessionId()).DoctorName;
-
-            doc.Add(new Paragraph("Date : " + DateTime.Now.ToString()));
-            doc.Add(new Paragraph("Name : Dr." + doctorName));
-            doc.Add(new Chunk(new LineSeparator()));
-
-            if (type == "Summary")
+            if (Utils.Utilities.IsAuthorized())
             {
-                GenerateSummaryTable(doc, reportMonth);
-            }
-            else if (type == "Detailed")
-            {
-                GenerateDetailedTable(doc, reportMonth);
+                string reportMonth = context.Request.QueryString["reportMonth"];
+                context.Response.AppendHeader("Content-Disposition", "attachment; filename=" + reportMonth.Remove(reportMonth.Length - 3) + "-" + type + "-Report.pdf");
+
+                var doctorName = BusinessLogic.GetDoctor(Utils.Utilities.GetSessionId()).DoctorName;
+
+                doc.Add(new Paragraph("Date : " + DateTime.Now.ToString()));
+                doc.Add(new Paragraph("Name : Dr." + doctorName));
+                doc.Add(new Chunk(new LineSeparator()));
+
+                if (type == "Summary")
+                {
+                    GenerateSummaryTable(doc, reportMonth);
+                }
+                else if (type == "Detailed")
+                {
+                    GenerateDetailedTable(doc, reportMonth);
+                }
             }
 
         }
@@ -180,5 +183,5 @@ namespace BookMyDoctor.Web
                 return false;
             }
         }
-    }
+    } 
 }

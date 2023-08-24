@@ -8,6 +8,7 @@ $(document).ready(() => {
 
     $("#dateAppointDate")[0].min = getTodaysDate();
     $("#dateAppointDate").val(getTodaysDate());
+
     populateSlots();
 
     $("#dateAppointDate").on("change", () => {
@@ -99,7 +100,7 @@ async function submitAppointment() {
     let submitResponse = await ajaxWebMethodCall({ url: "BookAppointment.aspx/AddAppointment", data: JSON.stringify({ appointmentObj: data }) });
 
     if (submitResponse.IsSuccess) {
-        window.location.href = submitResponse.Data;
+        window.location.href = submitResponse.Data; //URL for downloading Apoointment PDF
         alert("Appointment Saved Successfully");      
         window.location.href = "Patient.aspx";
     }

@@ -71,11 +71,3 @@ export function menuResponsive() {
         $(".navbar").toggleClass("responsive");
     })
 }
-
-export function showLoadingBar() {
-    $("#loading img").show();
-}
-
-export function hideLoadingBar() {
-    $("#loading img").show();
-}

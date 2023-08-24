@@ -8,6 +8,7 @@ $(document).ready(() => {
 
     $("#dateFilterAppointment")[0].valueAsDate = new Date();
     fetchAppointments();
+
     $("#dateFilterAppointment").on("change", () => {
         fetchAppointments();
     })
@@ -48,12 +49,6 @@ async function fetchAppointments() {
     }
 }
 
-//function populateAppointments(appointmentList) {
-//    $(".row-group").empty();
-//    appointmentList.forEach((appointment) => {
-//        $(".row-group").append(generateAppointmentContainer(appointment))
-//    })
-//}
 
 function generateAppointmentContainer(appointment) {
     return `<div class="row">

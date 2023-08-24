@@ -2,8 +2,8 @@
 
 $(document).ready(() => {
     menuResponsive();
-
     $("#navHome").addClass("selected-nav");
+
     fetchDoctors();
     $(".doctor-list-container").on("click", ".txt-link", function () {
         window.location.href = "BookAppointment.aspx?doctorId="+$(this).attr("doctorid");

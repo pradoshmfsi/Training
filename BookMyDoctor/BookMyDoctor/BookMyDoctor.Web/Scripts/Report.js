@@ -38,8 +38,8 @@ $(document).ready(() => {
 })
 function selectNav(id, reportClass) {
     $("#divReportNav div").removeClass("selected-report-nav");
-    $(".report-list-container").css("display", "none");
-    $(reportClass).css("display", "block");
+    $(".report-list-container").hide();
+    $(reportClass).show();
     $(id).addClass("selected-report-nav");
 }
 

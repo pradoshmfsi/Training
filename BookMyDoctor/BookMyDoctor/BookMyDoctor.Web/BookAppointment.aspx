@@ -76,7 +76,7 @@
             </div>
 
         </div>
-        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Appoint.js")%>" type="module"></script>
+        <script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/BookAppointment.js")%>" type="module"></script>
     </form>
 </body>
 </html>
