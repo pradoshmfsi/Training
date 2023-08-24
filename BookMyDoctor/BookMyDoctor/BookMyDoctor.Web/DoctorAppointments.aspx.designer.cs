@@ -11,25 +11,25 @@ namespace BookMyDoctor.Web
 {
 
 
-    public partial class SiteMaster
+    public partial class DoctorAppointments
     {
 
         /// <summary>
-        /// HeadContent control.
+        /// formDoctor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formDoctor;
 
         /// <summary>
-        /// MainContent control.
+        /// navbarUserControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::BookMyDoctor.Web.NavbarUserControl navbarUserControl;
     }
 }

@@ -6,7 +6,7 @@ $(document).ready(() => {
     $("#navHome").addClass("selected-nav");
     fetchDoctors();
     $(".doctor-list-container").on("click", ".txt-link", function () {
-        window.location.href = "Appointment.aspx?doctorId="+$(this).attr("doctorid");
+        window.location.href = "BookAppointment.aspx?doctorId="+$(this).attr("doctorid");
     })
 })
 

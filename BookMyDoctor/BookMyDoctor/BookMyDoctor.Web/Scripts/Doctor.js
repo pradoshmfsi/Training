@@ -18,7 +18,7 @@ $(document).ready(() => {
 async function closeOrCancelAppointment(actionAttr) {
     let [appointId, appointmentStatus] = actionAttr.split("|");
     let response = await ajaxWebMethodCall({
-        url: 'Doctor.aspx/CloseOrCancelAppointment', data: JSON.stringify({ appointmentStatus: appointmentStatus, appointmentId: Number(appointId) })
+        url: 'DoctorAppointments.aspx/CloseOrCancelAppointment', data: JSON.stringify({ appointmentStatus: appointmentStatus, appointmentId: Number(appointId) })
     });
     if (response.IsSuccess) {
         fetchAppointments();
@@ -30,7 +30,7 @@ async function closeOrCancelAppointment(actionAttr) {
 
 async function fetchAppointments() {
     let response = await ajaxWebMethodCall({
-        url: 'Doctor.aspx/GetAppointmentsList', data: JSON.stringify({ appointmentDate: $("#dateFilterAppointment").val() })
+        url: 'DoctorAppointments.aspx/GetAppointmentsList', data: JSON.stringify({ appointmentDate: $("#dateFilterAppointment").val() })
     });
     if (response.IsSuccess) {
         $(".row-group").empty();

@@ -66,7 +66,7 @@ async function populateSlots() {
         const doctorId = params.get("doctorId");
 
         let slotList = await ajaxWebMethodCall({
-            url: "Appointment.aspx/GetAvailableSlots",
+            url: "BookAppointment.aspx/GetAvailableSlots",
             data: JSON.stringify({ doctorId: Number(doctorId), appointmentDate: $("#dateAppointDate").val() })
         });
 
@@ -96,7 +96,7 @@ async function submitAppointment() {
     })
     data["AppointmentTime"] = $("[selectedSlot='true']").attr("startTime");
 
-    let submitResponse = await ajaxWebMethodCall({ url: "Appointment.aspx/AddAppointment", data: JSON.stringify({ appointmentObj: data }) });
+    let submitResponse = await ajaxWebMethodCall({ url: "BookAppointment.aspx/AddAppointment", data: JSON.stringify({ appointmentObj: data }) });
 
     if (submitResponse.IsSuccess) {
         window.location.href = submitResponse.Data;

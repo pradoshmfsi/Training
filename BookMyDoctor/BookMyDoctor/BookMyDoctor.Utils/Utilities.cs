@@ -10,6 +10,15 @@ namespace BookMyDoctor.Utils
 {
     public class Utilities
     {
+        public static bool IsAuthorized()
+        {
+            if (HttpContext.Current.Session["userId"] == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static int GetSessionId()
         {
             return Int32.Parse(HttpContext.Current.Session["userId"].ToString());
@@ -82,7 +91,7 @@ namespace BookMyDoctor.Utils
         {    
             string filePath = HttpContext.Current.Server.MapPath(path);
             FileInfo file = new FileInfo(filePath);
-            string fileName = path.Split('.')[0];
+            string fileName = path.Substring(0,path.LastIndexOf('.'));
             path = fileName + "-" + file.LastAccessTime.ToString("ddMMyyyyHHmmss") + "-versionTrue" + file.Extension;
             return path;
         }

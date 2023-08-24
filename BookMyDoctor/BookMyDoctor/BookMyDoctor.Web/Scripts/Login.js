@@ -17,7 +17,7 @@ async function validate(event) {
     if (result[0] == "" && result[1] == "") {
         let loginResult = await ajaxWebMethodCall({ url: "Login.aspx/AuthorizeUser" ,data: JSON.stringify({ email: $("#txtEmail").val(), password: $("#txtPassword").val() }) });
         if (loginResult.IsSuccess) {
-            window.location.href = "Doctor.aspx";
+            window.location.href = "DoctorAppointments.aspx";
         }
         else {
             $("#lblError").text(loginResult.Data);

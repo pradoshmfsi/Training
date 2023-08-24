@@ -13,7 +13,7 @@ namespace BookMyDoctor.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (BasePage.IsAuthorized())
+            if (Utilities.IsAuthorized())
             {
                 patientNav.Visible= false;
                 lblDoctorName.Text =BusinessLogic.GetDoctor(Utilities.GetSessionId()).DoctorName;

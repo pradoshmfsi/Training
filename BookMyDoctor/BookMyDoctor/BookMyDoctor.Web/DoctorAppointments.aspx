@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Doctor.aspx.cs" Inherits="BookMyDoctor.Web.Doctor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DoctorAppointments.aspx.cs" Inherits="BookMyDoctor.Web.DoctorAppointments" %>
 
 <!DOCTYPE html>
 <%@ Register Src="~/NavbarUserControl.ascx" TagPrefix="uc" TagName="Navbar" %>

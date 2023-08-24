@@ -11,17 +11,17 @@ namespace BookMyDoctor.Web
 {
 
 
-    public partial class Doctor
+    public partial class BookAppointment
     {
 
         /// <summary>
-        /// formDoctor control.
+        /// formAppoint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formDoctor;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formAppoint;
 
         /// <summary>
         /// navbarUserControl control.

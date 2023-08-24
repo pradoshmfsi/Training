@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace BookMyDoctor.Web
 {
-    public partial class Appointment : System.Web.UI.Page
+    public partial class BookAppointment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

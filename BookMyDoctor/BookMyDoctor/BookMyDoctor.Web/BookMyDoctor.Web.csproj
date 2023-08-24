@@ -184,7 +184,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Appointment.aspx" />
+    <Content Include="BookAppointment.aspx" />
     <Content Include="Content\Doctor.css" />
     <Content Include="Content\Report.css" />
     <Content Include="Error404.aspx" />
@@ -194,7 +194,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\Navbar.css" />
     <Content Include="Content\Patient.css" />
-    <Content Include="Doctor.aspx" />
+    <Content Include="DoctorAppointments.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
@@ -231,24 +231,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appointment.aspx.cs">
-      <DependentUpon>Appointment.aspx</DependentUpon>
+    <Compile Include="BookAppointment.aspx.cs">
+      <DependentUpon>BookAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Appointment.aspx.designer.cs">
-      <DependentUpon>Appointment.aspx</DependentUpon>
+    <Compile Include="BookAppointment.aspx.designer.cs">
+      <DependentUpon>BookAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctor.aspx.cs">
-      <DependentUpon>Doctor.aspx</DependentUpon>
+    <Compile Include="DoctorAppointments.aspx.cs">
+      <DependentUpon>DoctorAppointments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctor.aspx.designer.cs">
-      <DependentUpon>Doctor.aspx</DependentUpon>
+    <Compile Include="DoctorAppointments.aspx.designer.cs">
+      <DependentUpon>DoctorAppointments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error404.aspx.cs">
       <DependentUpon>Error404.aspx</DependentUpon>

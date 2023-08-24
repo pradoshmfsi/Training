@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BookMyDoctor.Business;
+using BookMyDoctor.Utils;
 using BookMyDoctor.Utils.Models;
 namespace BookMyDoctor.Web
 {
@@ -12,7 +13,10 @@ namespace BookMyDoctor.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Utilities.IsAuthorized())
+            {
+                Response.Redirect("DoctorAppointments.aspx");
+            }
         }
 
         protected void LoginUser(object sender, EventArgs e)
