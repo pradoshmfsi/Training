@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NavbarUserControl.ascx.cs" Inherits="BookMyDoctor.Web.NavbarUserControl" %>
+<script src="<%= BookMyDoctor.Utils.Utilities.GetFilePathForHandler("Scripts/Utils.js")%>"></script> 
 <div class="navbar" id="patientNav" runat="server">
     <div class="menu" icon="bars"><i class="fa-solid fa-bars"></i></div>
     <a id="navHome" href="Patient.aspx" class="nav-item">HOME</a>
@@ -21,3 +22,4 @@
 <div id="loading">
     <img src="Assets/ZZ5H.gif" />
 </div>
+

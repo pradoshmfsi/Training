@@ -1,4 +1,4 @@
-﻿import { ajaxWebMethodCall, getTodaysDate, menuResponsive } from "./Utils.js";
+﻿//import { ajaxWebMethodCall, getTodaysDate, menuResponsive } from "./Utils.js";
 
 $(document).ready(() => {
 
@@ -28,7 +28,7 @@ $(document).ready(() => {
     dp.on('changeMonth', function (e) {
         $("#hiddenTxtSelectedMonth").val(e.format());
         $(".report-list-container").each((index, item) => {
-            fetchReports(item.id, $(item).attr("populateurl"));
+            fetchReports(item.id, $(item).attr("type"));
         })
     });
 

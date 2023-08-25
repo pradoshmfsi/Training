@@ -22,12 +22,14 @@ namespace BookMyDoctor.Web
             var response = Utilities.GetErrorResponse() ;
             try
             {
+
                 var doctorList = BusinessLogic.GetDoctorsList();
                 if (doctorList != null)
                 {
                     response.IsSuccess = true;
                     response.Data = doctorList;
-                }            
+                }
+            
             }
             catch (Exception ex)
             {

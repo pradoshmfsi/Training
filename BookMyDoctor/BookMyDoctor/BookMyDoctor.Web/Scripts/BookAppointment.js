@@ -1,4 +1,4 @@
-﻿import { getTodaysDate, ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js"
+﻿//import { getTodaysDate, ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js"
 
 $(document).ready(() => {
 

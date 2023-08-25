@@ -1,4 +1,4 @@
-﻿import { ajaxWebMethodCall } from "./Utils.js";
+﻿//import { ajaxWebMethodCall } from "./Utils.js";
 
 $(document).ready(() => {
     $("#btnInitData").on("click", function (event) {

@@ -1,4 +1,4 @@
-﻿import { ajaxWebMethodCall, menuResponsive } from "./Utils.js"
+﻿//import { ajaxWebMethodCall, menuResponsive } from "./Utils.js"
 
 $(document).ready(() => {
 

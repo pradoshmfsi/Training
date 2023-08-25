@@ -29,7 +29,6 @@ namespace BookMyDoctor.Web
             var response = Utilities.GetErrorResponse();
             try
             {
-
                 UserViewModel newUser = BusinessLogic.GetUserByEmail(email);
                 if (newUser == null)
                 {
@@ -46,7 +45,6 @@ namespace BookMyDoctor.Web
                     response.Data = "Logged In Successfully";
 
                 }
-
             }
             catch (Exception ex)
             {

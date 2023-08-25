@@ -1,4 +1,4 @@
-﻿export async function ajaxWebMethodCall(requestObj) {
+﻿async function ajaxWebMethodCall(requestObj) {
     return new Promise((resolve, reject) => {
         $.ajax({
             type: "POST",
@@ -22,7 +22,7 @@
     });
 }
 
-export function getTodaysDate() {
+function getTodaysDate() {
     let today = new Date();
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1;
@@ -32,7 +32,7 @@ export function getTodaysDate() {
     return yyyy + "-" + mm + "-" + dd;
 }
 
-export function validateTextById(attributeString) {
+function validateTextById(attributeString) {
     let attrArray = attributeString.split("|");
     let attrObj = {};
     attrArray.forEach((attr) => {
@@ -58,7 +58,7 @@ export function validateTextById(attributeString) {
     }
 }
 
-export function menuResponsive() {
+function menuResponsive() {
     $(".menu").on("click", function () {
         if ($(this).attr("icon") == "bars") {
             $(".menu").html("<i class='fa-solid fa-xmark'></i>");

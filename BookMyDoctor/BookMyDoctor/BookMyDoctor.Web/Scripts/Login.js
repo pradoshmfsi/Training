@@ -1,4 +1,4 @@
-﻿import { ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js";
+﻿//import { ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js";
 
 $(document).ready(() => {
     menuResponsive();

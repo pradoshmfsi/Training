@@ -27,7 +27,7 @@ namespace BookMyDoctor.Web
                     Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
                     if (extension == ".js")
                     {
-                        Response.AddHeader("Content-Type", "application/javascript");
+                        Response.AddHeader("Content-Type", "text/javascript");
                     }
                     else
                     {
