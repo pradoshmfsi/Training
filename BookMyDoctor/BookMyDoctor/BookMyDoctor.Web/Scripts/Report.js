@@ -70,7 +70,7 @@ function generateReportSummaryDiv(report) {
     return `<div class="row">
                 <div class="table-element">
                     <div class="column-name">Date</div>
-                    <div class="column-value">${report.Date}</div>
+                    <div class="column-value">${report.DateUI}</div>
                 </div>
                 <div class="table-element">
                     <div class="column-name">Total</div>
@@ -113,7 +113,7 @@ function generateReportDetailedDiv(report) {
     return `<div class="row" id="generateRow">
                 <div class="table-element">
                     <div class="column-name">Date</div>
-                    <div class="column-value">${report.Date}</div>
+                    <div class="column-value">${report.DateUI}</div>
                 </div>
                 <div class="table-element">
                     <div class="column-name">Patient Name</div>

@@ -8,7 +8,9 @@ namespace BookMyDoctor.Utils.Models
 {
     public class ReportSummaryViewModel
     {
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
+
+        public string DateUI { get; set; }
 
         public int TotalAppointments { get; set; }
 

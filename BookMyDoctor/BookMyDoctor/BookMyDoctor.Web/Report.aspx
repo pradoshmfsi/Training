@@ -20,7 +20,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
 
-    <title>Doctor Reports</title>
+    <title>Reports - BookMyDoctor</title>
 </head>
 <body>
     <form id="formReport" runat="server">

@@ -2,17 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BookMyDoctor.DA;
 using BookMyDoctor.Utils;
-using System.IO;
-using System.Runtime.Remoting.Contexts;
-using System.Xml.Linq;
 namespace BookMyDoctor.Business
 {
     public class BusinessLogic
     {
+
         /// <summary>
         /// Gets the particular row having the given email
         /// </summary>
@@ -29,7 +25,13 @@ namespace BookMyDoctor.Business
         /// <returns></returns>
         public static List<DoctorViewModel> GetDoctorsList()
         {
-            return DataAccess.GetDoctorList();
+            var doctors = DataAccess.GetDoctorList();
+            doctors.ForEach((doctor) =>
+            {
+                doctor.DayStartTimeUI = Utilities.GetTimeString(doctor.DayStartTime);
+                doctor.DayEndTimeUI = Utilities.GetTimeString(doctor.DayEndTime);
+            });
+            return doctors;
         }
 
         /// <summary>
@@ -38,7 +40,8 @@ namespace BookMyDoctor.Business
         /// <param name="doctorId"></param>
         /// <param name="appointmentDate"></param>
         /// <returns></returns>
-        public static List<TimeSpan> GetBookedSlots(int doctorId, DateTime appointmentDate) {
+        public static List<TimeSpan> GetBookedSlots(int doctorId, DateTime appointmentDate)
+        {
             var appointments = DataAccess.GetAppointments(doctorId, appointmentDate);
             if (appointments != null)
             {
@@ -53,7 +56,7 @@ namespace BookMyDoctor.Business
         /// <param name="doctorId"></param>
         /// <param name="appointmentDate"></param>
         /// <returns></returns>
-        public static List<SlotViewModel> GetAvailableSlots(int doctorId,string appointmentDate)
+        public static List<SlotViewModel> GetAvailableSlots(int doctorId, string appointmentDate)
         {
 
             var bookedSlots = GetBookedSlots(doctorId, DateTime.Parse(appointmentDate));
@@ -72,8 +75,8 @@ namespace BookMyDoctor.Business
                     SlotStartTime = startTime.ToString(),
                     SlotStartTimeUI = Utilities.GetTimeString(startTime),
                     SlotEndTimeUI = Utilities.GetTimeString(tempTime)
-                };        
-                
+                };
+
                 if (!bookedSlots.Contains(startTime))
                     slot.SlotStatus = "open";
 
@@ -111,7 +114,10 @@ namespace BookMyDoctor.Business
         /// <returns></returns>
         public static DoctorViewModel GetDoctor(int userId)
         {
-            return DataAccess.GetDoctor(userId);
+            var doctor = DataAccess.GetDoctor(userId);
+            doctor.DayStartTimeUI = Utilities.GetTimeString(doctor.DayStartTime);
+            doctor.DayEndTimeUI = Utilities.GetTimeString(doctor.DayEndTime);
+            return doctor;
         }
 
         /// <summary>
@@ -121,7 +127,10 @@ namespace BookMyDoctor.Business
         /// <returns></returns>
         public static AppointmentViewModel GetAppointment(int AppointmentId)
         {
-            return DataAccess.GetAppointment(AppointmentId);
+            var appointment = DataAccess.GetAppointment(AppointmentId);
+            appointment.AppointmentDateUI = appointment.AppointmentDate.ToShortDateString();
+            appointment.AppointmentTimeUI = Utilities.GetTimeString(appointment.AppointmentTime);
+            return appointment;
         }
 
         /// <summary>
@@ -131,7 +140,13 @@ namespace BookMyDoctor.Business
         /// <returns></returns>
         public static List<AppointmentViewModel> GetAppointmentsList(DateTime appointmentDate)
         {
-            return DataAccess.GetAppointments(GetDoctorId(Utilities.GetSessionId()), appointmentDate);
+            var appointmentList = DataAccess.GetAppointments(GetDoctorId(Utilities.GetSessionId()), appointmentDate);
+            appointmentList.ForEach(appointment =>
+            {
+                appointment.AppointmentDateUI = appointment.AppointmentDate.ToShortDateString();
+                appointment.AppointmentTimeUI = Utilities.GetTimeString(appointment.AppointmentTime);
+            });
+            return appointmentList;
         }
 
         /// <summary>
@@ -140,9 +155,9 @@ namespace BookMyDoctor.Business
         /// <param name="appointmentStatus"></param>
         /// <param name="appointmentId"></param>
         /// <returns></returns>
-        public static void CloseOrCancelAppointment(int appointmentStatus,int appointmentId)
+        public static void CloseOrCancelAppointment(int appointmentStatus, int appointmentId)
         {
-            DataAccess.CloseOrCancelAppointment(appointmentStatus,appointmentId);
+            DataAccess.CloseOrCancelAppointment(appointmentStatus, appointmentId);
         }
 
         /// <summary>
@@ -151,9 +166,14 @@ namespace BookMyDoctor.Business
         /// <param name="type"></param>
         /// <param name="reportMonth"></param>
         /// <returns></returns>
-        public static dynamic GetReportList(string type,DateTime reportMonth)
+        public static dynamic GetReportList(string type, DateTime reportMonth)
         {
-            return DataAccess.GetReportList(type,GetDoctorId(Utilities.GetSessionId()),reportMonth);
+            var reports = DataAccess.GetReportList(type, GetDoctorId(Utilities.GetSessionId()), reportMonth);
+            foreach (var report in reports)
+            {
+                report.DateUI = report.Date.ToShortDateString();
+            }
+            return reports;
         }
 
         /// <summary>

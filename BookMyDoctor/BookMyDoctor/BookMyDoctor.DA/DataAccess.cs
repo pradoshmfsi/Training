@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BookMyDoctor.Utils.Models;
-using BookMyDoctor.Utils;
-using System.Linq.Expressions;
-using System.Data.Entity.Infrastructure;
-using System.Xml.Linq;
-using System.Data.Entity;
 
 namespace BookMyDoctor.DA
 {
     public class DataAccess
     {
+        /// <summary>
+        /// Gets the user by email.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static UserViewModel GetUserByEmail(string email)
         {
-
             using (var dbcontext = new BookMyDoctorEntities())
             {
                 return dbcontext.Users.Select(s => new UserViewModel
@@ -43,9 +40,7 @@ namespace BookMyDoctor.DA
                 DoctorName = doctor.DoctorName,
                 AppointmentSlotTime = doctor.AppointmentSlotTime,
                 DayStartTime = doctor.DayStartTime,
-                DayStartTimeUI = new DateTime(doctor.DayStartTime.Ticks).ToString("h:mm tt"),
-                DayEndTime = doctor.DayEndTime,
-                DayEndTimeUI = new DateTime(doctor.DayEndTime.Ticks).ToString("h:mm tt")
+                DayEndTime = doctor.DayEndTime
             };
         }
 
@@ -64,8 +59,7 @@ namespace BookMyDoctor.DA
                     PatientEmail = appointment.PatientEmail,
                     PatientName = appointment.PatientName,
                     PatientPhone = appointment.PatientPhone,
-                    AppointmentDate = appointment.AppointmentDate,
-                    AppointmentDateUI = appointment.AppointmentDate.ToShortDateString(),
+                    AppointmentDate = appointment.AppointmentDate,                   
                     AppointmentId = appointment.AppointmentId,
                     AppointmentTime = appointment.AppointmentTime,
                     AppointmentStatus = appointment.AppointmentStatus,
@@ -95,18 +89,11 @@ namespace BookMyDoctor.DA
         /// <returns></returns>
         public static List<DoctorViewModel> GetDoctorList()
         {
-
             using (var dbcontext = new BookMyDoctorEntities())
             {
                 List<Doctor> doctors = dbcontext.Doctors.ToList();
-                List<DoctorViewModel> Doctors = new List<DoctorViewModel>();
-                foreach (var doctor in doctors)
-                {
-                    Doctors.Add(MapDoctorFromEntity(doctor));
-                }
-                return Doctors;
+                return doctors.Select(s => MapDoctorFromEntity(s)).ToList();
             }
-
         }
 
         /// <summary>
@@ -148,13 +135,7 @@ namespace BookMyDoctor.DA
             using (var dbcontext = new BookMyDoctorEntities())
             {
                 List<Appointment> appointments = dbcontext.Appointments.Where(s => s.DoctorId == doctorId && s.AppointmentDate == appointmentDate).OrderBy(s => s.AppointmentTime).ToList();
-                List<AppointmentViewModel> appointmentsView = new List<AppointmentViewModel>();
-                foreach (var appointment in appointments)
-                {
-                    appointmentsView.Add(MapAppointmentFromEntity(appointment));
-                }
-                return appointmentsView;
-
+                return appointments.Select(appointment => MapAppointmentFromEntity(appointment)).ToList();
             }
 
         }
@@ -169,15 +150,17 @@ namespace BookMyDoctor.DA
 
             using (var dbcontext = new BookMyDoctorEntities())
             {
-                Appointment newAppointment = new Appointment();
-                newAppointment.AppointmentTime = appointment.AppointmentTime;
-                newAppointment.AppointmentDate = appointment.AppointmentDate;
-                newAppointment.AppointmentId = appointment.AppointmentId;
-                newAppointment.DoctorId = appointment.DoctorId;
-                newAppointment.PatientName = appointment.PatientName;
-                newAppointment.PatientEmail = appointment.PatientEmail;
-                newAppointment.PatientPhone = appointment.PatientPhone;
-                newAppointment.AppointmentStatus = 1;
+                Appointment newAppointment = new Appointment
+                {
+                    AppointmentTime = appointment.AppointmentTime,
+                    AppointmentDate = appointment.AppointmentDate,
+                    AppointmentId = appointment.AppointmentId,
+                    DoctorId = appointment.DoctorId,
+                    PatientName = appointment.PatientName,
+                    PatientEmail = appointment.PatientEmail,
+                    PatientPhone = appointment.PatientPhone,
+                    AppointmentStatus = 1
+                };
                 dbcontext.Appointments.Add(newAppointment);
                 dbcontext.SaveChanges();
                 return newAppointment.AppointmentId;
@@ -214,67 +197,35 @@ namespace BookMyDoctor.DA
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
             using (var dbcontext = new BookMyDoctorEntities())
             {
-                var groupedAppointments = dbcontext.Appointments.Where(s => s.DoctorId == doctorId && s.AppointmentDate >= firstDayOfMonth && s.AppointmentDate <= lastDayOfMonth)
-                    .GroupBy(s => s.AppointmentDate).ToList();
                 if (type == "Summary")
                 {
-                    return GetSummaryReportList(groupedAppointments);
+                    return dbcontext.Appointments
+                            .Where(s => s.DoctorId == doctorId && s.AppointmentDate >= firstDayOfMonth && s.AppointmentDate <= lastDayOfMonth)
+                            .GroupBy(s => s.AppointmentDate)
+                            .Select(appointment => new ReportSummaryViewModel
+                            {
+                                Date = appointment.Key,
+                                TotalAppointments = appointment.Count(),
+                                ClosedAppointments = appointment.Count(s => s.AppointmentStatus == 2),
+                                CancelledAppointments = appointment.Count(s => s.AppointmentStatus == 3)
+                            }).ToList();
                 }
                 else
                 {
-                    return GetDetailedReportList(groupedAppointments);
+                    return dbcontext.Appointments
+                            .Where(s => s.DoctorId == doctorId && s.AppointmentDate >= firstDayOfMonth && s.AppointmentDate <= lastDayOfMonth)
+                            .GroupBy(s => s.AppointmentDate).Select(appointment => new ReportDetailedViewModel
+                            {
+                                Date = appointment.Key,
+                                Appointments = appointment.Select(s => new AppointmentViewModel
+                                {
+                                    PatientName = s.PatientName,
+                                    AppointmentStatusUI = s.Status.StatusName,
+                                }).ToList()
+                            }).ToList();
                 }
 
             }
-        }
-
-        /// <summary>
-        /// Get the list of all the reports of type "Summary"
-        /// </summary>
-        /// <param name="groupedAppointments"></param>
-        /// <returns></returns>
-        public static List<ReportSummaryViewModel> GetSummaryReportList(List<IGrouping<DateTime, Appointment>> groupedAppointments)
-        {
-            var reports = new List<ReportSummaryViewModel>();
-            foreach (var appointment in groupedAppointments)
-            {
-                reports.Add(new ReportSummaryViewModel
-                {
-                    Date = appointment.Key.ToShortDateString(),
-                    TotalAppointments = appointment.Count(),
-                    ClosedAppointments = appointment.Count(s => s.AppointmentStatus == 2),
-                    CancelledAppointments = appointment.Count(s => s.AppointmentStatus == 3)
-                });
-            }
-            return reports;
-        }
-
-        /// <summary>
-        /// Get the list of all the reports of type "Detailed"
-        /// </summary>
-        /// <param name="groupedAppointments"></param>
-        /// <returns></returns>
-        public static List<ReportDetailedViewModel> GetDetailedReportList(List<IGrouping<DateTime, Appointment>> groupedAppointments)
-        {
-            var reports = new List<ReportDetailedViewModel>();
-            foreach (var appointment in groupedAppointments)
-            {
-                var report = new ReportDetailedViewModel();
-                report.Date = appointment.Key.ToShortDateString();
-                var Appointments = new List<AppointmentViewModel>();
-                foreach (var item in appointment)
-                {
-                    Appointments.Add(new AppointmentViewModel
-                    {
-                        PatientName = item.PatientName,
-                        AppointmentStatusUI = item.Status.StatusName,
-                    });
-
-                }
-                report.Appointments = Appointments;
-                reports.Add(report);
-            }
-            return reports;
         }
 
         /// <summary>

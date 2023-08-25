@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.SessionState;
 using BookMyDoctor.Business;
 using BookMyDoctor.Utils.Models;
-using BookMyDoctor.Utils;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
@@ -74,7 +72,7 @@ namespace BookMyDoctor.Web
 
             foreach (var report in reports)
             {
-                table.AddCell(new PdfPCell(new Phrase(report.Date)));
+                table.AddCell(new PdfPCell(new Phrase(report.DateUI)));
                 table.AddCell(new PdfPCell(new Phrase(report.TotalAppointments.ToString())));
                 table.AddCell(new PdfPCell(new Phrase(report.ClosedAppointments.ToString())));
                 table.AddCell(new PdfPCell(new Phrase(report.CancelledAppointments.ToString())));
@@ -106,7 +104,7 @@ namespace BookMyDoctor.Web
             foreach (var report in reports)
             {
 
-                PdfPCell date = new PdfPCell(new Phrase(report.Date));
+                PdfPCell date = new PdfPCell(new Phrase(report.DateUI));
                 date.Rowspan = report.Appointments.Count;
                 date.Padding = 10;
                 table.AddCell(date);

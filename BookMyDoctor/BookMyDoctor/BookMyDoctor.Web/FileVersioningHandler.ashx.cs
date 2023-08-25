@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BookMyDoctor.Web
 {
