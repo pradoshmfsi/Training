@@ -1,6 +1,4 @@
-﻿//import { ajaxWebMethodCall, validateTextById, menuResponsive } from "./Utils.js";
-
-$(document).ready(() => {
+﻿$(document).ready(() => {
     menuResponsive();
     $("#navLogin").addClass("selected-nav");
     $("#btnLogin").on("click", (event) => {

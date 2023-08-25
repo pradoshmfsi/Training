@@ -1,6 +1,4 @@
-﻿//import { ajaxWebMethodCall, getTodaysDate, menuResponsive } from "./Utils.js";
-
-$(document).ready(() => {
+﻿$(document).ready(() => {
 
     menuResponsive();
 

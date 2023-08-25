@@ -1,6 +1,4 @@
-﻿//import { ajaxWebMethodCall, menuResponsive } from "./Utils.js";
-
-$(document).ready(() => {
+﻿$(document).ready(() => {
     menuResponsive();
     $("#navHome").addClass("selected-nav");
 
