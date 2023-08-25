@@ -61,6 +61,7 @@ Load the provided schema!
 	<add key="Output_path" value="[Actual Location of BookMyDoctor.Utils]\ErrorLog\" />
 </appSettings>
 ```
+Here, add the actual location of BookMyDoctor.Utils in placeholder.
 
 ### Step 8
 After browsing the URL, go to 
