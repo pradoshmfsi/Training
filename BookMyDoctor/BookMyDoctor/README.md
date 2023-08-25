@@ -45,7 +45,7 @@ Click Browse.
 If it does not work, try opening the same URL in a private window.
 
 ### Step 7
-Do the necesssary changes to the Web.config file that is changing the SQL server username and password
+Do the necesssary changes to the Web.config file
 
 ```
 <connectionStrings>
@@ -55,6 +55,12 @@ Do the necesssary changes to the Web.config file that is changing the SQL server
 
 Here, in the connection string property find "id" and "password" and replace it with you actual SQL credentials!
 Load the provided schema!
+
+```
+<appSettings>
+	<add key="Output_path" value="[Actual Location of BookMyDoctor.Utils]\ErrorLog\" />
+</appSettings>
+```
 
 ### Step 8
 After browsing the URL, go to 
